@@ -1,0 +1,63 @@
+# Site wide configuration
+title: John Abraham | Blog
+locale: en_US
+port: 4000
+baseurl: /
+
+# Jekyll configuration
+permalink: /:categories/:title
+markdown: kramdown
+highlighter: pygments
+sass:
+  sass_dir: assets/css/_sass
+  style: compressed
+plugins:
+  - jekyll-sitemap
+  - jekyll-gist
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+# Site owner
+owner:
+  name: John Abraham
+  avatar: bio-photo.jpg
+  bio: "full-stack web developer and open-source enthusiast."
+  linkedin: john4braham
+  github: john4braham
+  email: john.abraham@hotmail.com
+  disqus-shortname: john4braham
+  google:
+    analytics:
+  bing-verify:
+
+#includes/excludes from jekyll conversion
+include: [
+  ".htaccess"
+]
+exclude: [
+  "lib", 
+  "config.rb",
+  "Capfile",
+  "config",
+  "log", 
+  "Rakefile", 
+  "Rakefile.rb", 
+  "tmp", 
+  "less",
+  "*.sublime-project", 
+  "*.sublime-workspace", 
+  "test", 
+  "spec", 
+  "Gruntfile.js", 
+  "package.json", 
+  "node_modules", 
+  "Gemfile", 
+  "Gemfile.lock", 
+  "LICENSE", 
+  "README.md"
+]
