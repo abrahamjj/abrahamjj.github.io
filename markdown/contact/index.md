@@ -1,8 +1,8 @@
 ---
-layout: post-index
-title: Projects
-permalink: /projects
-post_type: project
+layout: page
+title: Contact
+permalink: /contact
+type: contact
 tags: [about, Jekyll, theme, responsive]
 comments: false
 image:
@@ -10,3 +10,5 @@ image:
   credit:
   creditlink:
 ---
+
+Contact me...

@@ -1,8 +1,8 @@
 ---
-layout: post-index
-title: Blog
-permalink: /blog
-post_type: blog
+layout: page
+title: Resume
+permalink: /resume
+type: resume
 tags: [about, Jekyll, theme, responsive]
 comments: false
 image:
@@ -10,3 +10,4 @@ image:
   credit:
   creditlink:
 ---
+Here you go.

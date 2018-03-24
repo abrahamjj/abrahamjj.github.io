@@ -7,6 +7,10 @@ tags: [intro, beginner, jekyll, tutorial]
 permalink: /blog/2011-03-10-sample-post
 type: blog
 comments: false
+image:
+  feature: book-banner-1.jpg
+  credit:
+  creditlink:
 ---
 
 <section id="table-of-contents" class="toc">

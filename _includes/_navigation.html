@@ -6,8 +6,11 @@
 		<nav role="navigation" id="site-nav" class="nav">
 			<ul>
 				{% for nav_item in site.data.navigation %}
+					{% capture nav_item_type %}
+						{{ nav_item.title | downcase }}
+					{% endcapture %}
 					<li>
-						<a class="{% if nav_item.title == page.title %}selected-nav-item{% endif %}" href="{{ domain }}{{ nav_item.url }}">{{ nav_item.title }}</a>
+						<a class="{% if nav_item_type contains page.type %}selected-nav-item{% endif %}" href="{{ domain }}{{ nav_item.url }}">{{ nav_item.title }}</a>
 					</li>
 				{% endfor %}
 			</ul>

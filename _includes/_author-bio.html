@@ -25,4 +25,17 @@
 	{% if author.google.plus %}<a href="http://plus.google.com/+{{ author.google.plus }}" class="author-social" target="_blank"><i class="fa fa-fw fa-google-plus-square"></i> Google+</a>{% endif %}
 	<a href="/" class="author-social"><i class="fa fa-fw fa-search"></i> Search</a>
 	<a href="/" class="author-social"><i class="fa fa-fw fa-rss"></i> RSS</a>
+
+<!--
+	{% if site.related_posts.size > 0 %}
+		<div class="related-articles">
+			<h4>You might also enjoy <small class="pull-right">(<a href="{{ site.url }}/posts/">View all posts</a>)</small></h4>
+			<ul>
+				{% for post in site.related_posts limit:3 %}
+					<li><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+-->
 </div>

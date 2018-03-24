@@ -1,3 +1,4 @@
+
 /* ==========================================================================
    Page layout
    ========================================================================== */
@@ -32,7 +33,8 @@ body {
 .navigation-wrapper {
 	@include container;
 	@include clearfix;
-	padding-top: 1em;
+	padding-top: 0.75em;
+	padding-bottom: 0.75em;
 	font-family: $heading-font;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -45,19 +47,21 @@ body {
 	@include grid(12,10);
 	@include prefix(12,1);
 	@include suffix(12,1);
-	margin-bottom: 1em;
-	float: none;
-	display: block;
 	@include font-rem(24);
 	@media #{$small} {
 		@include grid(12,2);
 		@include prefix(12,0.5);
-		@include suffix(12,0.5);
+		@include suffix(12,0.25);
 		@include font-rem(16);
 	}
 	@media #{$x-large} {
-		@include grid(12,1.5);
-		@include prefix(12,2);
+		@include grid(12,1.25);
+		@include prefix(10,2);
+	}
+	a {
+		padding-left: 5px;
+		color: $grey;
+		border-left: 4px solid $orange;
 	}
 }
 
@@ -66,9 +70,6 @@ body {
 	@include grid(12,10);
 	@include prefix(12,1);
 	@include suffix(12,1);
-	margin-bottom: 1em;
-	float: none;
-	display: block;
 	@media #{$small} {
 		@include grid(12,9);
 		@include prefix(12,0);
@@ -99,6 +100,7 @@ body {
 			border-bottom: 0 solid transparent;
 		}
 		a {
+			color: $grey;
 			border-bottom: 0 solid transparent;
 			text-decoration: none;
 			position: relative;
@@ -111,7 +113,7 @@ body {
 				padding: 0;
 			}
 			&:after {
-				border-bottom: 3px solid $orange;
+				border-bottom: 2px solid $orange;
 				position: absolute;
 				transition: 0.25s;
 				content: '';
@@ -364,6 +366,9 @@ $button-size: 1.5rem;
 	a, a:hover {
 		border-bottom: 0 solid transparent;
 	}
+	a:hover {
+		color: red;
+	}
 }
 
 /* Default social media links in author sidebar & footer */
@@ -390,18 +395,31 @@ $button-size: 1.5rem;
 /* Author sidebar */
 .article-author-side {
 	display: none;
+	border-right: 3px solid;
+	-webkit-border-image:
+		-webkit-gradient(linear, 0 0, 0 100%, from($orange), to(rgba(0, 0, 0, 0))) 1 100%;
+	-webkit-border-image:
+		-webkit-linear-gradient($orange, rgba(0, 0, 0, 0)) 1 100%;
+	-moz-border-image:
+		-moz-linear-gradient($orange, rgba(0, 0, 0, 0)) 1 100%;
+	-o-border-image:
+		-o-linear-gradient($orange, rgba(0, 0, 0, 0)) 1 100%;
+	border-image:
+		linear-gradient(to bottom, $orange, rgba(0, 0, 0, 0)) 1 100%;
 	.bio-photo {
 		max-width: 110px;
 		@include rounded(150px);
 		&:hover {
-			border: 3px solid $orange;
+			-moz-box-shadow: 0 0 0 3px $orange;
+			-webkit-box-shadow: 0 0 0 3px $orange;
+			box-shadow: 0 0 0 3 $orange;
 		}
 	}
 	@media #{$small} {
 		display: block;
 		@include grid(12,2);
 		@include prefix(12,0.5);
-		@include suffix(12,0.5);
+		@include suffix(12,0.25);
 		h3,
 		p,
 		.author-social {
@@ -428,8 +446,8 @@ $button-size: 1.5rem;
 		}
 	}
 	@media #{$x-large} {
-		@include grid(12,1.5);
-		@include prefix(12,2);
+		@include grid(12,1.25);
+		@include prefix(10,2);
 	}
 }
 
@@ -616,7 +634,7 @@ $button-size: 1.5rem;
 	  display: block;
 	  padding: 4px 8px;
 	  text-decoration: none !important;
-	  @include font-rem(14);
+	  @include font-rem(12);
 	  font-family: $heading-font;
 	  font-weight: 700;
 	  color: $white;
@@ -637,12 +655,17 @@ $button-size: 1.5rem;
 		margin-bottom: 10px;
 		text-transform: uppercase;
 	}
+	@media #{$medium} {
+		a {
+			border-radius: 5px;
+		}
+	}
 }
 
 
 /* Footer wrapper */
 .footer-wrap {
-	border-top: 2px solid $orange;
+	border-top: 3px solid $orange;
 	background-color: $footer-color;
 	padding: 0.5em 0 1em 0;
 	position: absolute;
@@ -665,6 +688,16 @@ $button-size: 1.5rem;
 	footer {
 		.author-social {
 			display: inline-block;
+		}
+		&, a {
+			color: $grey !important;
+		}
+		a {
+			text-decoration: underline;
+			outline: 0;
+		}
+		i:hover {
+			color: $orange;
 		}
 		@include grid(12,10);
 		@include prefix(12,1);

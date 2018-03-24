@@ -7,6 +7,10 @@ tags: []
 permalink: /blog/2014-07-31-author-override
 type: blog
 comments: false
+image:
+  feature: book-banner-1.jpg
+  credit:
+  creditlink:
 ---
 
 For those of you who may have content written by multiple authors on your site you can now assign different authors to each post if desired.

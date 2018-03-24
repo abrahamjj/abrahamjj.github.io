@@ -7,7 +7,7 @@
    ========================================================================== */
 
 $doc-font-size      : 16;
-$doc-line-height    : 26;
+$doc-line-height    : 30;
 $paragraph-indent   : true !default;
 $base-font          : 'PT Serif', serif;
 $heading-font       : 'PT Sans Narrow', sans-serif;
@@ -19,17 +19,18 @@ $alt-font           : $base-font;
    ========================================================================== */
 
 /* base colors */
+$grey                 : #f2f2f2;
 $white                : #fff;
-$black                : #111;
-$green                : #2a6105;
-$orange               : #e84f17;
+$black                : #000;
+$light-black          : #404040;
+$orange               : #e74b37;
 $accent-color         : $black;
 
 /* page colors */
-$body-color           : #f2f2f2;
-$nav-color            : #cccccc;
-$footer-color         : $nav-color;
-$text-color           : #333332;
+$body-color           : $grey;
+$nav-color            : $light-black;
+$footer-color         : $light-black;
+$text-color           : $black;
 $text-highlight-color : $orange;
 $border-color         : $text-color;
 $base-color           : #343434;
