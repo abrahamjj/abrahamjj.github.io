@@ -354,8 +354,7 @@ $button-size: 1.5rem;
 	clear: both;
 	font-size: 80%;
 }
-.article-author-side,
-.article-author-bottom {
+.article-author-side {
 	h3 {
 		margin-bottom: 0;
 	}
@@ -392,7 +391,7 @@ $button-size: 1.5rem;
 	}
 }
 
-/* Author sidebar */
+/* Author sidebar & author/article separator*/
 .article-author-side {
 	display: none;
 	border-right: 3px solid;
@@ -448,32 +447,6 @@ $button-size: 1.5rem;
 	@media #{$x-large} {
 		@include grid(12,1.25);
 		@include prefix(10,2);
-	}
-}
-
-/* Author module - mobile only */
-.article-author-bottom {
-	margin-bottom: 1em;
-	@media #{$small} {
-		display: none;
-	}
-	.bio-photo {
-		float: left;
-		margin-right: 25px;
-		max-width: 100px;
-		@include rounded(150px);
-	}
-	.author-social {
-		display: inline-block;
-		margin-right: 10px;
-	}
-	@media #{$large} {
-		h3,
-		.bio-photo,
-		p,
-		.author-social {
-			max-width: 150px;
-		}
 	}
 }
 
@@ -613,16 +586,16 @@ $button-size: 1.5rem;
   	display: inline-block;
   }
   $social:
+  (twitter, $twitter-color),
   (facebook, $facebook-color),
+  (google-plus, $google-plus-color),
+  (linkedin, $linkedin-color),
   (flickr, $flickr-color),
   (foursquare, $foursquare-color),
-  (google-plus, $google-plus-color),
   (instagram, $instagram-color),
-  (linkedin, $linkedin-color),
   (pinterest, $pinterest-color),
   (rss, $rss-color),
   (tumblr, $tumblr-color),
-  (twitter, $twitter-color),
   (vimeo, $vimeo-color),
   (youtube, $youtube-color);
   @each $socialnetwork, $color in $social {
@@ -724,6 +697,25 @@ $button-size: 1.5rem;
 	}
 	li {
 		margin-bottom: 0;
+	}
+}
+
+.scroll-top {
+    top: 20px;
+	display: none;
+    margin-left: 20px;
+	position: sticky;
+	position: -webkit-sticky;
+	border-radius: 50%;
+	outline: 0 !important;
+	padding: 2px 5px 5px 5px;
+	box-shadow: 0 0 3px $orange;
+	background-color: $light-black;
+	i {
+		color: $orange;
+	}
+	@media #{$small-max} {
+		display: none !important;
 	}
 }
 

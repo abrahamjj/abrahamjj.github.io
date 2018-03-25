@@ -33,6 +33,7 @@
 	<div class="article-author-side">
 		{% include _author-bio.html %}
 	</div>
+
 	<div id="index">
 		<h3><a href="{{ site.url}}/posts/">Recent Posts</a></h3>
 		{% for post in site.posts limit:5 %}
@@ -46,6 +47,8 @@
 			</article>
 		{% endfor %}
 	</div><!-- /#index -->
+
+	<a href="javascript:" class="scroll-top"><i class="fa fa-fw fa-chevron-up"></i></a>
 </div><!-- /#main -->
 
 <div class="footer-wrap">
