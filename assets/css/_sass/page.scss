@@ -38,17 +38,29 @@ body {
 	font-family: $heading-font;
 	font-weight: 700;
 	text-transform: uppercase;
+	position: relative;
 	border-top: 3px solid $orange;
 	background-color: $nav-color;
 }
 
 /* Site name */
 .site-name {
-	@include grid(12,10);
+	@include font-rem(20);
 	@include prefix(12,1);
-	@include suffix(12,1);
-	@include font-rem(24);
-	@media #{$small} {
+	float: left;
+
+	a {
+		padding-left: 5px;
+		color: $white;
+		border-left: 4px solid $orange;
+	}
+	@media #{$small-max} {
+		min-width: 9em;
+		position: absolute;
+		transform: translateY(-50%);
+		top: 50%;
+	}
+	@media #{$large} {
 		@include grid(12,2);
 		@include prefix(12,0.5);
 		@include suffix(12,0.25);
@@ -58,19 +70,18 @@ body {
 		@include grid(12,1.25);
 		@include prefix(10,2);
 	}
-	a {
-		padding-left: 5px;
-		color: $grey;
-		border-left: 4px solid $orange;
-	}
 }
 
 /* Top navigation links */
 .top-navigation {
-	@include grid(12,10);
-	@include prefix(12,1);
 	@include suffix(12,1);
-	@media #{$small} {
+	float: right;
+
+	@media #{$small-max} {
+		min-width: 2em;
+	}
+
+	@media #{$large} {
 		@include grid(12,9);
 		@include prefix(12,0);
 		@include suffix(12,0);
@@ -100,7 +111,7 @@ body {
 			border-bottom: 0 solid transparent;
 		}
 		a {
-			color: $grey;
+			color: $white;
 			border-bottom: 0 solid transparent;
 			text-decoration: none;
 			position: relative;
@@ -144,10 +155,15 @@ $button-size: 1.5rem;
 }
 .navicon-lines-button {
 	padding: $button-size/4 $button-size/2;
+	outline: 0;
 	transition: .3s;
 	cursor: pointer;
 	user-select: none;
-	border-radius: $button-size/7;
+	font-family: $heading-font;
+	text-transform: uppercase;
+	font-weight: 700 !important;
+	border: 1px solid $orange !important;
+	border-radius: $button-size/3;
 }
 .navicon-lines-button:hover {
 	opacity: 1;
@@ -264,6 +280,7 @@ $button-size: 1.5rem;
 	h1 {
 		margin-top: 0;
 	}
+	#index,
 	.post,
 	.page {
 		@include container;
@@ -271,7 +288,7 @@ $button-size: 1.5rem;
 		@include prefix(12,1);
 		@include suffix(12,1);
 		margin-bottom: 2em;
-		@media #{$small} {
+		@media #{$large} {
 			@include grid(12,6);
 			@include prefix(12,0);
 			@include suffix(12,0);
@@ -366,7 +383,7 @@ $button-size: 1.5rem;
 		border-bottom: 0 solid transparent;
 	}
 	a:hover {
-		color: red;
+		color: $orange;
 	}
 }
 
@@ -411,10 +428,10 @@ $button-size: 1.5rem;
 		&:hover {
 			-moz-box-shadow: 0 0 0 3px $orange;
 			-webkit-box-shadow: 0 0 0 3px $orange;
-			box-shadow: 0 0 0 3 $orange;
+			box-shadow: 0 0 0 3px $orange;
 		}
 	}
-	@media #{$small} {
+	@media #{$large} {
 		display: block;
 		@include grid(12,2);
 		@include prefix(12,0.5);
@@ -663,7 +680,7 @@ $button-size: 1.5rem;
 			display: inline-block;
 		}
 		&, a {
-			color: $grey !important;
+			color: $white !important;
 		}
 		a {
 			text-decoration: underline;
@@ -709,12 +726,15 @@ $button-size: 1.5rem;
 	border-radius: 50%;
 	outline: 0 !important;
 	padding: 2px 5px 5px 5px;
-	box-shadow: 0 0 3px $orange;
 	background-color: $light-black;
+	box-shadow: 0 0 3px $orange;
+	-moz-box-shadow: 0 0 3px $orange;
+	-webkit-box-shadow: 0 0 3px $orange;
+	box-shadow: 0 0 3px $orange;
 	i {
 		color: $orange;
 	}
-	@media #{$small-max} {
+	@media #{$large-max} {
 		display: none !important;
 	}
 }

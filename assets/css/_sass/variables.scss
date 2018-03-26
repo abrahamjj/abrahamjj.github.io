@@ -19,7 +19,6 @@ $alt-font           : $base-font;
    ========================================================================== */
 
 /* base colors */
-$grey                 : #f2f2f2;
 $white                : #fff;
 $black                : #000;
 $light-black          : #404040;
@@ -27,7 +26,7 @@ $orange               : #e74b37;
 $accent-color         : $black;
 
 /* page colors */
-$body-color           : $grey;
+$body-color           : $white;
 $nav-color            : $light-black;
 $footer-color         : $light-black;
 $text-color           : $black;
@@ -73,4 +72,5 @@ $small                : "only screen and (min-width: 37.5em)";
 $small-max            : "only screen and (max-width: 37.5em)";
 $medium               : "only screen and (min-width: 48em)";
 $large                : "only screen and (min-width: 62em)";
+$large-max            : "only screen and (max-width: 62em)";
 $x-large              : "only screen and (min-width: 86.375em)";

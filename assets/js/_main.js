@@ -12,8 +12,10 @@ var changeClass = function (r,className1,className2) {
     return r.className;
 };
 //  Creating our button in JS for smaller screens
-var menuElements = document.getElementById('site-nav');
-menuElements.insertAdjacentHTML('afterBegin','<button type="button" role="button" id="menutoggle" class="navtoggle navicon-lines-button x" aria-hidden="true"><span class="navicon-lines"></span>menu</button>');
+document.getElementById('site-nav').insertAdjacentHTML(
+  'afterBegin',
+  '<button type="button" role="button" id="menutoggle" class="navtoggle navicon-lines-button x" aria-hidden="true"><span class="navicon-lines"></span>menu</button>'
+);
 
 //  Toggle the class on click to show / hide the menu
 document.getElementById('menutoggle').onclick = function() {
@@ -63,5 +65,21 @@ $(document).ready(function() {
     // Class that is added to body when popup is open.
     // make it unique to apply your CSS animations just to this exact popup
     mainClass: 'mfp-fade'
+  });
+});
+
+// Scroll back to top button
+$(document).ready(function() {
+  $(window).scroll(function() {
+      if ($(this).scrollTop() >= 50) {
+          $('.scroll-top').show();
+      } else {
+          $('.scroll-top').hide();
+      }
+  });
+  $('.scroll-top').click(function() {
+      $('body,html').animate({
+          scrollTop : 0
+      }, 500);
   });
 });
