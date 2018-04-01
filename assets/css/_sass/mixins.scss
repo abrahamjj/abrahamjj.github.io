@@ -323,6 +323,22 @@ text-shadow: $shadow; }
   box-sizing: $boxsize;
 }
 
+/*
+   Border-image
+   example: @include border-image-gradient(COLOR);
+   ========================================================================== */
+
+@mixin border-image-gradient($color) {
+  -webkit-border-image:
+    -webkit-linear-gradient($color, rgba(0, 0, 0, 0)) 1 100%;
+  -moz-border-image:
+    -moz-linear-gradient($color, rgba(0, 0, 0, 0)) 1 100%;
+  -o-border-image:
+    -o-linear-gradient($color, rgba(0, 0, 0, 0)) 1 100%;
+  border-image:
+    linear-gradient(to bottom, $color, rgba(0, 0, 0, 0)) 1 100%;
+}
+
 /* ==========================================================================
    Image replacement
    ========================================================================== */

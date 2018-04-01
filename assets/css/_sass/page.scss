@@ -263,11 +263,7 @@ $button-size: 1.5rem;
 .js .nav .active + ul {
 	max-height: 30em;
 	overflow: hidden;
-	-webkit-transition: max-height .4s;
-	-moz-transition: max-height .4s;
-	-o-transition: max-height .4s;
-	-ms-transition: max-height .4s;
-	transition: max-height .4s;
+	@include transition(max-height .4s);
 }
 
 /* Main content */
@@ -412,23 +408,13 @@ $button-size: 1.5rem;
 .article-author-side {
 	display: none;
 	border-right: 3px solid;
-	-webkit-border-image:
-		-webkit-gradient(linear, 0 0, 0 100%, from($orange), to(rgba(0, 0, 0, 0))) 1 100%;
-	-webkit-border-image:
-		-webkit-linear-gradient($orange, rgba(0, 0, 0, 0)) 1 100%;
-	-moz-border-image:
-		-moz-linear-gradient($orange, rgba(0, 0, 0, 0)) 1 100%;
-	-o-border-image:
-		-o-linear-gradient($orange, rgba(0, 0, 0, 0)) 1 100%;
-	border-image:
-		linear-gradient(to bottom, $orange, rgba(0, 0, 0, 0)) 1 100%;
+	@include border-image-gradient($orange);
+
 	.bio-photo {
 		max-width: 110px;
 		@include rounded(150px);
 		&:hover {
-			-moz-box-shadow: 0 0 0 3px $orange;
-			-webkit-box-shadow: 0 0 0 3px $orange;
-			box-shadow: 0 0 0 3px $orange;
+			@include box-shadow(0 0 0 .15em $orange);
 		}
 	}
 	@media #{$large} {
@@ -727,10 +713,7 @@ $button-size: 1.5rem;
 	outline: 0 !important;
 	padding: 2px 5px 5px 5px;
 	background-color: $light-black;
-	box-shadow: 0 0 3px $orange;
-	-moz-box-shadow: 0 0 3px $orange;
-	-webkit-box-shadow: 0 0 3px $orange;
-	box-shadow: 0 0 3px $orange;
+	@include box-shadow(0 0 .3em $orange);
 	i {
 		color: $orange;
 	}
