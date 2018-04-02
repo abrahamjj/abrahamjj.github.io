@@ -1,0 +1,245 @@
+
+/*
+   Navigation
+   ========================================================================== */
+
+.navigation-wrapper {
+	@include container;
+	@include clearfix;
+	font-weight: 700;
+	position: relative;
+	text-transform: uppercase;
+	font-family: $heading-font;
+	background-color: $nav-color;
+	border-top: .2em solid $orange;
+	@media #{$small-max} {
+		padding: .7em 0 .6em 0;
+	}
+
+	/* Site name */
+	.site-name {
+		float: left;
+		padding: .7em 0 .6em 0;
+		@include font-rem(20);
+		@include prefix(12,1);
+		a {
+			color: $white;
+			padding-left: .4em;
+			border-left: .3em solid $orange;
+		}
+		@media #{$small-max} {
+			min-width: 9em;
+			padding: .3em 0 .3em 0 !important;
+		}
+		@media #{$large-max} {
+			padding: .5em 0 .6em 0;
+		}
+		@media #{$large} {
+			@include grid(12,2);
+			@include prefix(12,0.5);
+			@include suffix(12,0.25);
+			@include font-rem(16);
+		}
+		@media #{$x-large} {
+			@include grid(12,1.25);
+			@include prefix(10,2);
+		}
+	}
+
+	/* Top navigation links (tablet/desktop only) */
+	.top-navigation {
+		@include suffix(12,1);
+		@media #{$small-max} {
+			min-width: 2em;
+			ul {
+				display: none;
+			}
+		}
+		@media #{$large-max} {
+			float: right;
+		}
+		@media #{$large} {
+			@include grid(12,6);
+			@include prefix(12,0);
+			@include suffix(12,0);
+		}
+		@media #{$x-large} {
+			@include grid(12,4.5);
+		}
+	}
+}
+
+/* Top navigation links (mobile only) */
+.top-navigation-mobile {
+	// hide by default until meny click
+	display: none;
+	text-align: center;
+	background-color: $light-black;
+	.nav {
+		&:before {
+		    height: .15em;
+			display: block;
+		    @include horizontal-separator($orange);
+		}
+	}
+	@media #{$small} {
+		display: none !important;
+	}
+	a {
+		border: none !important;
+		&.selected-nav-item {
+			color: $orange;
+		}
+	}
+}
+.no-js .top-navigation-mobile {
+	display: block;
+}
+
+/* shared between mobile and tablet/desktop */
+.nav {
+	@include container;
+	@include clearfix;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-family: $heading-font;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		clear: both;
+		list-style-type: none;
+	}
+	li {
+		display: block;
+		list-style-type: none;
+		@include font-rem(16);
+		@media #{$small} {
+			display: inline;
+			margin-right: 25px;
+			white-space: nowrap;
+		}
+		a {
+			color: $white;
+			decoration: none;
+			position: relative;
+			display:inline-block;
+			padding: .7em 0 .6em 0;
+			text-decoration: none;
+			border-bottom: .2em solid $light-black;
+			@include transition(all .5s);
+			&:hover {
+				color: $orange;
+				border-bottom: .2em solid lighten($orange, 5);
+			}
+			&.selected-nav-item {
+				border-bottom: .2em solid $orange;
+			}
+		}
+	}
+}
+
+/* Animated lines for mobile nav button */
+$button-size: 1rem;
+@mixin navicon-line() {
+	display: inline-block;
+	width: $button-size;
+	height: $button-size/7;
+	// line color
+	background: $white;
+	border-radius: $button-size/14;
+	transition: .3s;
+}
+.navicon-lines-button {
+	padding: $button-size/4 $button-size/2;
+	outline: 0;
+	transition: .3s;
+	cursor: pointer;
+	user-select: none;
+	font-family: $heading-font;
+	text-transform: uppercase;
+	font-weight: 700 !important;
+	border: 1px solid $orange !important;
+	border-radius: $button-size/3;
+}
+.navicon-lines-button:hover {
+	opacity: 1;
+}
+.navicon-lines-button:active {
+	transition: 0;
+}
+.navicon-lines {
+	margin-right: 10px;
+	vertical-align: middle;
+	margin-bottom: $button-size/5;
+	// create middle line
+	@include navicon-line;
+	position: relative;
+	// create the upper and lower lines as pseudo-elements of the middle line
+	&:before,
+	&:after {
+		@include navicon-line;
+		position: absolute;
+		left: 0;
+		content: '';
+		-webkit-transform-origin: $button-size/14 center;
+		transform-origin: $button-size/14 center;
+	}
+	&:before { top: $button-size/4; }
+	&:after { top: -$button-size/4; }
+}
+.navicon-lines-button:hover {
+	opacity: 1;
+	.navicon-lines {
+		&:before { top: $button-size/3.5; }
+		&:after { top: -$button-size/3.5; }
+	}
+}
+.navicon-lines-button.x.active .navicon-lines {
+	// hide the middle line
+	background: transparent;
+	// overlap the lines by setting both their top values to 0
+	&:before,
+	&:after {
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		top: 0;
+		width: $button-size;
+	}
+	// rotate the lines to form the x shape
+	&:before {
+		-webkit-transform: rotate3d(0,0,1,45deg);
+		transform: rotate3d(0,0,1,45deg);
+	}
+	&:after {
+		-webkit-transform: rotate3d(0,0,1,-45deg);
+		transform: rotate3d(0,0,1,-45deg);
+	}
+}
+.navicon-text {
+	vertical-align: middle;
+}
+// Style the toggle menu link and hide it
+.nav .navtoggle {
+	@include font-rem(18);
+	font-weight: normal;
+	background-color: $black;
+	color: $white;
+	border: none;
+	cursor: pointer;
+	@media #{$small} {
+		display: none;
+	}
+}
+.nav button {
+	border: none;
+	background: none;
+}
+.navtoggle i {
+	z-index:-1;
+}
+.icon-menu {
+	position: relative;
+	top: 3px;
+	line-height: 0;
+}
