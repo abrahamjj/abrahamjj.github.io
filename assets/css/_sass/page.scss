@@ -172,7 +172,8 @@ body {
 /* Author sidebar & author/article separator*/
 .article-author-side {
 	display: none;
-	border-right: 3px solid;
+	border-left: 0;
+	border-right: .2em solid;
 	@include vertical-separator($orange);
 
 	.bio-photo {
@@ -404,7 +405,7 @@ body {
 
 /* Footer wrapper */
 .footer-wrap {
-	border-top: 3px solid $orange;
+	border-top: .15em solid $orange;
 	background-color: $footer-color;
 	padding: 0.5em 0 1em 0;
 	position: absolute;
@@ -467,22 +468,19 @@ body {
 }
 
 .scroll-top {
-    top: 20px;
+	top: 2em;
 	display: none;
-    margin-left: 20px;
-	position: sticky;
-	position: -webkit-sticky;
-	border-radius: 50%;
+	position: fixed;
+	margin-left: 2em;
 	outline: 0 !important;
-	padding: 2px 5px 5px 5px;
+	padding: 0 .15em .2em .15em;
 	background-color: $light-black;
-	@include box-shadow(0 0 .3em $orange);
-	i {
-		color: $orange;
-	}
+	@include rounded(10%);
+	@include box-shadow(0 0 .4em $orange);
 	@media #{$large-max} {
 		display: none !important;
 	}
+	i { color: $orange; }
 }
 
 /*

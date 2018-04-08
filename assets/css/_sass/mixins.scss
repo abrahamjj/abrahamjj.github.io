@@ -141,7 +141,6 @@ $indent-var: 0rem + ($doc-line-height / $doc-font-size);
   border-bottom : solid 1px $bottom-color;
 }
 
-// Border-image
 @mixin vertical-separator($color) {
   -webkit-border-image:
     -webkit-linear-gradient($color, rgba(0, 0, 0, 0)) 1 100%;
@@ -391,11 +390,12 @@ text-shadow: $shadow; }
    ========================================================================== */
 
 @mixin visuallyhidden() {
-overflow: hidden;
-position: absolute;
-clip: rect(0 0 0 0);
-height: 1px;
-width: 1px;
-margin: -1px;
-padding: 0;
-border: 0; }
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}

@@ -11,7 +11,7 @@
 	text-transform: uppercase;
 	font-family: $heading-font;
 	background-color: $nav-color;
-	border-top: .2em solid $orange;
+	border-top: .15em solid $orange;
 	@media #{$small-max} {
 		padding: .7em 0 .6em 0;
 	}
@@ -19,8 +19,7 @@
 	/* Site name */
 	.site-name {
 		float: left;
-		padding: .7em 0 .6em 0;
-		@include font-rem(20);
+		padding-top: .7em;
 		@include prefix(12,1);
 		a {
 			color: $white;
@@ -29,16 +28,13 @@
 		}
 		@media #{$small-max} {
 			min-width: 9em;
-			padding: .3em 0 .3em 0 !important;
-		}
-		@media #{$large-max} {
-			padding: .5em 0 .6em 0;
+			padding-top: .3em;
+			@include font-rem(20);
 		}
 		@media #{$large} {
 			@include grid(12,2);
 			@include prefix(12,0.5);
 			@include suffix(12,0.25);
-			@include font-rem(16);
 		}
 		@media #{$x-large} {
 			@include grid(12,1.25);
@@ -51,9 +47,7 @@
 		@include suffix(12,1);
 		@media #{$small-max} {
 			min-width: 2em;
-			ul {
-				display: none;
-			}
+			ul { display: none; }
 		}
 		@media #{$large-max} {
 			float: right;
@@ -82,9 +76,7 @@
 		    @include horizontal-separator($orange);
 		}
 	}
-	@media #{$small} {
-		display: none !important;
-	}
+	@media #{$small} { display: none !important; }
 	a {
 		border: none !important;
 		&.selected-nav-item {
@@ -124,8 +116,8 @@
 			decoration: none;
 			position: relative;
 			display:inline-block;
-			padding: .7em 0 .6em 0;
 			text-decoration: none;
+			padding: .7em 0 .6em 0;
 			border-bottom: .2em solid $light-black;
 			@include transition(all .5s);
 			&:hover {
