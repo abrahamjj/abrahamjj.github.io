@@ -32,7 +32,7 @@ body {
 	@include container;
 	@include clearfix;
 	clear: both;
-	margin-top: 2em;
+	margin-top: 2rem;
 	h1 {
 		margin-top: 0;
 	}
@@ -43,7 +43,7 @@ body {
 		@include grid(12,10);
 		@include prefix(12,1);
 		@include suffix(12,1);
-		margin-bottom: 2em;
+		margin-bottom: 2rem;
 		@media #{$large} {
 			@include grid(12,6);
 			@include prefix(12,0);
@@ -61,7 +61,7 @@ body {
 	@include grid(12,10);
 	@include prefix(12,1);
 	@include suffix(12,1);
-	margin-bottom: 2em;
+	margin-bottom: 2rem;
 	@media #{$small} {
 		@include grid(12,6);
 		@include prefix(12,0);
@@ -72,12 +72,12 @@ body {
 	}
 	h3 {
 		margin: 0;
-		padding-bottom: .5em;
+		padding-bottom: .5rem;
 		@include font-rem(28);
 		border-bottom: 1px solid lighten($black,70);
 	}
 	article {
-		padding-left: .5em;
+		padding-left: .5rem;
 		border-left: .2em solid transparent;
 		h2 {
 			margin-bottom: 4px;
@@ -102,7 +102,7 @@ body {
 /* Large feature header image */
 .image-wrap {
 	position: relative;
-	margin-bottom: 2em;
+	margin-bottom: 2rem;
 	@include clearfix;
 	img {
 		width: 100%;
@@ -235,7 +235,7 @@ body {
 		@include prefix(12,0.5);
 		@include suffix(12,0.5);
 		position: absolute;
-		top: 5.5em;
+		top: 5.5rem;
 		right: 0;
 		background-color: $white;
 	}
@@ -300,7 +300,7 @@ body {
 .image-grid {
 	@include clearfix;
 	list-style: none;
-	margin: 0 0 1em;
+	margin: 0 0 1rem;
 	padding: 0;
 	li {
 		@include grid(12,6);
@@ -468,15 +468,15 @@ body {
 }
 
 .scroll-top {
-	top: 2em;
+	top: 2rem;
 	display: none;
 	position: fixed;
-	margin-left: 2em;
+	margin-left: 2rem;
 	outline: 0 !important;
-	padding: 0 .15em .2em .15em;
+	padding: 0 .15em .2em .15rem;
 	background-color: $light-black;
 	@include rounded(10%);
-	@include box-shadow(0 0 .4em $orange);
+	@include box-shadow(0 0 .3em $orange);
 	@media #{$large-max} {
 		display: none !important;
 	}
