@@ -4,11 +4,11 @@ title: "Author Override"
 author: billy_rick
 excerpt: "A post to test author overrides using a data file."
 tags: []
-permalink: /blog/2014-07-31-author-override
+permalink: /blog/author-override
 type: blog
 comments: false
 image:
-  feature: book-banner-1.jpg
+  feature: post-banner.jpg
   credit:
   creditlink:
 ---

@@ -3,11 +3,11 @@ layout: post
 title: "A Post with Images"
 excerpt: "Examples and code for displaying images in posts."
 tags: [sample post, images, test]
-permalink: /blog/2013-05-22-sample-post-images
+permalink: /blog/sample-post-images
 type: blog
 comments: false
 image:
-  feature: book-banner-1.jpg
+  feature: post-banner.jpg
   credit:
   creditlink:
 ---

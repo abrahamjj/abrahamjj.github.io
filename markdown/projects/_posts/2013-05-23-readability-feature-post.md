@@ -3,11 +3,11 @@ layout: post
 title: "Post with Large Feature Image and Text"
 excerpt: "Custom written post descriptions are the way to go... if you're not lazy."
 tags: [sample post, readability, test]
-permalink: /projects/2013-05-23-readability-feature-post
+permalink: /projects/readability-feature-post
 type: projects
 comments: false
 image:
-  feature: book-banner-1.jpg
+  feature: post-banner.jpg
   credit:
   creditlink:
 ---

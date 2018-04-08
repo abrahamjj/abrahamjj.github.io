@@ -5,11 +5,11 @@ excerpt: "Example and code for using link posts."
 tags: [sample post, link post]
 link: http://mademistakes.com
 share: true
-permalink: /projects/2013-08-12-sample-link-post
+permalink: /projects/sample-link-post
 type: projects
 comments: false
 image:
-  feature: book-banner-1.jpg
+  feature: post-banner.jpg
   credit:
   creditlink:
 ---

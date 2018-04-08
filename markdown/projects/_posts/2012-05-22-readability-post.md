@@ -3,11 +3,11 @@ layout: post
 title: "Testing Readability with a Bunch of Text"
 excerpt: "A ton of text to test readability."
 tags: [sample post, readability, test]
-permalink: /projects/2012-05-22-readability-post
+permalink: /projects/readability-post
 type: projects
 comments: false
 image:
-  feature: book-banner-1.jpg
+  feature: post-banner.jpg
   credit:
   creditlink:
 ---
