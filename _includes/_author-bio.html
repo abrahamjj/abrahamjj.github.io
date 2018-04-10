@@ -26,8 +26,13 @@
 	<a href="/" class="author-social"><i class="fa fa-fw fa-search"></i> Search</a>
 	<a href="/" class="author-social"><i class="fa fa-fw fa-rss"></i> RSS</a>
 
-<!--
-	{% if site.related_posts.size > 0 %}
+	{% if page.tags.size > 0 %}
+		<div class="post-tags-side">
+			{% include _post-tags.html %}
+		</div>
+	{% endif %}
+
+<!-- 	{% if site.related_posts.size > 0 %}
 		<div class="related-articles">
 			<h4>You might also enjoy <small class="pull-right">(<a href="{{ site.url }}/posts/">View all posts</a>)</small></h4>
 			<ul>
@@ -36,6 +41,5 @@
 				{% endfor %}
 			</ul>
 		</div>
-	{% endif %}
--->
+	{% endif %} -->
 </div>

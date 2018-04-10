@@ -7,7 +7,7 @@
 	{% include _head.html %}
 </head>
 
-<body class="post">
+<body class="results">
 
 {% include _browser-upgrade.html %}
 
@@ -24,7 +24,7 @@
 		alt="{{ page.title }} feature image">
 
 		{% if page.image.credit %}
-		<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+			<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
 		{% endif %}
 	</div><!-- /.image-wrap -->
 {% endif %}
@@ -34,37 +34,20 @@
 		{% include _author-bio.html %}
 	</div>
 
-	<article class="post">
-		<div class="headline-wrap">
-			{% if page.link %}
-				<h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
-			{% else %}
-				<h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
-			{% endif %}
-		</div><!--/ .headline-wrap -->
-		<div class="article-wrap">
-			{{ content }}
-			<hr />
-			<footer role="contentinfo">
-				<p class="byline">
-					Published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-				</p>
-
-				{% if page.tags.size > 0 %}
-					<div class="post-tags-article">
-						{% include _post-tags.html %}
-					</div>
+	<div id="index">
+		<h3 id="search-results-header">Results for: </h3>
+		<h3 class="js-req-header"><i class="fa fa-fw fa-wrench"></i>JavaScript is required to view this content.</h3>
+		{% for post in site.posts %}
+			<article class="search-results-article" id="search-results-article-{{ forloop.index }}" data-tags="{{post.tags | join: ','}}">
+				{% if post.link %}
+					<h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
+				{% else %}
+					<h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+					<p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
 				{% endif %}
-
-				{% if page.share != false %}
-					{% include _social-share.html %}
-				{% endif %}
-			</footer>
-		</div><!-- /.article-wrap -->
-		{% if site.owner.disqus-shortname and page.comments == true %}
-			<section id="disqus_thread"></section><!-- /#disqus_thread -->
-		{% endif %}
-	</article>
+			</article>
+		{% endfor %}
+	</div><!-- /#index -->
 
 	<a href="javascript:" class="scroll-top"><i class="fa fa-fw fa-chevron-up"></i></a>
 </div><!-- /#main -->

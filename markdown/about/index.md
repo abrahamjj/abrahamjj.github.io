@@ -3,7 +3,6 @@ layout: page
 title: About
 permalink: /about
 type: about
-tags: [about, Jekyll, theme, responsive]
 comments: false
 image:
   feature: navbar-image.jpg

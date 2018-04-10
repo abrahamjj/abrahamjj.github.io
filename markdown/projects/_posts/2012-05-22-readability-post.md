@@ -2,7 +2,7 @@
 layout: post
 title: "Testing Readability with a Bunch of Text"
 excerpt: "A ton of text to test readability."
-tags: [sample post, readability, test]
+tags: [sample post, readability, test, gradle, Java, Programming]
 permalink: /projects/readability-post
 type: projects
 comments: false

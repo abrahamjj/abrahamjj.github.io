@@ -86,6 +86,10 @@
 }
 .no-js .top-navigation-mobile {
 	display: block;
+	ul {
+		display: inline-flex;
+		li { margin-right: 1rem; }
+	}
 }
 
 /* shared between mobile and tablet/desktop */
