@@ -41,15 +41,14 @@
 			{% else %}
 				<h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
 			{% endif %}
+			<p class="byline">
+				Published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+			</p>
 		</div><!--/ .headline-wrap -->
 		<div class="article-wrap">
 			{{ content }}
 			<hr />
 			<footer role="contentinfo">
-				<p class="byline">
-					Published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-				</p>
-
 				{% if page.tags.size > 0 %}
 					<div class="post-tags-article">
 						{% include _post-tags.html %}

@@ -53,6 +53,10 @@ body {
 			@include grid(12,4.5);
 		}
 	}
+
+	.post h1 {
+		margin-bottom: .1rem;
+	}
 }
 
 /* Index listing specific styling */
@@ -130,6 +134,7 @@ body {
 /* Post byline */
 .byline {
 	clear: both;
+	color: grey;
 	font-size: 80%;
 }
 .article-author-side {
@@ -402,7 +407,9 @@ body {
 	}
 }
 
-.post-tags-side { margin-right: 1rem; }
+.post-tags-side {
+	margin: 0 1.25rem 1.25rem 0;
+}
 
 /* Footer wrapper */
 .footer-wrap {
