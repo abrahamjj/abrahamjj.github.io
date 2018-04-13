@@ -59,16 +59,9 @@ $(document).ready(function() {
    Tag lookup results page
    ========================================================================== */
 $(document).ready(function() {
+  /* Set header dynamically with query param */
   var query = getParameterByName('tag');
-  $('#search-results-header').append('<i>\"'+query+'\"</i>');
-
-  for (i=1; i<=$('.search-results-article').length; i++) {
-    var articleId = '#search-results-article-'+i;
-    var articleTags = $('#search-results-article-'+i).data('tags').split(',');
-    if ( articleTags.includes(query) ) {
-      $(articleId).show();
-    }
-  }
+  $('#search-results-header').append('\"'+query+'\"');
 
   function getParameterByName(name) {
       url = window.location.href;
@@ -79,6 +72,34 @@ $(document).ready(function() {
       if (!results[2]) return '';
       return decodeURIComponent(results[2].replace(/\+/g, " "));
   }
+
+  /* Populate search results */
+  for (i=1; i<=$('.search-results-article').length; i++) {
+    var articleId = '#search-results-article-'+i;
+    var articleTags = getArticleTags(i);
+    if ( articleTags.includes(query.toLowerCase()) ) {
+      $(articleId).show();
+    }
+  }
+
+  function getArticleTags(i) {
+    articleTags = $('#search-results-article-'+i).data('tags').split(',');
+
+    articleTags.forEach(function(val, index) {
+      articleTags[index] = val.toLowerCase();
+    });
+
+    return articleTags;
+  }
+
+  /* Search tags with input box */
+  $("#search-input").keyup(function(event) {
+    if (event.keyCode === 13) {
+      window.location.replace(
+        '/results' + '?tag=' + $("#search-input").val()
+      );
+    }
+  });
 });
 
 /*
