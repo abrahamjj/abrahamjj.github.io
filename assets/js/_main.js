@@ -9,7 +9,9 @@ var changeClass = function (r,className1,className2) {
     r.className = r.className.replace(regex,' '+className2+' ');
     }
     else{
-    r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
+    r.className =
+      r.className
+        .replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
     }
     return r.className;
 };
@@ -17,7 +19,8 @@ var changeClass = function (r,className1,className2) {
 /* Creating our button in JS for smaller screens */
 document.getElementById('site-nav').insertAdjacentHTML(
   'afterBegin',
-  '<button type="button" role="button" id="menutoggle" class="navtoggle navicon-lines-button x" aria-hidden="true">' +
+  '<button type="button" role="button" id="menutoggle"' +
+  'class="navtoggle navicon-lines-button x" aria-hidden="true">' +
     '<span class="navicon-lines"></span>' +
     '<span class="navicon-text">menu</span>' +
   '</button>'
@@ -32,9 +35,13 @@ document.getElementById('menutoggle').onclick = function() {
 /* http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918 */
 document.onclick = function(e) {
   var mobileButton = document.getElementById('menutoggle'),
-    buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+    buttonStyle =  mobileButton.currentStyle ?
+      mobileButton.currentStyle.display :
+      getComputedStyle(mobileButton, null).display;
 
-  if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+  if(buttonStyle === 'block' &&
+    e.target !== mobileButton &&
+    new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
     changeClass(mobileButton, 'navtoggle active', 'navtoggle');
   }
 };
@@ -118,7 +125,8 @@ $(function() {
 });
 
 /* Add lightbox class to all image links */
-$("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
+$("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']")
+  .addClass("image-popup");
 
 /* Magnific-Popup options */
 $(document).ready(function() {
