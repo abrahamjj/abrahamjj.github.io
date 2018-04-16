@@ -99,12 +99,19 @@ $(document).ready(function() {
     return articleTags;
   }
 
-  /* Search tags with input box */
-  $("#search-input").keyup(function(event) {
+  /* Search tags with input box  */
+  $('#search-input-article, #search-input-side').keyup(function(event) {
     if (event.keyCode === 13) {
-      window.location.replace(
-        '/results' + '?tag=' + $("#search-input").val()
-      );
+      if ($('#search-input-side').val()) {
+        window.location.replace(
+          '/results' + '?tag=' + $('#search-input-side').val()
+        );        
+      }
+      if ($('#search-input-article').val()) {
+        window.location.replace(
+          '/results' + '?tag=' + $('#search-input-article').val()
+        );        
+      }
     }
   });
 });

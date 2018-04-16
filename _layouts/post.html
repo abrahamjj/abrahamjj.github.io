@@ -47,17 +47,47 @@
 		</div><!--/ .headline-wrap -->
 		<div class="article-wrap">
 			{{ content }}
-			<hr />
-			<footer role="contentinfo">
-				{% if page.tags.size > 0 %}
-					<div class="post-tags-article">
-						{% include _post-tags.html %}
-					</div>
-				{% endif %}
+			<hr>
 
+			<footer role="contentinfo">
 				{% if page.share != false %}
 					{% include _social-share.html %}
+					<hr>
 				{% endif %}
+
+				{% if page.tags.size > 0 %}
+					<div class="post-tags article">
+						<h4>Tags:</h4>
+						<ul>
+							{% for tag in page.tags %}
+								<li>
+									<a href="/results?tag={{tag}}" title="{{tag}}"><span><i class="fa fa-tag"></i>{{tag}}</span></a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<hr>
+				{% endif %}
+
+				{% if site.related_posts.size > 0 %}
+					<div class="latest-articles article">
+						<h4>Latest posts:</h4>
+						{% for post in site.related_posts limit:5 %}
+							<a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+							<p class="byline">
+								Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+							</p>
+						{% endfor %}
+					</div>
+					<hr>
+				{% endif %}
+
+				<div class="search-input article">
+					<input type="text" id="search-input-article" maxlength="20" required>
+					<label for="search-input">Search by tag...</label>
+				</div>
+
+				<hr>
 			</footer>
 		</div><!-- /.article-wrap -->
 		{% if site.owner.disqus-shortname and page.comments == true %}
