@@ -46,11 +46,13 @@ body {
 		margin-bottom: 2rem;
 		@media #{$large} {
 			@include grid(12,6);
-			@include prefix(12,0);
-			@include suffix(12,0);
+			@include prefix(12,0.5);
+			@include suffix(12,0.25);
 		}
 		@media #{$x-large} {
-			@include grid(12,4.5);
+			@include grid(12,5);
+			@include prefix(10,2);
+			@include suffix(12,.5);
 		}
 	}
 
@@ -137,21 +139,6 @@ body {
 	color: grey;
 	font-size: 80%;
 }
-.article-author-side {
-	h3 {
-		margin-bottom: 0;
-	}
-	p {
-		font-size: 80%;
-		font-style: italic;
-	}
-	a, a:hover {
-		border-bottom: 0 solid transparent;
-	}
-	a:hover {
-		color: $orange;
-	}
-}
 
 /* Default social media links in author sidebar & footer */
 .author-social {
@@ -176,10 +163,24 @@ body {
 
 /* Author sidebar & author/article separator*/
 .article-author-side {
+	padding-left: 2rem;
 	display: none;
-	border-left: 0;
-	border-right: .2em solid;
+	border-right: 0;
+	border-left: .2em solid;
 	@include vertical-separator($orange);
+	h3 {
+		margin-bottom: 0;
+	}
+	p {
+		font-size: 80%;
+		font-style: italic;
+	}
+	a, a:hover {
+		border-bottom: 0 solid transparent;
+	}
+	a:hover {
+		color: $orange;
+	}
 
 	.bio-photo {
 		max-width: 110px;
@@ -188,14 +189,9 @@ body {
 			@include box-shadow(0 0 0 .15em $orange);
 		}
 	}
-	hr {
-		width: 75%;
-	}
 	@media #{$large} {
 		display: block;
 		@include grid(12,2);
-		@include prefix(12,0.5);
-		@include suffix(12,0.25);
 		h3,
 		p,
 		.author-social {
@@ -221,7 +217,6 @@ body {
 	}
 	@media #{$x-large} {
 		@include grid(12,1.25);
-		@include prefix(10,2);
 	}
 }
 
@@ -405,7 +400,6 @@ body {
 
 .post-tags {
 	&.side {
-		width: 75%;
 		margin-bottom: 1.5rem;
 	}
 
@@ -451,7 +445,6 @@ body {
 	}
 
 	&.side {
-		width: 75%;
 		margin-bottom: 1.5rem;
 	}
 
@@ -540,10 +533,6 @@ body {
 		margin-bottom: 1rem;
 	}
 
-	&.side {
-		width: 75%;
-	}
-
 	&.article {
 		display: block;
 		@media #{$large} {
@@ -560,19 +549,19 @@ body {
 }
 
 .scroll-top {
-	top: 2rem;
+	top: 2.75rem;
 	display: none;
 	position: fixed;
-	margin-left: 2rem;
-	outline: 0 !important;
 	padding: 0 .15em .2em .15rem;
 	background-color: $light-black;
+	@include prefix(12,2);
 	@include rounded(10%);
 	@include box-shadow(0 0 .3em $orange);
 	@media #{$large-max} {
 		display: none !important;
 	}
 	i { color: $orange; }
+	a {	outline: 0 !important; }
 }
 
 /*
@@ -631,6 +620,7 @@ body {
 /*
    Handle results page when JavaScript is turned off in the browser
    ========================================================================== */
+
 .results .search-results-article { display: none; }
 .results .js-req-header { display: none; }
 

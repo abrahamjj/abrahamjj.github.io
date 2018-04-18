@@ -24,14 +24,14 @@
 		alt="{{ page.title }} feature image">
 
 		{% if page.image.credit %}
-		<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+			<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
 		{% endif %}
 	</div><!-- /.image-wrap -->
 {% endif %}
 
 <div id="main" role="main">
-	<div class="article-author-side">
-		{% include _author-bio.html %}
+	<div class="scroll-top">
+		<a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
 	</div>
 
 	<article class="post">
@@ -52,7 +52,6 @@
 			<footer role="contentinfo">
 				{% if page.share != false %}
 					{% include _social-share.html %}
-					<hr>
 				{% endif %}
 
 				{% if page.tags.size > 0 %}
@@ -66,7 +65,6 @@
 							{% endfor %}
 						</ul>
 					</div>
-					<hr>
 				{% endif %}
 
 				{% if site.related_posts.size > 0 %}
@@ -79,15 +77,12 @@
 							</p>
 						{% endfor %}
 					</div>
-					<hr>
 				{% endif %}
 
 				<div class="search-input article">
 					<input type="text" id="search-input-article" maxlength="20" required>
 					<label for="search-input">Search by tag...</label>
 				</div>
-
-				<hr>
 			</footer>
 		</div><!-- /.article-wrap -->
 		{% if site.owner.disqus-shortname and page.comments == true %}
@@ -95,7 +90,9 @@
 		{% endif %}
 	</article>
 
-	<a href="javascript:" class="scroll-top"><i class="fa fa-fw fa-chevron-up"></i></a>
+	<div class="article-author-side">
+		{% include _author-bio.html %}
+	</div>
 </div><!-- /#main -->
 
 <div class="footer-wrap">

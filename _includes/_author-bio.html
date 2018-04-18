@@ -23,23 +23,8 @@
 		<a href="/" class="author-social"><i class="fa fa-fw fa-rss"></i> RSS</a>
 	</div>
 
-	<hr>
-
-	{% if site.related_posts.size > 0 %}
-		<div class="latest-articles side">
-			<h4>Latest posts:</h4>
-			{% for post in site.related_posts limit:5 %}
-				<a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-				<p class="byline">
-					Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-				</p>
-			{% endfor %}
-		</div>
-
-		<hr>
-	{% endif %}
-
 	{% if page.tags.size > 0 %}
+		<hr>
 		<div class="post-tags side">
 			<h4>Tags:</h4>
 			<ul>
@@ -50,13 +35,23 @@
 				{% endfor %}
 			</ul>
 		</div>
+	{% endif %}
+
+	{% if site.related_posts.size > 0 %}
 		<hr>
+		<div class="latest-articles side">
+			<h4>Latest posts:</h4>
+			{% for post in site.related_posts limit:5 %}
+				<a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+				<p class="byline">
+					Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+				</p>
+			{% endfor %}
+		</div>
 	{% endif %}
 
 	<div class="search-input side">
 		<input type="text" id="search-input-side" maxlength="20" required>
 		<label for="search-input">Search by tag...</label>
 	</div>
-
-	<hr>
 </div>

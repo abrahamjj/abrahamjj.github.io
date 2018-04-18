@@ -30,8 +30,8 @@
 {% endif %}
 
 <div id="main" role="main">
-	<div class="article-author-side">
-		{% include _author-bio.html %}
+	<div class="scroll-top">
+		<a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
 	</div>
 
 	<article class="page">
@@ -41,7 +41,9 @@
 		</div><!-- /.article-wrap -->
 	</article>
 
-	<a href="javascript:" class="scroll-top"><i class="fa fa-fw fa-chevron-up"></i></a>
+	<div class="article-author-side">
+		{% include _author-bio.html %}
+	</div>
 </div><!-- /#index -->
 
 <div class="footer-wrap">
