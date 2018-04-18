@@ -6,10 +6,9 @@
 	{% if author.twitter %}<a href="http://twitter.com/{{ author.twitter }}" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i></a>{% endif %}
 	{% if author.facebook %}<a href="http://facebook.com/{{ author.facebook }}" class="author-social" target="_blank"><i class="fa fa-fw fa-facebook-square"></i></a>{% endif %}
 	{% if author.google.plus %}<a href="http://plus.google.com/+{{ author.google.plus }}" class="author-social" target="_blank"><i class="fa fa-fw fa-google-plus-square"></i></a>{% endif %}
-	<a href="/" class="author-social"><i class="fa fa-fw fa-search"></i></a>
 	<a href="/" class="author-social"><i class="fa fa-fw fa-rss"></i></a>
 
-	<br />
+	<br>
 
 	&copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}. Powered by <a target="_blank" href="http://jekyllrb.com" rel="nofollow">Jekyll</a>.
 </span>
