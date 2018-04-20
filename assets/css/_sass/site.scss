@@ -6,12 +6,12 @@
 * Text Highlighting
 */
 ::-moz-selection {
-	background-color: $text-highlight-color;
-	color: $white;
+  background-color: $text-highlight-color;
+  color: $white;
 }
 ::selection {
-	background-color: $text-highlight-color;
-	color: $white;
+  background-color: $text-highlight-color;
+  color: $white;
 }
 
 /*
@@ -22,57 +22,57 @@
 * Capitalize
 */
 .all-caps {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 /**
 * Float left
 */
 .pull-left {
-	float: left;
+  float: left;
 }
 
 /**
 * Float right
 */
 .pull-right {
-	float: right;
+  float: right;
 }
 .image-pull-right {
-	float: right;
-	margin-top: 0;
+  float: right;
+  margin-top: 0;
 }
 
 /**
 * Clearfix
 */
 .clearfix {
-	*zoom: 1;
-	&:before,
-	&:after {
-		display: table;
-	    content: "";
-	}
-	&:after {
-		clear: both;
-	}
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+      content: "";
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 /**
 * Remove bullets and indentation from list
 */
 .unstyled-list {
-	list-style: none;
-	margin-left: 0;
-	padding-left: 0;
-	li {
-		list-style-type: none;
-	}
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  li {
+    list-style-type: none;
+  }
 }
 
 /**
 * Global transition
 */
 b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a {
-	@include transition(all .2s ease);
+  @include transition(all .2s ease);
 }

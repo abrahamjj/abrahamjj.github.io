@@ -3,7 +3,7 @@
 {% if page.excerpt %}<meta name="description" content="{{ page.excerpt | strip_html }}">{% endif %}
 <meta name="keywords" content="{{ page.tags | join: ', ' }}">
 {% if page.author %}
-	{% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
 {% endif %}
 
 {% include _open-graph.html %}
@@ -28,8 +28,8 @@
 
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
-	<script src="{{ site.url }}/assets/js/vendor/html5shiv.min.js"></script>
-	<script src="{{ site.url }}/assets/js/vendor/respond.min.js"></script>
+  <script src="{{ site.url }}/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="{{ site.url }}/assets/js/vendor/respond.min.js"></script>
 <![endif]-->
 
 <!-- Modernizr -->

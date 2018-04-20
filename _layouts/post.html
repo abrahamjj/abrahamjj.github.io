@@ -4,7 +4,7 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
-	{% include _head.html %}
+  {% include _head.html %}
 </head>
 
 <body class="post">
@@ -14,91 +14,91 @@
 {% include _navigation.html %}
 
 {% if page.image.feature %}
-	<div class="image-wrap">
-		<img src=
-		{% if page.image.feature contains 'http' %}
-			"{{ page.image.feature }}"
-		{% else %}
-			"{{ site.url }}/assets/img/{{ page.image.feature }}"
-		{% endif %}
-		alt="{{ page.title }} feature image">
+  <div class="image-wrap">
+    <img src=
+    {% if page.image.feature contains 'http' %}
+      "{{ page.image.feature }}"
+    {% else %}
+      "{{ site.url }}/assets/img/{{ page.image.feature }}"
+    {% endif %}
+    alt="{{ page.title }} feature image">
 
-		{% if page.image.credit %}
-			<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
-		{% endif %}
-	</div><!-- /.image-wrap -->
+    {% if page.image.credit %}
+      <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+    {% endif %}
+  </div><!-- /.image-wrap -->
 {% endif %}
 
 <div id="main" role="main">
-	<div class="scroll-top">
-		<a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
-	</div>
+  <div class="scroll-top">
+    <a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
+  </div>
 
-	<article class="post">
-		<div class="headline-wrap">
-			{% if page.link %}
-				<h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
-			{% else %}
-				<h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
-			{% endif %}
-			<p class="byline">
-				Published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-			</p>
-		</div><!--/ .headline-wrap -->
-		<div class="article-wrap">
-			{{ content }}
-			<hr>
+  <article class="post">
+    <div class="headline-wrap">
+      {% if page.link %}
+        <h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
+      {% else %}
+        <h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
+      {% endif %}
+      <p class="byline">
+        Published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      </p>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      {{ content }}
+      <hr>
 
-			<footer role="contentinfo">
-				{% if page.share != false %}
-					{% include _social-share.html %}
-				{% endif %}
+      <footer role="contentinfo">
+        {% if page.share != false %}
+          {% include _social-share.html %}
+        {% endif %}
 
-				{% if page.tags.size > 0 %}
-					<div class="post-tags article">
-						<h4>Tags:</h4>
-						<ul>
-							{% for tag in page.tags %}
-								<li>
-									<a href="/results?tag={{tag}}" title="{{tag}}"><span><i class="fa fa-tag"></i>{{tag}}</span></a>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				{% endif %}
+        {% if page.tags.size > 0 %}
+          <div class="post-tags article">
+            <h4>Tags:</h4>
+            <ul>
+              {% for tag in page.tags %}
+                <li>
+                  <a href="/results?tag={{tag}}" title="{{tag}}"><span><i class="fa fa-tag"></i>{{tag}}</span></a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
 
-				{% if site.related_posts.size > 0 %}
-					<div class="latest-articles article">
-						<h4>Latest posts:</h4>
-						{% for post in site.related_posts limit:5 %}
-							<a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-							<p class="byline">
-								Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-							</p>
-						{% endfor %}
-					</div>
-				{% endif %}
+        {% if site.related_posts.size > 0 %}
+          <div class="latest-articles article">
+            <h4>Latest posts:</h4>
+            {% for post in site.related_posts limit:5 %}
+              <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+              <p class="byline">
+                Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+              </p>
+            {% endfor %}
+          </div>
+        {% endif %}
 
-				<div class="search-input article">
-					<input type="text" id="search-input-article" maxlength="20" required>
-					<label for="search-input">Search by tag...</label>
-				</div>
-			</footer>
-		</div><!-- /.article-wrap -->
-		{% if site.owner.disqus-shortname and page.comments == true %}
-			<section id="disqus_thread"></section><!-- /#disqus_thread -->
-		{% endif %}
-	</article>
+        <div class="search-input article">
+          <input type="text" id="search-input-article" maxlength="20" required>
+          <label for="search-input">Search by tag...</label>
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+    {% if site.owner.disqus-shortname and page.comments == true %}
+      <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    {% endif %}
+  </article>
 
-	<div class="article-author-side">
-		{% include _author-bio.html %}
-	</div>
+  <div class="article-author-side">
+    {% include _author-bio.html %}
+  </div>
 </div><!-- /#main -->
 
 <div class="footer-wrap">
-	<footer>
-		{% include _footer.html %}
-	</footer>
+  <footer>
+    {% include _footer.html %}
+  </footer>
 </div><!-- /.footer-wrap -->
 
 {% include _scripts.html %}

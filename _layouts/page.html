@@ -4,7 +4,7 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
-	{% include _head.html %}
+  {% include _head.html %}
 </head>
 
 <body class="page">
@@ -14,42 +14,42 @@
 {% include _navigation.html %}
 
 {% if page.image.feature %}
-	<div class="image-wrap">
-		<img src=
-		{% if page.image.feature contains 'http' %}
-			"{{ page.image.feature }}"
-		{% else %}
-			"{{ site.url }}/assets/img/{{ page.image.feature }}"
-		{% endif %}
-		alt="{{ page.title }} feature image">
+  <div class="image-wrap">
+    <img src=
+    {% if page.image.feature contains 'http' %}
+      "{{ page.image.feature }}"
+    {% else %}
+      "{{ site.url }}/assets/img/{{ page.image.feature }}"
+    {% endif %}
+    alt="{{ page.title }} feature image">
 
-		{% if page.image.credit %}
-			<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
-		{% endif %}
-	</div><!-- /.image-wrap -->
+    {% if page.image.credit %}
+      <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+    {% endif %}
+  </div><!-- /.image-wrap -->
 {% endif %}
 
 <div id="main" role="main">
-	<div class="scroll-top">
-		<a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
-	</div>
+  <div class="scroll-top">
+    <a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
+  </div>
 
-	<article class="page">
-		<h1>{{ page.title }}</h1>
-		<div class="article-wrap">
-			{{ content }}
-		</div><!-- /.article-wrap -->
-	</article>
+  <article class="page">
+    <h1>{{ page.title }}</h1>
+    <div class="article-wrap">
+      {{ content }}
+    </div><!-- /.article-wrap -->
+  </article>
 
-	<div class="article-author-side">
-		{% include _author-bio.html %}
-	</div>
+  <div class="article-author-side">
+    {% include _author-bio.html %}
+  </div>
 </div><!-- /#index -->
 
 <div class="footer-wrap">
-	<footer>
-		{% include _footer.html %}
-	</footer>
+  <footer>
+    {% include _footer.html %}
+  </footer>
 </div><!-- /.footer-wrap -->
 
 {% include _scripts.html %}
