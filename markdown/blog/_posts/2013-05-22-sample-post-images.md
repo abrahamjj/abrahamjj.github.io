@@ -3,7 +3,7 @@ layout: post
 title: "A Post with Images"
 excerpt: "Examples and code for displaying images in posts."
 tags: [sample post, images, test]
-permalink: /blog/sample-post-images
+permalink: /blog/:year/:month/:day/:title
 type: blog
 comments: false
 image:

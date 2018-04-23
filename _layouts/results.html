@@ -13,46 +13,32 @@
 
 {% include _navigation.html %}
 
-{% if page.image.feature %}
-  <div class="image-wrap">
-    <img src=
-    {% if page.image.feature contains 'http' %}
-      "{{ page.image.feature }}"
-    {% else %}
-      "{{ site.url }}/assets/img/{{ page.image.feature }}"
-    {% endif %}
-    alt="{{ page.title }} feature image">
+<div class="site-content">
+  <div id="main" role="main">
+    <div class="scroll-top">
+      <a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
+    </div>
 
-    {% if page.image.credit %}
-      <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
-    {% endif %}
-  </div><!-- /.image-wrap -->
-{% endif %}
+    <div class="site-header">
+      <a href="{{ site.url }}/">{{ site.title }}</a>
+    </div><!-- /.site-name -->
 
-<div id="main" role="main">
-  <div class="scroll-top">
-    <a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
-  </div>
-
-  <div id="index">
-    <h3 id="search-results-header">Results for: </h3>
-    <h3 class="js-req-header"><i class="fa fa-fw fa-wrench"></i>JavaScript is required to view this content.</h3>
-    {% for post in site.posts %}
-      <article class="search-results-article" id="search-results-article-{{ forloop.index }}" data-tags="{{post.tags | join: ','}}">
-        {% if post.link %}
-          <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
-        {% else %}
-          <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-          <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
-        {% endif %}
-      </article>
-    {% endfor %}
-  </div><!-- /#index -->
-
-  <div class="article-author-side">
-    {% include _author-bio.html %}
-  </div>
-</div><!-- /#main -->
+    <div id="index">
+      <h3 id="search-results-header">Results for: </h3>
+      <h3 class="js-req-header"><i class="fa fa-fw fa-wrench"></i>JavaScript is required to view this content.</h3>
+      {% for post in site.posts %}
+        <article class="search-results-article" id="search-results-article-{{ forloop.index }}" data-tags="{{post.tags | join: ','}}">
+          {% if post.link %}
+            <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
+          {% else %}
+            <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+            <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div><!-- /#index -->
+  </div><!-- /#main -->  
+</div><!-- /.site-content -->
 
 <div class="footer-wrap">
   <footer>

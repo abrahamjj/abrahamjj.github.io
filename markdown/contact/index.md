@@ -4,10 +4,6 @@ title: Contact
 permalink: /contact
 type: contact
 comments: false
-image:
-  feature: navbar-image.jpg
-  credit:
-  creditlink:
 ---
 
 Contact me...

@@ -7,13 +7,13 @@
    Common values would be 12, 16 or 24
    ========================================================================== */
 
-$width: 100%;
+$def_width: 100%;
 $def_grid: 12;
 $margin: 0;
 
-@mixin container(){
+@mixin container($width:$def_width){
   margin:0 auto;
-  width:$width;
+  max-width:$width;
 }
 
 /*

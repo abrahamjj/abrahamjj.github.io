@@ -6,7 +6,7 @@
    Typography
    ========================================================================== */
 
-$doc-font-size      : 16;
+$doc-font-size      : 20;
 $doc-line-height    : 30;
 $paragraph-indent   : true !default;
 $base-font          : 'PT Serif', serif;
@@ -23,11 +23,12 @@ $white                : #fff;
 $black                : #000;
 $light-black          : #404040;
 $orange               : #e74b37;
+$grey                 : #dcdcdc;
 $accent-color         : $black;
 
 /* page colors */
-$body-color           : $white;
-$nav-color            : $light-black;
+$body-color           : darken($light-black, 2);
+$nav-color            : lighten($light-black, 10);
 $footer-color         : $light-black;
 $text-color           : $black;
 $text-highlight-color : $orange;
@@ -40,7 +41,7 @@ $bordercolor          : $base-color;
 $primary              : $black;
 $success              : #5cb85c;
 $warning              : #dd8338;
-$danger               : #C64537;
+$danger               : #c64537;
 $info                 : #308cbc;
 
 /* brands */
@@ -69,7 +70,6 @@ $link-color-focus     : darken($link-color-visited, 10);
 
 $micro                : "only screen and (min-width: 30em)";
 $small                : "only screen and (min-width: 37.5em)";
-$small-max            : "only screen and (max-width: 37.5em)";
 $medium               : "only screen and (min-width: 48em)";
 $large                : "only screen and (min-width: 62em)";
 $large-max            : "only screen and (max-width: 62em)";

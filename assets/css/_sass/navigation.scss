@@ -4,73 +4,24 @@
    ========================================================================== */
 
 .navigation-wrapper {
-  @include container;
-  @include clearfix;
   font-weight: 700;
   position: relative;
-  text-align: center;
   text-transform: uppercase;
   font-family: $heading-font;
   background-color: $nav-color;
   border-top: .15rem solid $orange;
-  padding: .7rem .7rem 0 .7rem;
-
-  /* Site name */
-  .site-name {
-    @include font-rem(25);
-    @include horizontal-separator($orange);
-    a {
-      color: $white;
-      padding-left: .4rem;
-      border-left: .3rem solid $light-black;
-      @include transition(all .5s);
-      &:hover {
-        color: $light-black;
-      }
-    }
+  padding: 0 .5rem 0 .5rem;
+  @media #{$medium} {
+    padding: 0 2rem 0 2rem;
   }
 
   /* Top navigation links (tablet/desktop only) */
   .top-navigation {
-    ul { display: none; }
-    padding: .7rem 0 .7rem 0;
-    @media #{$small} {
-      padding: 0;
-      ul { display: block; }
-    }
+    @include container(75rem);
+    @include clearfix;
   }
 }
 
-/* Top navigation links (mobile only) */
-.top-navigation-mobile {
-  // hide by default until meny click
-  display: none;
-  text-align: center;
-  background-color: $light-black;
-  .nav {
-    &:before {
-        height: .15rem;
-      display: block;
-        @include horizontal-separator($orange);
-    }
-  }
-  @media #{$small} { display: none !important; }
-  a {
-    border: none !important;
-    &.selected-nav-item {
-      color: $orange;
-    }
-  }
-}
-.no-js .top-navigation-mobile {
-  display: block;
-  ul {
-    display: inline-flex;
-    li { margin-right: 1rem; }
-  }
-}
-
-/* shared between mobile and tablet/desktop */
 .nav {
   @include container;
   @include clearfix;
@@ -78,147 +29,124 @@
   text-transform: uppercase;
   font-family: $heading-font;
 
+  &.mobile {
+    //hidden by default. toggled w/ js
+    display: none;
+    padding: 0 2rem .75rem 2rem;
+    background-color: darken($light-black, 10);
+    @media #{$large} {
+      display: none !important;
+    }
+    .li-pages {
+      border-bottom: .15rem solid $light-black;
+      &:last-child {
+        border-bottom: none;
+      }
+      display: block;
+      @media #{$large} {
+        display: none;
+      }
+      a {
+        border-bottom: none !important;
+        &.selected-nav-item {
+          color: $orange;
+        }
+      }
+    }
+  }
+
   ul {
     margin: 0;
     padding: 0;
     clear: both;
     list-style-type: none;
-  }
-  li {
-    display: block;
-    list-style-type: none;
-    @include font-rem(16);
-    @media #{$small} {
+    li {
+      display: block;
+      list-style-type: none;
       display: inline;
       margin-right: 25px;
       white-space: nowrap;
-    }
-    a {
-      color: $white;
-      decoration: none;
-      position: relative;
-      display:inline-block;
-      text-decoration: none;
-      padding: .7rem 0 .6rem 0;
-      border-bottom: .2rem solid $light-black;
-      @include transition(all .5s);
-      &:hover {
-        color: $orange;
-        border-bottom: .2rem solid lighten($orange, 5);
-      }
-      &.selected-nav-item {
-        border-bottom: .2rem solid $orange;
-      }
-      @media #{$large-max} {
-        &.selected-nav-item {
-          border-bottom: .25rem solid $orange;
+      @include font-rem(16);
+      a {
+        color: $white;
+        decoration: none;
+        position: relative;
+        display:inline-block;
+        text-decoration: none;
+        outline: 0 !important;
+        padding: .7rem 0 .6rem 0;
+        &:hover {
+          color: $orange;
         }
       }
     }
+    .li-mobile-menu {
+      display: inline;
+      cursor:pointer;
+      a {
+        &:hover {
+          color: white;
+        }
+      }
+      @media #{$large} {
+        display: none;
+      }
+    }
+    .li-pages {
+      display: none;
+      @media #{$large} {
+        display: inline;
+      }
+      a {
+        &:hover {
+          color: $orange;
+          border-bottom: .2rem solid $orange;
+        }
+        &.selected-nav-item {
+          border-bottom: .2rem solid $orange;
+        }
+      }
+    }
+    .li-social,
+    .li-search {
+      float: right;
+    }
+    .li-social {
+      a:hover {
+        @include scale(1.2);
+      }
+    }
+    .li-search {
+      margin-right: 0;
+      input {
+        width: 12rem;
+        height: 2rem;
+        font-weight: 600;
+        border-radius: .3rem;
+        color: darken(grey, 20);
+        background-color: $grey;
+        font-family: $heading-font;
+        @include font-rem(15);
+        &:focus,
+        &:hover {
+          border: .12rem solid $orange;
+        }
+      }
+      @include input-placeholder {
+        color: darken(grey, 25);
+        font-weight: 600;
+        font-style:italic;
+        font-family: $heading-font;
+      }
+      .search-input-icon {
+        top: 1px;
+        width: 0;
+        z-index: 1;
+        left: -25px;
+        cursor: pointer;
+        position: relative;
+        color: $light-black;
+      }
+    }
   }
-}
-
-/* Animated lines for mobile nav button */
-$button-size: 1rem;
-@mixin navicon-line() {
-  display: inline-block;
-  width: $button-size;
-  height: $button-size/7;
-  // line color
-  background: $white;
-  border-radius: $button-size/14;
-  transition: .3s;
-}
-.navicon-lines-button {
-  padding: $button-size/4 $button-size/2;
-  outline: 0;
-  transition: .3s;
-  cursor: pointer;
-  user-select: none;
-  font-family: $heading-font;
-  text-transform: uppercase;
-  font-weight: 700 !important;
-  border: 1px solid $orange !important;
-  border-radius: $button-size/3;
-}
-.navicon-lines-button:hover {
-  opacity: 1;
-}
-.navicon-lines-button:active {
-  transition: 0;
-}
-.navicon-lines {
-  margin-right: 10px;
-  vertical-align: middle;
-  margin-bottom: $button-size/5;
-  // create middle line
-  @include navicon-line;
-  position: relative;
-  // create the upper and lower lines as pseudo-elements of the middle line
-  &:before,
-  &:after {
-    @include navicon-line;
-    position: absolute;
-    left: 0;
-    content: '';
-    -webkit-transform-origin: $button-size/14 center;
-    transform-origin: $button-size/14 center;
-  }
-  &:before { top: $button-size/4; }
-  &:after { top: -$button-size/4; }
-}
-.navicon-lines-button:hover {
-  opacity: 1;
-  .navicon-lines {
-    &:before { top: $button-size/3.5; }
-    &:after { top: -$button-size/3.5; }
-  }
-}
-.navicon-lines-button.x.active .navicon-lines {
-  // hide the middle line
-  background: transparent;
-  // overlap the lines by setting both their top values to 0
-  &:before,
-  &:after {
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    top: 0;
-    width: $button-size;
-  }
-  // rotate the lines to form the x shape
-  &:before {
-    -webkit-transform: rotate3d(0,0,1,45deg);
-    transform: rotate3d(0,0,1,45deg);
-  }
-  &:after {
-    -webkit-transform: rotate3d(0,0,1,-45deg);
-    transform: rotate3d(0,0,1,-45deg);
-  }
-}
-.navicon-text {
-  vertical-align: middle;
-}
-// Style the toggle menu link and hide it
-.nav .navtoggle {
-  @include font-rem(18);
-  font-weight: normal;
-  background-color: $black;
-  color: $white;
-  border: none;
-  cursor: pointer;
-  @media #{$small} {
-    display: none;
-  }
-}
-.nav button {
-  border: none;
-  background: none;
-}
-.navtoggle i {
-  z-index:-1;
-}
-.icon-menu {
-  position: relative;
-  top: 3px;
-  line-height: 0;
 }

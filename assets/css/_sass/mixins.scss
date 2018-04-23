@@ -141,35 +141,9 @@ $indent-var: 0rem + ($doc-line-height / $doc-font-size);
   border-bottom : solid 1px $bottom-color;
 }
 
-@mixin vertical-separator($color) {
-  -webkit-border-image:
-    -webkit-linear-gradient($color, rgba(0, 0, 0, 0)) 1 100%;
-  -moz-border-image:
-    -moz-linear-gradient($color, rgba(0, 0, 0, 0)) 1 100%;
-  -o-border-image:
-    -o-linear-gradient($color, rgba(0, 0, 0, 0)) 1 100%;
-  border-image:
-    linear-gradient(to bottom, $color, rgba(0, 0, 0, 0)) 1 100%;
-}
-
-@mixin horizontal-separator($color) {
-  background:
-    -moz-linear-gradient(rgba(0,0,0,0) 0%,$color 50%,rgba(0,0,0,0) 100%);           // FF 3.6+
-  background:
-    -ms-linear-gradient(rgba(0,0,0,0) 0%,$color 50%,rgba(0,0,0,0) 100%);            // IE10
-  background:
-    -webkit-linear-gradient(rgba(0,0,0,0) 0%,$color 50%,rgba(0,0,0,0) 100%);          // Safari 5.1+, Chrome 10+
-  background:
-    -o-linear-gradient(rgba(0,0,0,0) 0%,$color 50%,rgba(0,0,0,0) 100%);             // Opera 11.10
-  background:
-    linear-gradient(to right,rgba(0,0,0,0) 0%,$color 50%,rgba(0,0,0,0) 100%);    // W3C
-}
-
 /* ==========================================================================
    Rounded corners
    ========================================================================== */
-
-
 
 /*
    Round all corners
@@ -398,4 +372,15 @@ text-shadow: $shadow; }
   margin: -1px;
   padding: 0;
   border: 0;
+}
+
+/*
+   Input placeholder
+   ========================================================================== */
+
+@mixin input-placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
 }

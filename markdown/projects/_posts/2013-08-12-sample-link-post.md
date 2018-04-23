@@ -5,11 +5,11 @@ excerpt: "Example and code for using link posts."
 tags: [sample post, link post]
 link: http://mademistakes.com
 share: true
-permalink: /projects/sample-link-post
+permalink: /projects/:year/:month/:day/:title
 type: projects
 comments: false
 image:
-  feature: post-banner.jpg
+  feature: thought-catalog-567759-unsplash.jpg
   credit:
   creditlink:
 ---

@@ -15,67 +15,80 @@ html {
 }
 
 body {
-  background-color: $body-color;
-  font-family: $base-font;
   color: $text-color;
+  font-family: $base-font;
+  background-color: $body-color;
 
   // for sticky footer
-  padding-bottom: 4rem;
-  position: relative;
-  min-height: 100%;
   margin: 0;
+  min-height: 100%;
+  position: relative;
 }
 
 /* Main content */
-#main {
-  counter-reset: captions;
-  @include container;
-  @include clearfix;
-  clear: both;
-  margin-top: 2rem;
-  h1 {
-    margin-top: 0;
+.site-content {
+  padding: 2.5rem .5rem 4rem .5rem;
+  @media #{$medium} {
+    padding: 2.5rem 2rem 4rem 2rem;
   }
-  #index,
-  .post,
-  .page {
-    @include container;
-    @include grid(12,10);
-    @include prefix(12,1);
-    @include suffix(12,1);
-    margin-bottom: 2rem;
-    @media #{$large} {
-      @include grid(12,6);
-      @include prefix(12,0.5);
-      @include suffix(12,0.25);
-    }
-    @media #{$x-large} {
-      @include grid(12,5);
-      @include prefix(10,2);
-      @include suffix(12,.5);
+
+  /* Site header */
+  .site-header {
+    font-weight: 700;
+    padding-bottom: 2.5rem;
+    text-transform: uppercase;
+    font-family: $heading-font;
+    @include font-rem(30);
+    a {
+      color: $white;
+      padding-left: .5rem;
+      border-left: .3rem solid $orange;
+      @include transition(all .5s);
+      &:hover {
+        color: $orange;
+      }
     }
   }
 
-  .post h1 {
-    margin-bottom: .1rem;
+  #main {
+    clear: both;
+    counter-reset: captions;
+    @include container(75rem);
+    @include clearfix;
+    #index,
+    .post,
+    .page {
+      width: 100%;
+      float: left;
+      margin-bottom: 1.5rem;
+      @media #{$large} {
+        width: 80%;
+      }
+      .post-content {
+        padding: 3rem 1rem 3rem 1rem;
+        @media #{$medium} {
+          padding: 3rem 3rem 3rem 3rem;
+        }
+      }
+    }
+    .post {
+      background-color: $white;
+    }
+    #index,
+    .page {
+      p, li, a {
+        color: $white;
+      }
+    }
+
+    h1 { margin-top: 0; }
+    .post h1 { margin-bottom: .1rem; }
   }
 }
 
 /* Index listing specific styling */
 #index {
-  @include container;
-  @include grid(12,10);
-  @include prefix(12,1);
-  @include suffix(12,1);
   margin-bottom: 2rem;
-  @media #{$small} {
-    @include grid(12,6);
-    @include prefix(12,0);
-    @include suffix(12,0);
-  }
-  @media #{$x-large} {
-    @include grid(12,4.5);
-  }
   h3 {
     margin: 0;
     padding-bottom: .5rem;
@@ -105,34 +118,6 @@ body {
   }
 }
 
-/* Large feature header image */
-.image-wrap {
-  position: relative;
-  margin-bottom: 2rem;
-  @include clearfix;
-  img {
-    width: 100%;
-    height: auto;
-    -ms-interpolation-mode: bicubic;
-  }
-  .headline-wrap {
-    position: absolute;
-    bottom: 25px;
-    @include prefix(12,1);
-    @media #{$small} {
-      left: 25%;
-      margin-left: 0;
-    }
-    @media #{$x-large} {
-      @include prefix(12,1);
-    }
-    h1, h2 {
-      color: $white;
-      @include text-shadow(0 1px 2px rgba(0,0,0,.25));
-    }
-  }
-}
-
 /* Post byline */
 .byline {
   clear: both;
@@ -140,83 +125,121 @@ body {
   font-size: 80%;
 }
 
-/* Default social media links in author sidebar & footer */
-.author-social {
-  outline: 0 !important;
-  display: block;
-  margin-bottom: 5px;
-  @include font-rem(14);
-  color: $black;
-  &:visited {
-    color: $black;
-  }
-  &:hover {
-    @include scale(1.1);
-  }
-  &:active {
-    @include translate(0, 2px);
-  }
-  .fa {
-    margin-right: 5px;
-  }
-}
-
 /* Author sidebar & author/article separator*/
 .article-author-side {
-  padding-left: 2rem;
+  width: 16%;
+  float: right;
   display: none;
-  border-right: 0;
-  border-left: .2em solid;
-  @include vertical-separator($orange);
-  h3 {
-    margin-bottom: 0;
+  color: $white;
+  @media #{$large} {
+    display: block;
+  }
+  h4 {
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    @include font-rem(16);
+    &:before {
+      content: "\2014";
+      padding-right: .25rem;
+    }
   }
   p {
+    margin: 0;
+    color: $grey;
     font-size: 80%;
     font-style: italic;
   }
-  a, a:hover {
-    border-bottom: 0 solid transparent;
+  a {
+    color: $grey;
+    &:hover {
+      color: $orange;
+    }
   }
-  a:hover {
-    color: $orange;
+  .byline {
+    color: grey;
   }
 
   .bio-photo {
-    max-width: 110px;
+    max-width: 90%;
     @include rounded(50%);
     &:hover {
       @include box-shadow(0 0 0 .15em $orange);
     }
   }
-  @media #{$large} {
-    display: block;
-    @include grid(12,2);
-    h3,
-    p,
-    .author-social {
-      display: block;
-      max-width: 125px;
+
+  /* Large feature header image */
+  .image-wrap {
+    position: relative;
+    margin-bottom: 2rem;
+    @include clearfix;
+    img {
+      width: 100%;
+      height: auto;
+      -ms-interpolation-mode: bicubic;
     }
-    h3 {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    p {
-      margin-bottom: 20px;
-    }
-    .author-social {
-      margin-bottom: 5px;
-    }
-    h3,
-    p,
-    .bio-photo,
-    .author-social {
-      max-width: 150px;
+    .headline-wrap {
+      position: absolute;
+      bottom: 25px;
+      @include prefix(12,1);
+      @media #{$small} {
+        left: 25%;
+        margin-left: 0;
+      }
+      @media #{$x-large} {
+        @include prefix(12,1);
+      }
+      h1, h2 {
+        color: $white;
+        @include text-shadow(0 1px 2px rgba(0,0,0,.25));
+      }
     }
   }
-  @media #{$x-large} {
-    @include grid(12,1.25);
+
+  /* Latest articles list */
+  .latest-articles {
+    &.side {
+      a {
+        outline: 0;
+        display: contents;
+        font-family: $heading-font;
+        margin-bottom: .4rem;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  hr {
+    border: none;
+    height: .15rem;
+    color: grey;
+    background-color: grey;
+  }
+}
+
+/* Cards under article on tablet and mobile */
+.latest-articles.article,
+.disqus-comments-card,
+.about-author-card {
+  margin-bottom: 1.5rem;
+  background-color: $white;
+  border-left: .3rem solid $orange;
+  padding: 1rem 3rem 1rem 3rem;
+  @media #{$large} {
+    display: none;
+  }
+  h4 {
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    @include font-rem(16);
+    &:before {
+      content: "\2014";
+      padding-right: .25rem;
+    }
   }
 }
 
@@ -346,8 +369,15 @@ body {
 /* Social media brand buttons */
 .social-share,
 .post-tags {
-  margin-bottom: 0px + $doc-line-height;
-  margin-bottom: 0rem + ($doc-line-height / $doc-font-size);
+  h4 {
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    @include font-rem(16);
+    &:before {
+      content: "\2014";
+      padding-right: .25rem;
+    }
+  }
   ul, li {
     margin: 0;
     padding: 0;
@@ -355,7 +385,7 @@ body {
   }
   li {
     display: inline-block;
-    margin-bottom: .2rem;
+    margin: 0 .2rem .4rem 0;
   }
   i {
     padding-right: .25rem;
@@ -383,82 +413,24 @@ body {
     color: $white;
     display: block;
     font-weight: 600;
-    padding: 4px 8px;
+    padding: 5px 5px;
     border-radius: 5px;
-    text-decoration: none !important;
-    background-color: $light-black;
-    font-family: $heading-font;
-    @include font-rem(12);
-    &:hover { opacity: 1; }
-  }
-  h4 {
-    @include font-rem(14);
-    margin-bottom: 10px;
     text-transform: uppercase;
+    text-decoration: none !important;
+    background-color: lighten($light-black, 20);
+    font-family: $heading-font;
+    @include font-rem(14);
+    &:hover { opacity: 1; }
   }
 }
 
 .post-tags {
-  &.side {
-    margin-bottom: 1.5rem;
-  }
-
   &.article {
     display: block;
     @media #{$large} {
       display: none;
     }
   }
-}
-
-.search-input {
-  position: relative;
-
-  input {
-    border: 0;
-    color: $light-black;
-    background: transparent;
-    border-bottom: 1px solid $light-black;
-  }
-
-  label {
-    top: 0;
-    cursor: text;
-    position: absolute;
-    transition: all 200ms;
-    color: $light-black;
-  }
-
-  input, label {
-    outline: 0;
-    font-weight: 600;
-    @include font-rem(14);
-    font-family: $heading-font;
-  }
-
-  #search-input-article:focus + label,
-  #search-input-article:valid + label,
-  #search-input-side:focus + label,
-  #search-input-side:valid + label {
-    font-size: 80%;
-    transform: translate3d(0, -100%, 0);
-  }
-
-  &.side {
-    margin-bottom: 1.5rem;
-  }
-
-  &.article {
-    width: 50%;
-    display: block;
-    @media #{$large} {
-      display: none;
-    }
-  }
-}
-
-.social-buttons {
-  margin-bottom: 1.5rem;
 }
 
 /* Footer wrapper */
@@ -513,48 +485,13 @@ body {
   }
 }
 
-/* Latest articles list */
-.latest-articles {
-  h4 {
-    margin-bottom: .2rem;
-    @include font-rem(14);
-    text-transform: uppercase;
-  }
-  a {
-    outline: 0;
-    display: contents;
-    font-family: $heading-font;
-    margin-bottom: .4rem;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  p {
-    margin-bottom: 1rem;
-  }
-
-  &.article {
-    display: block;
-    @media #{$large} {
-      display: none;
-    }
-  }
-}
-
-.post footer hr {
-  display: block;
-  @media #{$large} {
-    display: none;
-  }
-}
-
 .scroll-top {
-  top: 2.75rem;
+  top: 2rem;
   display: none;
   position: fixed;
+  margin-left: -3.5rem;
   padding: 0 .15em .2em .15rem;
   background-color: $light-black;
-  @include prefix(12,2);
   @include rounded(10%);
   @include box-shadow(0 0 .3em $orange);
   @media #{$large-max} {

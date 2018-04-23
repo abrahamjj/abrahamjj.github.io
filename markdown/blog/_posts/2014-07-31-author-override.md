@@ -4,7 +4,7 @@ title: "Author Override"
 author: billy_rick
 excerpt: "A post to test author overrides using a data file."
 tags: []
-permalink: /blog/author-override
+permalink: /blog/:year/:month/:day/:title
 type: blog
 comments: false
 image:

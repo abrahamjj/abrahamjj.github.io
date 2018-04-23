@@ -1,57 +1,10 @@
 /*
-   Responsive Menu
-   [http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/]
-   ========================================================================== */
-/* The function to change the class */
-var changeClass = function (r,className1,className2) {
-  var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
-  if( regex.test(r.className) ) {
-    r.className = r.className.replace(regex,' '+className2+' ');
-    }
-    else{
-    r.className =
-      r.className
-        .replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
-    }
-    return r.className;
-};
-
-/* Creating our button in JS for smaller screens */
-document.getElementById('site-nav').insertAdjacentHTML(
-  'afterBegin',
-  '<button type="button" role="button" id="menutoggle"' +
-  'class="navtoggle navicon-lines-button x" aria-hidden="true">' +
-    '<span class="navicon-lines"></span>' +
-    '<span class="navicon-text">menu</span>' +
-  '</button>'
-);
-
-/* Toggle the class on click to show / hide the menu */
-document.getElementById('menutoggle').onclick = function() {
-  changeClass(this, 'navtoggle active', 'navtoggle');
-  $('.top-navigation-mobile').slideToggle();
-};
-
-/* http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918 */
-document.onclick = function(e) {
-  var mobileButton = document.getElementById('menutoggle'),
-    buttonStyle =  mobileButton.currentStyle ?
-      mobileButton.currentStyle.display :
-      getComputedStyle(mobileButton, null).display;
-
-  if(buttonStyle === 'block' &&
-    e.target !== mobileButton &&
-    new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
-    changeClass(mobileButton, 'navtoggle active', 'navtoggle');
-  }
-};
-
-/*
    Scroll to top button functionality
    ========================================================================== */
+
 $(document).ready(function() {
   $(window).scroll(function() {
-      if ($(this).scrollTop() >= 300) {
+      if ($(this).scrollTop() >= 100) {
           $('.scroll-top').show();
       } else {
           $('.scroll-top').hide();
@@ -65,6 +18,7 @@ $(document).ready(function() {
 /*
    Tag lookup results page
    ========================================================================== */
+
 $(document).ready(function() {
   /* Set header dynamically with query param */
   var query = getParameterByName('tag');
@@ -100,25 +54,25 @@ $(document).ready(function() {
   }
 
   /* Search tags with input box  */
-  $('#search-input-article, #search-input-side').keyup(function(event) {
+  $('#search-input').keyup(function(event) {
     if (event.keyCode === 13) {
-      if ($('#search-input-side').val()) {
-        window.location.replace(
-          '/results' + '?tag=' + $('#search-input-side').val()
-        );        
-      }
-      if ($('#search-input-article').val()) {
-        window.location.replace(
-          '/results' + '?tag=' + $('#search-input-article').val()
-        );        
-      }
+      goToResultsPage();
     }
   });
 });
 
+function goToResultsPage() {
+  if ($('#search-input').val()) {
+    window.location.replace(
+      '/results' + '?tag=' + $('#search-input').val()
+    );        
+  }
+}
+
 /*
    Plugin options and other jQuery stuff
    ========================================================================== */
+
 /* FitVids options */
 $(function() {
   $("article").fitVids();
@@ -154,3 +108,16 @@ $(document).ready(function() {
     mainClass: 'mfp-fade'
   });
 });
+
+/*
+   Responsive nav menu
+   ========================================================================== */
+
+function toggleMobileMenu() {
+  $('#nav-mobile').slideToggle();
+  if ($('#mobile-menu-icon').attr('class') == 'fa fa-fw fa-bars') {
+    $('#mobile-menu-icon').removeClass('fa-bars').addClass('fa-times');
+  } else {
+    $('#mobile-menu-icon').removeClass('fa-times').addClass('fa-bars');
+  }
+}
