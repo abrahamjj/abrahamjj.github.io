@@ -5,6 +5,9 @@
         <li class="li-mobile-menu" onclick="toggleMobileMenu()">
           <a><span><i class="fa fa-fw fa-bars" id="mobile-menu-icon"></i>&nbsp;Menu</span></a>
         </li>
+        <li class="li-pages home">
+          <a class="{% if nav_item_type contains page.type %}selected-nav-item{% endif %}" href="/"><i class="fa fa-fw fa-home"></i></a>
+        </li>
         {% for nav_item in site.data.navigation %}
           {% capture nav_item_type %} {{ nav_item.title | downcase }} {% endcapture %}
           <li class="li-pages">
@@ -34,14 +37,12 @@
 
     <nav class="nav mobile" id="nav-mobile">
       <ul>
-        <li>
-          {% for nav_item in site.data.navigation %}
-            {% capture nav_item_type %} {{ nav_item.title | downcase }} {% endcapture %}
-            <li class="li-pages">
-              <a class="{% if nav_item_type contains page.type %}selected-nav-item{% endif %}" href="{{ domain }}{{ nav_item.url }}">{{ nav_item.title }}</a>
-            </li>
-          {% endfor %}
-        </li>
+        {% for nav_item in site.data.navigation %}
+          {% capture nav_item_type %} {{ nav_item.title | downcase }} {% endcapture %}
+          <li class="li-pages">
+            <a class="{% if nav_item_type contains page.type %}selected-nav-item{% endif %}" href="{{ domain }}{{ nav_item.url }}">{{ nav_item.title }}</a>
+          </li>
+        {% endfor %}
       </ul>
     </nav>
   </div><!-- /.top-navigation -->

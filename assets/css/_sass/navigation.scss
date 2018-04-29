@@ -106,6 +106,15 @@
           border-bottom: .2rem solid $orange;
         }
       }
+
+      &.home {
+        a {
+          padding-left: .75rem;
+          padding-right: .75rem;
+          background-color: darken($light-black, 10);
+          border-bottom: .2rem solid darken($light-black, 10);
+        }
+      }
     }
     .li-social {
       float: right;
