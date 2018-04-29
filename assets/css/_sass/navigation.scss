@@ -107,46 +107,99 @@
         }
       }
     }
-    .li-social,
-    .li-search {
-      float: right;
-    }
     .li-social {
+      float: right;
+      margin-right: 0;
       a:hover {
         @include scale(1.2);
       }
     }
-    .li-search {
-      margin-right: 0;
-      input {
-        width: 12rem;
-        height: 2rem;
-        font-weight: 600;
-        border-radius: .3rem;
-        color: darken(grey, 20);
-        background-color: $grey;
-        font-family: $heading-font;
-        @include font-rem(15);
-        &:focus,
-        &:hover {
-          border: .12rem solid $orange;
-        }
-      }
-      @include input-placeholder {
-        color: darken(grey, 25);
-        font-weight: 600;
-        font-style:italic;
-        font-family: $heading-font;
-      }
-      .search-input-icon {
-        top: 1px;
-        width: 0;
-        z-index: 1;
-        left: -25px;
-        cursor: pointer;
-        position: relative;
-        color: $light-black;
-      }
+  }
+}
+
+.search-input-wrap {
+  input {
+    width: 95%;
+    height: 2rem;
+    font-weight: 600;
+    border-radius: .3rem;
+    font-family: $heading-font;
+    @include font-rem(15);
+    &:focus,
+    &:hover {
+      border: .12rem solid $orange;
     }
   }
+  @include input-placeholder {
+    color: darken(grey, 25);
+    font-weight: 600;
+    font-style:italic;
+    font-family: $heading-font;
+  }
+  .search-input-icon {
+    top: 1px;
+    width: 0;
+    z-index: 1;
+    left: -25px;
+    cursor: pointer;
+    position: relative;
+    color: $light-black;
+  }
+}
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.15);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  a {
+    outline: 0;
+  }
+}
+
+.modal-window:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-window>div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 2rem;
+  background: #fff;
+  color: #444;
+}
+
+.modal-window header {
+  font-weight: bold;
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modal-window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
 }
