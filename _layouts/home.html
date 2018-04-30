@@ -19,11 +19,11 @@
       <a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
     </div>
 
-    <div class="site-header">
+    <div class="site-header fade-in-first">
       <a href="{{ site.url }}/">{{ site.title }}</a>
     </div><!-- /.site-name -->
 
-    <div id="index">
+    <div id="index" class="fade-in-second">
       <h3><a href="{{ site.url}}/posts/">Recent Posts</a></h3>
       {% for post in site.posts limit:5 %}
         <article>

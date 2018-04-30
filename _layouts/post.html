@@ -19,11 +19,11 @@
       <a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
     </div>
 
-    <div class="site-header">
+    <div class="site-header fade-in-first">
       <a href="{{ site.url }}/">{{ site.title }}</a>
     </div><!-- /.site-name -->
 
-    <article class="post">
+    <article class="post fade-in-second">
       {% if page.image.feature %}
         <div class="image-wrap">
           <img src=
@@ -79,7 +79,7 @@
       </div>
     </article>
 
-    <aside class="article-author-side">
+    <aside class="article-author-side fade-in-third">
       {% include _author-bio.html %}
     </aside>
   </div><!-- /#main -->

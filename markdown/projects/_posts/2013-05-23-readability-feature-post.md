@@ -7,7 +7,7 @@ permalink: /projects/:year/:month/:day/:title
 type: projects
 comments: false
 image:
-  feature: andrew-neel-308138-unsplash.jpg
+  feature: post-banner.jpg
   credit:
   creditlink:
 ---

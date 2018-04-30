@@ -9,7 +9,7 @@ permalink: /projects/:year/:month/:day/:title
 type: projects
 comments: false
 image:
-  feature: thought-catalog-567759-unsplash.jpg
+  feature: post-banner.jpg
   credit:
   creditlink:
 ---
