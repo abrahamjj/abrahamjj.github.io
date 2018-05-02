@@ -71,6 +71,23 @@
                 </ul>
               </div>
             {% endif %}
+
+            <hr>
+
+            <nav class="pagination" role="navigation">
+              {% if page.previous %}
+                  <div class="article-wrap prev">
+                    <a href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title }}">Previous article</a>
+                    <div class="byline">({{ page.previous.title }})</div>
+                  </div>
+              {% endif %}
+              {% if page.next %}
+                  <div class="article-wrap next">
+                    <a href="{{ site.url }}{{ page.next.url }}" title="{{ page.next.title }}">Next article</a>
+                    <div class="byline">({{ page.next.title }})</div>
+                  </div>
+              {% endif %}
+            </nav>
           </footer>
         </div><!-- /.article-wrap -->
         {% if site.owner.disqus-shortname and page.comments == true %}
