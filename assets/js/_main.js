@@ -60,13 +60,22 @@ $(document).ready(function() {
       goToResultsPage();
     }
   });
+
+  /* Close seatch modal when Esc button is clicked */
+  $(document).on('keyup',function(evt) {
+    if (evt.keyCode == 27) {
+      if(window.location.href.indexOf('#open-modal')) {
+        window.location.replace('#modal-close');
+      }
+    }
+  });
 });
 
 function goToResultsPage() {
   if ($('#search-input').val()) {
     window.location.replace(
       '/results' + '?tag=' + $('#search-input').val()
-    );        
+    );
   }
 }
 
