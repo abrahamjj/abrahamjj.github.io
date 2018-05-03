@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   /* Set header dynamically with query param */
-  var query = getParameterByName('tag');
+  var query = getParameterByName('tag') ? getParameterByName('tag').toLowerCase() : null;
   $('#search-results-header').append('\"'+query+'\"');
 
   function getParameterByName(name) {
@@ -37,8 +37,9 @@ $(document).ready(function() {
   /* Populate search results */
   for (i=1; i<=$('.search-results-article').length; i++) {
     var articleId = '#search-results-article-'+i;
+    var articleTitle = $('#search-results-article-'+i).data('title').toLowerCase();
     var articleTags = getArticleTags(i);
-    if ( articleTags.includes(query.toLowerCase()) ) {
+    if (articleTags.includes(query) || articleTitle.indexOf(query) >= 0) {
       $(articleId).show();
     }
   }

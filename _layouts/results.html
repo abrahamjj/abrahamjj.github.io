@@ -27,7 +27,7 @@
       <h3 id="search-results-header">Results for: </h3>
       <h3 class="js-req-header"><i class="fa fa-fw fa-wrench"></i>JavaScript is required to view this content.</h3>
       {% for post in site.posts %}
-        <article class="search-results-article" id="search-results-article-{{ forloop.index }}" data-tags="{{post.tags | join: ','}}">
+        <article class="search-results-article" id="search-results-article-{{ forloop.index }}" data-tags="{{post.tags | join: ','}}" data-title="{{post.title}}">
           {% if post.link %}
             <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
           {% else %}
