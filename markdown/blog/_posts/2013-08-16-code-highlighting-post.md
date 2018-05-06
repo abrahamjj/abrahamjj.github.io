@@ -19,14 +19,18 @@ Syntax highlighting is a feature that displays source code, in different colors 
 
 ### Pygments Code Blocks
 
-To modify styling and highlight colors edit `/_sass/_pygments.scss`.
+To modify styling and highlight colors edit `/_sass/_syntax.scss`.
 
 {% highlight css %}
-#container {
+.some-div {
     float: left;
     margin: 0 -240px 0 0;
     width: 100%;
+    outline: 0;
+    display: block;
+    margin-bottom: .4rem;
 }
+
 {% endhighlight %}
 
 {% highlight html %}
@@ -62,63 +66,37 @@ module Jekyll
 end
 {% endhighlight %}
 
+{% highlight js %}
+function getArticleTags(i) {
+  articleTags = $('#search-results-article-'+i).data('tags').split(',');
 
-### Standard Code Block
+  articleTags.forEach(function(val, index) {
+    articleTags[index] = val.toLowerCase();
+  });
 
-    {% raw %}
-    <nav class="pagination" role="navigation">
-        {% if page.previous %}
-            <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-        {% endif %}
-        {% if page.next %}
-            <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-        {% endif %}
-    </nav><!-- /.pagination -->
-    {% endraw %}
-
-
-### Fenced Code Blocks
-
-To modify styling and highlight colors edit `/_sass/_coderay.scss`. Line numbers and a few other things can be modified in `_config.yml`. Consult [Jekyll's documentation](http://jekyllrb.com/docs/configuration/) for more information.
-
-~~~ css
-#container {
-    float: left;
-    margin: 0 -240px 0 0;
-    width: 100%;
+  return articleTags;
 }
-~~~
+{% endhighlight %}
 
-~~~ html
-{% raw %}<nav class="pagination" role="navigation">
-    {% if page.previous %}
-        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-    {% endif %}
-    {% if page.next %}
-        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-    {% endif %}
-</nav><!-- /.pagination -->{% endraw %}
-~~~
+{% highlight java %}
+public class SwitchCaseExample1 {
 
-~~~ ruby
-module Jekyll
-  class TagIndex < Page
-    def initialize(site, base, dir, tag)
-      @site = site
-      @base = base
-      @dir = dir
-      @name = 'index.html'
-      self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'tag_index.html')
-      self.data['tag'] = tag
-      tag_title_prefix = site.config['tag_title_prefix'] || 'Tagged: '
-      tag_title_suffix = site.config['tag_title_suffix'] || '&#8211;'
-      self.data['title'] = "#{tag_title_prefix}#{tag}"
-      self.data['description'] = "An archive of posts tagged #{tag}."
-    end
-  end
-end
-~~~
+   public static void main(String args[]){
+     int num=2;
+     switch(num+2)
+     {
+        case 1:
+    System.out.println("Case1: Value is: "+num);
+  case 2:
+    System.out.println("Case2: Value is: "+num);
+  case 3:
+    System.out.println("Case3: Value is: "+num);
+        default:
+    System.out.println("Default: Value is: "+num);
+      }
+   }
+}
+{% endhighlight %}
 
 ### GitHub Gist Embed
 

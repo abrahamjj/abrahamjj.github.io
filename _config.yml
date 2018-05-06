@@ -6,7 +6,7 @@ baseurl: /
 
 # Jekyll configuration
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 sass:
   sass_dir: assets/css/_sass
   style: compressed
@@ -19,7 +19,6 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  enable_coderay: false
 
 # Site owner
 owner:
