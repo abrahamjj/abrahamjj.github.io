@@ -60,8 +60,13 @@ $(document).ready(function() {
       goToResultsPage();
     }
   });
+  $('#search-input-404').keyup(function(event) {
+    if (event.keyCode === 13) {
+      goToResultsPage();
+    }
+  });
 
-  /* Close seatch modal when Esc button is clicked */
+  /* Close search modal when Esc button is clicked */
   $(document).on('keyup',function(evt) {
     if (evt.keyCode == 27) {
       if(window.location.href.indexOf('#open-modal')) {
@@ -75,6 +80,11 @@ function goToResultsPage() {
   if ($('#search-input').val()) {
     window.location.replace(
       '/results' + '?tag=' + $('#search-input').val()
+    );
+  }
+  if ($('#search-input-404').val()) {
+    window.location.replace(
+      '/results' + '?tag=' + $('#search-input-404').val()
     );
   }
 }

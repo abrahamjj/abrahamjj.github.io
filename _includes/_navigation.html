@@ -2,7 +2,7 @@
   <div class="top-navigation">
     <nav class="nav" id="site-nav" role="navigation">
       <ul>
-        <li class="li-mobile-menu" onclick="toggleMobileMenu()">
+        <li class="li-mobile-menu" onclick="javascript:toggleMobileMenu();">
           <a><span><i class="fa fa-fw fa-bars" id="mobile-menu-icon"></i>&nbsp;Menu</span></a>
         </li>
         <li class="li-pages home">
@@ -29,8 +29,7 @@
           <h3>Search posts...</h3>
           <div class="search-input-wrap">
             <input id="search-input" type="text" maxlength="20" placeholder="Seach...">
-              <a><i class="search-input-icon fa fa-search" onclick="goToResultsPage()"></i></a>
-            </input>          
+            <i class="search-input-icon fa fa-search" onclick="javascript:goToResultsPage();"></i>
           </div>
       </div>
     </nav>
