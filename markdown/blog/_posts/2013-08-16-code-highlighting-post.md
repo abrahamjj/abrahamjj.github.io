@@ -6,7 +6,7 @@ tags: [sample post, code, highlighting]
 permalink: /blog/:year/:month/:day/:title
 modified: 2014-09-14
 type: blog
-comments: false
+comments: true
 image:
   feature: post-banner.jpg
   credit:

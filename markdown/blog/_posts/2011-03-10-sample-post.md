@@ -6,7 +6,7 @@ modified: 2013-05-31
 tags: [intro, beginner, jekyll, tutorial]
 permalink: /blog/:year/:month/:day/:title
 type: blog
-comments: false
+comments: true
 image:
   feature: post-banner.jpg
   credit:

@@ -5,7 +5,7 @@ excerpt: "Examples and code for displaying images in posts."
 tags: [sample post, images, test]
 permalink: /blog/:year/:month/:day/:title
 type: blog
-comments: false
+comments: true
 image:
   feature: post-banner.jpg
   credit:

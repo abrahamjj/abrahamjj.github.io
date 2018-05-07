@@ -5,7 +5,7 @@ excerpt: "Custom written post descriptions are the way to go... if you're not la
 tags: [sample post, readability, test]
 permalink: /projects/:year/:month/:day/:title
 type: projects
-comments: false
+comments: true
 image:
   feature: post-banner.jpg
   credit:

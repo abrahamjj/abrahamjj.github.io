@@ -6,7 +6,7 @@ excerpt: "A post to test author overrides using a data file."
 tags: []
 permalink: /blog/:year/:month/:day/:title
 type: blog
-comments: false
+comments: true
 image:
   feature: post-banner.jpg
   credit:

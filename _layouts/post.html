@@ -90,9 +90,34 @@
             </nav>
           </footer>
         </div><!-- /.article-wrap -->
-        {% if site.owner.disqus-shortname and page.comments == true %}
+
+      </div>
+
+      {% if page.comments and site.owner.disqus-shortname %}
+          <div class="card-separator"></div>
+
           <section id="disqus_thread"></section><!-- /#disqus_thread -->
-        {% endif %}
+      {% endif %}
+
+      {% if site.related_posts.size > 0 %}
+        <div class="card-separator"></div>
+
+        <div class="latest-articles article">
+          <h4>Latest posts</h4>
+          {% for post in site.related_posts limit:5 %}
+            <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            <p class="byline">
+              Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+            </p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="card-separator about-author"></div>
+
+      <div class="about-author-card">
+        <h4>About the author</h4>
+        <p>{{ author.bio }}</p>
       </div>
     </article>
 
@@ -100,32 +125,6 @@
       {% include _author-bio.html %}
     </aside>
   </div><!-- /#main -->
-
-  {% if site.related_posts.size > 0 %}
-    <div class="latest-articles article">
-      <h4>Latest posts</h4>
-      {% for post in site.related_posts limit:5 %}
-        <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        <p class="byline">
-          Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-        </p>
-      {% endfor %}
-    </div>
-  {% endif %}
-
-  <div class="about-author-card">
-    <h4>About the author</h4>
-    <p>{{ author.bio }}</p>
-  </div>
-
-  {% if page.comments %}
-    <div class="disqus-comments-card">
-      <span>DISQUS COMMENTS...</span> <br /> <br />
-      <span>DISQUS COMMENTS...</span> <br /> <br />
-      <span>DISQUS COMMENTS...</span> <br /> <br />
-      <span>DISQUS COMMENTS...</span> <br /> <br />
-    </div>
-  {% endif %}
 </div><!-- /.site-content -->
 
 <div class="footer-wrap">

@@ -221,14 +221,29 @@ body {
   }
 }
 
-/* Cards under article on tablet and mobile */
+/* Cards under article */
+.card-separator {
+  height: 1.5rem;
+  background-color: $body-color;
+  &.about-author {
+    @media #{$large} {
+      display: none;
+    }
+  }
+}
+
 .latest-articles.article,
-.disqus-comments-card,
-.about-author-card {
-  margin-bottom: 1.5rem;
-  background-color: $white;
+.about-author-card,
+#disqus_thread {
   border-left: .3rem solid $orange;
-  padding: 1rem 3rem 1rem 3rem;
+  padding: 1rem 1rem 1rem 1rem;
+  @media #{$medium} {
+    padding: 1rem 3rem 1rem 3rem;
+  }
+}
+
+.latest-articles.article,
+.about-author-card {
   @media #{$large} {
     display: none;
   }

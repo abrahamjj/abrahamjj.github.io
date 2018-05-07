@@ -5,7 +5,7 @@ excerpt: "A ton of text to test readability."
 permalink: /projects/:year/:month/:day/:title
 tags: [Ruby, test, R, gradle, readability, Java, Programming]
 type: projects
-comments: false
+comments: true
 image:
   feature: post-banner.jpg
   credit:
