@@ -54,7 +54,7 @@ $(document).ready(function() {
     return articleTags;
   }
 
-  /* Search tags with input box  */
+  /* Search tags with input box on Enter */
   $('#search-input').keyup(function(event) {
     if (event.keyCode === 13) {
       goToResultsPage();
@@ -64,6 +64,13 @@ $(document).ready(function() {
     if (event.keyCode === 13) {
       goToResultsPage();
     }
+  });
+
+  /* Autofocus on site search input box */
+  $('#author-social-search').click(function(){
+    setTimeout(function(){
+      $('#search-input').focus();
+    },200);
   });
 
   /* Close search modal when Esc button is clicked */
