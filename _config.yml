@@ -29,9 +29,7 @@ owner:
   github: john4braham
   email: john.abraham@hotmail.com
   disqus-shortname: john4braham
-  google:
-    analytics:
-  bing-verify:
+  google-analytics: UA-118820080-1
 
 #includes/excludes from jekyll conversion
 include: [
