@@ -221,6 +221,18 @@ body {
   }
 }
 
+.about-author-card {
+  .bio-photo {
+    width: 5rem;
+    float: left;
+    margin: 1rem 2rem 0 0;
+    @include rounded(50%);
+    &:hover {
+      @include box-shadow(0 0 0 .15em $orange);
+    }
+  }
+}
+
 /* Cards under article */
 .card-separator {
   height: 1.5rem;
@@ -250,7 +262,6 @@ body {
   h4 {
     margin-bottom: .5rem;
     text-transform: uppercase;
-    @include font-rem(16);
     &:before {
       content: "\2014";
       padding-right: .25rem;
