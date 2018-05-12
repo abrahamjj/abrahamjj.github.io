@@ -65,22 +65,6 @@ $(document).ready(function() {
       goToResultsPage();
     }
   });
-
-  /* Autofocus on site search input box */
-  $('#author-social-search').click(function(){
-    setTimeout(function(){
-      $('#search-input').focus();
-    },200);
-  });
-
-  /* Close search modal when Esc button is clicked */
-  $(document).on('keyup',function(evt) {
-    if (evt.keyCode == 27) {
-      if(window.location.href.indexOf('#open-modal')) {
-        window.location.replace('#modal-close');
-      }
-    }
-  });
 });
 
 function goToResultsPage() {

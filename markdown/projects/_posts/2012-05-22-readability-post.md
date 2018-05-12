@@ -3,11 +3,11 @@ layout: post
 title: "Testing Readability with a Bunch of Text"
 excerpt: "A ton of text to test readability."
 permalink: /projects/:year/:month/:day/:title
-tags: [Ruby, test, R, gradle, readability, Java, Programming]
+tags: [Ruby, test, R, gradle, readability, Java, Program, Maven, Code, Python, Testing, Software, Dev, Web]
 type: projects
 comments: true
 image:
-  feature: post-banner.jpg
+  feature: github-photo.jpg
   credit:
   creditlink:
 ---

@@ -2,43 +2,40 @@
   <div class="top-navigation">
     <nav class="nav" id="site-nav" role="navigation">
       <ul>
-        <li class="li-mobile-menu" onclick="javascript:toggleMobileMenu();">
+        <li class="mobile-menu" onclick="javascript:toggleMobileMenu();">
           <a><span><i class="fa fa-fw fa-bars" id="mobile-menu-icon"></i>&nbsp;Menu</span></a>
         </li>
-        <li class="li-pages home">
-          <a class="{% if nav_item_type contains page.type %}selected-nav-item{% endif %}" href="/"><i class="fa fa-fw fa-home"></i></a>
+
+        <li class="site-header fade-in-first">
+          <a href="{{ site.url }}/">{{ site.title }}</a>
         </li>
-        {% for nav_item in site.data.navigation %}
-          {% capture nav_item_type %} {{ nav_item.title | downcase }} {% endcapture %}
-          <li class="li-pages">
-            <a class="{% if nav_item_type contains page.type %}selected-nav-item{% endif %}" href="{{ domain }}{{ nav_item.url }}">{{ nav_item.title }}</a>
-          </li>
-        {% endfor %}
-        <li class="li-social">
+
+        <li class="social-btns">
           {% if author.github %}<a href="http://github.com/{{ author.github }}" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i></a>{% endif %}
           {% if author.linkedin %}<a href="http://linkedin.com/in/{{ author.linkedin }}" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i></a>{% endif %}
           {% if author.email %}<a href="mailto:{{ author.email }}" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i></a>{% endif %}
           <a href="/feed.xml" target="_blank" class="author-social"><i class="fa fa-fw fa-rss"></i></a>
-          <a href="#open-modal" id="author-social-search" class="author-social"><i class="fa fa-fw fa-search"></i></a>
         </li>
-      </ul>
 
-      <div id="open-modal" class="modal-window">
-        <div>
-          <a href="#modal-close" title="Close" class="modal-close"><i class="fa fa-fw fa-times"></i>Close</a>
-          <h3>Search posts...</h3>
-          <div class="search-input-wrap">
-            <input id="search-input" type="text" maxlength="20" placeholder="Seach...">
-            <i class="search-input-icon fa fa-search" onclick="javascript:goToResultsPage();"></i>
-          </div>
-      </div>
+        <li class="nav-search">
+          <input type="text" id="search-input" maxlength="20" placeholder="Search posts...">
+          <i class="search-input-icon fa fa-search" onclick="javascript:goToResultsPage();"></i>
+        </li>
+
+        {% for nav_item in site.data.navigation reversed %}
+          {% capture nav_item_type %} {{ nav_item.title | downcase }} {% endcapture %}
+          <li class="site-pages">
+            <a class="{% if nav_item_type contains page.type %}selected-nav-item{% endif %}" href="{{ domain }}{{ nav_item.url }}">{{ nav_item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
     </nav>
 
     <nav class="nav mobile" id="nav-mobile">
       <ul>
         {% for nav_item in site.data.navigation %}
           {% capture nav_item_type %} {{ nav_item.title | downcase }} {% endcapture %}
-          <li class="li-pages">
+          <li class="pages">
             <a class="{% if nav_item_type contains page.type %}selected-nav-item{% endif %}" href="{{ domain }}{{ nav_item.url }}">{{ nav_item.title }}</a>
           </li>
         {% endfor %}

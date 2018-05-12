@@ -10,6 +10,8 @@
   font-family: $heading-font;
   background-color: $nav-color;
   border-top: .15rem solid $orange;
+  border-bottom: .1rem solid grey;
+  @include box-shadow(0 5px 6px -5px grey);
   padding: 0 .5rem 0 .5rem;
   @media #{$medium} {
     padding: 0 2rem 0 2rem;
@@ -26,19 +28,33 @@
   @include container;
   @include clearfix;
   font-weight: 700;
+  padding: 1rem 0 1rem 0;
   text-transform: uppercase;
   font-family: $heading-font;
+  ul li {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  @media #{$medium} {
+    padding: 0;
+    ul li {
+      width: auto;
+      text-align: none;
+      display: inline-block;
+    }
+  }
 
   &.mobile {
     //hidden by default. toggled w/ js
     display: none;
-    padding: 0 2rem .75rem 2rem;
-    background-color: darken($light-black, 10);
+    padding: 0 1rem 0 1rem;
     @media #{$large} {
       display: none !important;
     }
-    .li-pages {
-      border-bottom: .15rem solid $light-black;
+    li.pages {
+      padding: 1rem 0 1rem 0;
+      border-bottom: .1rem solid lighten(grey, 20);
       &:last-child {
         border-bottom: none;
       }
@@ -48,9 +64,7 @@
       }
       a {
         border-bottom: none !important;
-        &.selected-nav-item {
-          color: $orange;
-        }
+        &.selected-nav-item { color: $orange; }
       }
     }
   }
@@ -60,155 +74,108 @@
     padding: 0;
     clear: both;
     list-style-type: none;
-    li {
-      display: block;
-      list-style-type: none;
-      display: inline;
-      margin-right: 25px;
-      white-space: nowrap;
-      @include font-rem(18);
-      a {
-        color: $white;
-        decoration: none;
-        position: relative;
-        display:inline-block;
-        text-decoration: none;
-        outline: 0 !important;
-        padding: 1rem 0 .9rem 0;
-        &:hover {
-          color: $orange;
-        }
+  }
+  li {
+    display: block;
+    list-style-type: none;
+    display: inline;
+    margin-right: 2.25rem;
+    white-space: nowrap;
+    @include font-rem(18);
+    a {
+      color: $nav-text-color;
+      decoration: none;
+      position: relative;
+      display:inline-block;
+      text-decoration: none;
+      outline: 0 !important;
+      &:hover {
+        color: $orange;
       }
     }
-    .li-mobile-menu {
-      display: inline;
-      cursor:pointer;
+    &.mobile-menu {
+      cursor: pointer;
       a {
-        &:hover {
-          color: white;
-        }
+        @include font-rem(24);
+        &:hover { color: $light-black; }
       }
       @media #{$large} {
         display: none;
       }
     }
-    .li-pages {
+    &.site-header {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: $heading-font;
+      @include font-rem(24);
+      a {
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+        @media #{$large} {
+          padding-bottom: 0;
+        }
+      }
+    }
+    &.nav-search {
+      padding-top: .5rem;
+      margin-right: .3rem;
+      input {
+        margin: 0;
+        width: 12rem;
+        height: 2rem;
+        font-weight: 600;
+        color: $light-black;
+        border-radius: .3rem;
+        font-family: $heading-font;
+        &:hover,
+        &:focus {
+          border: .11rem solid $orange;
+          @include box-shadow(0 0 .3em $orange);
+        }
+      }
+      .search-input-icon {
+        top: 1px;
+        width: 0;
+        z-index: 1;
+        left: -25px;
+        cursor: pointer;
+        position: relative;
+        color: $light-black;
+      }
+    }
+    &.site-pages {
       display: none;
       @media #{$large} {
         display: inline;
       }
       a {
+        padding: 1rem 0 .75rem 0;
         &:hover {
           color: $orange;
-          border-bottom: .2rem solid $orange;
         }
+        &:hover,
         &.selected-nav-item {
-          border-bottom: .2rem solid $orange;
-        }
-      }
-
-      &.home {
-        a {
-          padding-left: 1rem;
-          padding-right: 1rem;
-          background-color: darken($light-black, 10);
-          border-bottom: .2rem solid darken($light-black, 10);
+          border-bottom: .15rem solid $orange;
         }
       }
     }
-    .li-social {
-      float: right;
+    &.social-btns {
       margin-right: 0;
+      padding-top: .75rem;
+      @include font-rem(20);
       a:hover {
         @include scale(1.2);
       }
+      .fa-github          { color: $github-color; }
+      .fa-linkedin-square { color: $linkedin-color; }
+      .fa-envelope-square { color: $envelope-color; }
+      .fa-rss             { color: $rss-color; }
+    }
+
+    &.nav-search,
+    &.site-pages,
+    &.social-btns {
+      float: right;
     }
   }
-}
-
-.search-input-wrap {
-  input {
-    width: 95%;
-    height: 2rem;
-    font-weight: 600;
-    border-radius: .3rem;
-    font-family: $heading-font;
-    @include font-rem(15);
-    &:focus,
-    &:hover {
-      border: .12rem solid $orange;
-    }
-  }
-  @include input-placeholder {
-    color: darken(grey, 25);
-    font-weight: 600;
-    font-style:italic;
-    font-family: $heading-font;
-  }
-  .search-input-icon {
-    top: 1px;
-    width: 0;
-    z-index: 1;
-    left: -25px;
-    cursor: pointer;
-    position: relative;
-    color: $light-black;
-  }
-}
-
-.modal-window {
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.15);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  a {
-    outline: 0;
-  }
-}
-
-.modal-window:target {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-window>div {
-  width: 400px;
-  position: relative;
-  margin: 10% auto;
-  padding: 2rem;
-  background: #fff;
-  color: #444;
-}
-
-.modal-window header {
-  font-weight: bold;
-}
-
-.modal-close {
-  color: #aaa;
-  line-height: 50px;
-  font-size: 80%;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: 70px;
-  text-decoration: none;
-}
-
-.modal-close:hover {
-  color: #000;
-}
-
-.modal-window h1 {
-  font-size: 150%;
-  margin: 0 0 15px;
 }

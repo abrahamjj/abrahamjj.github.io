@@ -23,12 +23,14 @@ $white                : #ffffff;
 $black                : #000000;
 $light-black          : #404040;
 $orange               : #e74b37;
-$grey                 : #dcdcdc;
+$grey                 : #e6e6e6;
+$lighter-grey         : #fafafa;
 $accent-color         : $black;
 
 /* page colors */
-$body-color           : darken($light-black, 2);
-$nav-color            : lighten($light-black, 10);
+$body-color           : $lighter-grey;
+$nav-color            : $grey;
+$nav-text-color       : $light-black;
 $footer-color         : $light-black;
 $text-color           : $black;
 $text-highlight-color : $orange;
@@ -53,10 +55,12 @@ $flickr-color         : #ff0084;
 $foursquare-color     : #0cbadf;
 $instagram-color      : #4e433c;
 $pinterest-color      : #cb2027;
-$rss-color            : #fa9b39;
+$rss-color            : #ffa500;
 $tumblr-color         : #2c4762;
 $vimeo-color          : #1ab7ea;
 $youtube-color        : #ff3333;
+$github-color         : #000000 ;
+$envelope-color       : #d60808;
 
 /* links */
 $link-color           : #343434;

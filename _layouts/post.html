@@ -19,10 +19,6 @@
       <a href="javascript:"><i class="fa fa-fw fa-chevron-up"></i></a>
     </div>
 
-    <div class="site-header fade-in-first">
-      <a href="{{ site.url }}/">{{ site.title }}</a>
-    </div><!-- /.site-name -->
-
     <article class="post fade-in-second">
       {% if page.image.feature %}
         <div class="image-wrap">
@@ -39,6 +35,7 @@
           {% endif %}
         </div><!-- /.image-wrap -->
       {% endif %}
+
       <div class="post-content">
         <div class="headline-wrap">
           {% if page.link %}
@@ -90,7 +87,6 @@
             </nav>
           </footer>
         </div><!-- /.article-wrap -->
-
       </div>
 
       {% if page.comments and site.owner.disqus-shortname %}
