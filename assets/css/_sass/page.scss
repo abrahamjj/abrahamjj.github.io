@@ -486,14 +486,11 @@ body {
 }
 
 .scroll-top {
-  top: 2rem;
+  top: 1rem;
   display: none;
   position: fixed;
-  margin-left: -3.5rem;
-  padding: 0 .15em .2em .15rem;
-  background-color: $light-black;
-  @include rounded(10%);
-  @include box-shadow(0 0 .3em $orange);
+  margin-left: -2.5rem;
+  @include font-rem(24);
   @media #{$large-max} {
     display: none !important;
   }

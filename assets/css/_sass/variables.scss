@@ -59,8 +59,8 @@ $rss-color            : #ffa500;
 $tumblr-color         : #2c4762;
 $vimeo-color          : #1ab7ea;
 $youtube-color        : #ff3333;
-$github-color         : #000000 ;
-$envelope-color       : #d60808;
+$github-color         : #404040;
+$envelope-color       : #008b00;
 
 /* links */
 $link-color           : #343434;
@@ -75,6 +75,6 @@ $link-color-focus     : darken($link-color-visited, 10);
 $micro                : "only screen and (min-width: 30em)";
 $small                : "only screen and (min-width: 37.5em)";
 $medium               : "only screen and (min-width: 48em)";
-$large                : "only screen and (min-width: 62em)";
-$large-max            : "only screen and (max-width: 62em)";
+$large                : "only screen and (min-width: 68em)";
+$large-max            : "only screen and (max-width: 68em)";
 $x-large              : "only screen and (min-width: 86.375em)";

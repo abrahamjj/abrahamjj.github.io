@@ -79,7 +79,7 @@
     display: block;
     list-style-type: none;
     display: inline;
-    margin-right: 2.25rem;
+    margin-right: 2.5rem;
     white-space: nowrap;
     @include font-rem(18);
     a {
@@ -161,13 +161,15 @@
     }
     &.social-btns {
       margin-right: 0;
-      padding-top: .75rem;
+      @media #{$medium} {
+        padding-top: .75rem;
+      }
       @include font-rem(20);
       a:hover {
         @include scale(1.2);
       }
       .fa-github          { color: $github-color; }
-      .fa-linkedin-square { color: $linkedin-color; }
+      .fa-linkedin        { color: $linkedin-color; }
       .fa-envelope-square { color: $envelope-color; }
       .fa-rss             { color: $rss-color; }
     }
