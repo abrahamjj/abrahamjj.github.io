@@ -58,7 +58,7 @@ body {
     }
     #index,
     .page {
-      height: 86vh;
+      min-height: 86vh;
       padding: 2.5rem 1rem 2rem 1rem;
       @media #{$medium} {
         padding: 2.5rem 3rem 2rem 3rem;

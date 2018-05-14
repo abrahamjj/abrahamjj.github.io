@@ -27,7 +27,10 @@ owner:
   bio: "full-stack web developer and open-source enthusiast."
   linkedin: john4braham
   github: john4braham
-  email: john.abraham@hotmail.com
+  email:
+    name: john.abraham
+    domain: hotmail
+    tld: com
   disqus-shortname: john-abraham-blog
   google-analytics: UA-118820080-1
 

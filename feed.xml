@@ -13,7 +13,6 @@ sitemap: false
 <author>
   <name>{{ site.owner.name }}</name>
   <uri>{{ site.url }}/</uri>
-  {% if site.owner.email %}<email>{{ site.owner.email }}</email>{% endif %}
 </author>
 {% for post in site.posts limit:5 %}
 {% if post.author %}
@@ -32,7 +31,6 @@ sitemap: false
   <author>
     <name>{{ author.name }}</name>
     <uri>{{ site.url }}</uri>
-    {% if author.email %}<email>{{ author.email }}</email>{% endif %}
   </author>
   <content type="html">
     {{ post.content | xml_escape }}
