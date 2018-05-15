@@ -1,7 +1,7 @@
 ---
 layout: home
 image:
-  feature: navbar-image.jpg
+  feature: navbar_image.jpg
   credit:
   creditlink:
 ---

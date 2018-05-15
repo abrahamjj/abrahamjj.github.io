@@ -23,7 +23,7 @@ kramdown:
 # Site owner
 owner:
   name: John Abraham
-  avatar: bio-photo.jpg
+  avatar: bio_photo.jpg
   bio: "full-stack web developer and open-source enthusiast."
   linkedin: john4braham
   github: john4braham

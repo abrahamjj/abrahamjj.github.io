@@ -8,7 +8,7 @@ permalink: /blog/:year/:month/:day/:title
 type: blog
 comments: true
 image:
-  feature: post-banner.jpg
+  feature: post_banner.jpg
   credit:
   creditlink:
 ---
@@ -36,7 +36,7 @@ cornelius_fiddlebone:
   name: Cornelius Fiddlebone
   email: cornelius@thewhip.com
   bio: "I ordered what?"
-  avatar: bio-photo.jpg
+  avatar: bio_photo.jpg
   twitter: rhymeswithsackit
   google:
     plus: CorneliusFiddlebone

@@ -8,7 +8,7 @@ permalink: /projects/:year/:month/:day/:title
 type: projects
 comments: true
 image:
-  feature: post-banner.jpg
+  feature: post_banner.jpg
   credit:
   creditlink:
 ---

@@ -7,7 +7,7 @@ tags: [Ruby, test, R, gradle, readability, Java, Program, Maven, Code, Python, T
 type: projects
 comments: true
 image:
-  feature: github-photo.jpg
+  feature: github_photo.jpg
   credit:
   creditlink:
 ---

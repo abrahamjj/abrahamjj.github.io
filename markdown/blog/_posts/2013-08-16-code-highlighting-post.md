@@ -8,7 +8,7 @@ modified: 2014-09-14
 type: blog
 comments: true
 image:
-  feature: post-banner.jpg
+  feature: post_banner.jpg
   credit:
   creditlink:
 ---
