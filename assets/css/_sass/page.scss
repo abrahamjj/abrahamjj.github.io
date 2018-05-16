@@ -661,3 +661,107 @@ body {
     color: $light-black;
   }
 }
+
+/*
+   Contact Me page input styling
+   ========================================================================== */
+
+#contact-form {
+  width: 100%;
+  @media #{$large} {
+    width: 50%;
+    float:left;
+  }
+
+  label {
+    @include font-rem(18);
+  }
+
+  input,
+  textarea {
+    margin: 0;
+    height: 2rem;
+    font-weight: 600;
+    @include font-rem(18);
+    border-radius: .3rem;
+    font-family: $heading-font;
+    &:hover,
+    &:focus {
+      border: .11rem solid $orange;
+      @include box-shadow(0 0 .3em $orange);
+    }
+    &.required {
+      border: .11rem solid red;
+      @include box-shadow(0 0 .05em red);
+    }
+  }
+
+  textarea {
+    height: 8rem;
+  }
+
+  #invalid-email-text,
+  #invalid-subj-text,
+  #invalid-msg-text {
+    display: none;
+    color: red;
+  }
+
+  .btn {
+    outline: 0;
+    color: white !important;
+    &:hover {
+      color: $black !important;
+    }
+  }
+
+  .contact-input-group {
+    margin-bottom: 1rem;
+  }
+}
+
+.contact-img {
+  max-width: 512px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  vertical-align: bottom;
+  @media #{$large} {
+    float: right;
+    max-width: 45%;
+    margin: 0;
+  }
+}
+
+.success-modal-wrapper {
+  visibility: hidden;
+  width: 24rem;
+  height: 15rem;
+  top: 15%;
+  left: 52%;
+  position: fixed;
+  margin-top: -6.5rem;
+  margin-left: -12.5rem;
+  background: white;
+  border: 1px solid green;
+  text-align: center;
+  z-index: 10;
+  .success-modal {
+    padding: 2rem 1rem 1rem 1rem; 
+    i {
+      color: green;
+      @include font-size(70);
+    }
+    a {
+      outline: 0;
+      background: white;
+      border: 1px solid green;
+      &:hover {
+        background: lighten(grey, 30);
+      }
+    }
+    .modal-text-container {
+      border-top: 1px solid green;
+    }
+
+  }
+}

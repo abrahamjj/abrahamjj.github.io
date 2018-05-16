@@ -132,3 +132,82 @@ function toggleMobileMenu() {
     $('#mobile-menu-icon').removeClass('fa-times').addClass('fa-bars');
   }
 }
+
+/*
+   Contact form submission: formulate action here to avoid spambots
+   ========================================================================== */
+
+function submitContactForm() {
+  $('#contact-form').attr(
+    'action',
+    '//formspree.io/' + 'john.abraham' + '@' + 'hotmail' + '.' + 'com'
+  );
+
+  // Handle form validation
+  if (validateContactForm()) {
+    $('#contact-form').submit();
+  }
+}
+
+function validateContactForm() {
+  // email validation styling
+  if ( !validateEmail($('#contact-input-email').val()) ) {
+    $('#contact-input-email').addClass('required');
+    $('#invalid-email-text').show();
+  } else {
+    $('#contact-input-email').removeClass('required');
+    $('#invalid-email-text').hide();
+  }
+
+  // subject validation styling
+  if ( !$('#contact-input-subj').val() ) {
+    $('#contact-input-subj').addClass('required');
+    $('#invalid-subj-text').show();
+  } else {
+    $('#contact-input-subj').removeClass('required');
+    $('#invalid-subj-text').hide();
+  }
+
+  // message validation styling
+  if ( !$('#contact-input-msg').val() ) {
+    $('#contact-input-msg').addClass('required');
+    $('#invalid-msg-text').show();
+  } else {
+    $('#contact-input-msg').removeClass('required');
+    $('#invalid-msg-text').hide();
+  }
+
+  // validate email, subject, and messages fields 
+  if ( !$('#contact-input-subj').val() ||
+       !$('#contact-input-msg').val() ||
+       !validateEmail($('#contact-input-email').val()) ) {
+    return false;
+  }
+
+  return true;
+}
+
+function validateEmail(email) {
+  if (email) {
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    return emailReg.test(email);    
+  }
+
+  return true;
+}
+
+function clearContactForm() {
+  $('#contact-input-name').val('');
+
+  $('#contact-input-email').val('');
+  $('#contact-input-email').removeClass('required');
+  $('#invalid-email-text').hide();
+ 
+  $('#contact-input-subj').val('');
+  $('#contact-input-subj').removeClass('required');
+  $('#invalid-subj-text').hide();
+
+  $('#contact-input-msg').val('');
+  $('#contact-input-msg').removeClass('required');
+  $('#invalid-msg-text').hide();
+}
