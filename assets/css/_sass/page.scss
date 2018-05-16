@@ -12,6 +12,7 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+  outline: 0 !important;
 }
 
 body {
@@ -162,7 +163,6 @@ body {
   .latest-articles {
     &.side {
       a {
-        outline: 0;
         display: contents;
         font-family: $heading-font;
         margin-bottom: .4rem;
@@ -472,7 +472,6 @@ body {
     }
     a {
       text-decoration: underline;
-      outline: 0;
     }
     i:hover {
       color: $orange;
@@ -503,7 +502,6 @@ body {
     display: none !important;
   }
   i { color: $orange; }
-  a {  outline: 0 !important; }
 }
 
 /*
@@ -708,7 +706,6 @@ body {
   }
 
   .btn {
-    outline: 0;
     color: white !important;
     &:hover {
       color: $black !important;
@@ -752,7 +749,6 @@ body {
       @include font-size(70);
     }
     a {
-      outline: 0;
       background: white;
       border: 1px solid green;
       &:hover {

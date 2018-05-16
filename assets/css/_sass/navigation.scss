@@ -76,10 +76,9 @@
     list-style-type: none;
   }
   li {
-    display: block;
-    list-style-type: none;
     display: inline;
-    margin-right: 2.5rem;
+    list-style-type: none;
+    margin-right: 2rem;
     white-space: nowrap;
     @include font-rem(18);
     a {
@@ -88,7 +87,6 @@
       position: relative;
       display:inline-block;
       text-decoration: none;
-      outline: 0 !important;
       &:hover {
         color: $orange;
       }
@@ -118,10 +116,9 @@
     }
     &.nav-search {
       padding-top: .5rem;
-      margin-right: .3rem;
       input {
         margin: 0;
-        width: 12rem;
+        width: 15rem;
         height: 2rem;
         font-weight: 600;
         color: $light-black;
