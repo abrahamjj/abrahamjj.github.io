@@ -1,4 +1,3 @@
-
 /*
    Navigation
    ========================================================================== */
@@ -10,8 +9,6 @@
   font-family: $heading-font;
   background-color: $nav-color;
   border-top: .15rem solid $orange;
-  border-bottom: .1rem solid grey;
-  @include box-shadow(0 5px 6px -5px grey);
   padding: 0 .5rem 0 .5rem;
   @media #{$medium} {
     padding: 0 2rem 0 2rem;
@@ -78,24 +75,20 @@
   li {
     display: inline;
     list-style-type: none;
-    margin-right: 2rem;
     white-space: nowrap;
-    @include font-rem(18);
+    @include font-rem(20);
     a {
       color: $nav-text-color;
       decoration: none;
       position: relative;
       display:inline-block;
       text-decoration: none;
-      &:hover {
-        color: $orange;
-      }
     }
     &.mobile-menu {
       cursor: pointer;
+      margin-right: 2rem;
       a {
         @include font-rem(24);
-        &:hover { color: $light-black; }
       }
       @media #{$large} {
         display: none;
@@ -103,11 +96,12 @@
     }
     &.site-header {
       font-weight: 700;
+      margin-right: 2rem;
       text-transform: uppercase;
       font-family: $heading-font;
-      @include font-rem(24);
+      @include font-rem(25);
       a {
-        padding-top: .75rem;
+        padding-top: .85rem;
         padding-bottom: .75rem;
         @media #{$large} {
           padding-bottom: 0;
@@ -115,7 +109,11 @@
       }
     }
     &.nav-search {
-      padding-top: .5rem;
+      margin: 0 auto;
+      @media #{$medium} {
+        padding-top: .5rem;
+        margin-right: 1.5rem;
+      }
       input {
         margin: 0;
         width: 15rem;
@@ -142,25 +140,21 @@
     }
     &.site-pages {
       display: none;
+      margin-right: .5rem;
       @media #{$large} {
         display: inline;
       }
       a {
-        padding: 1rem 0 .75rem 0;
-        &:hover {
-          color: $orange;
-        }
+        padding: 1rem 1rem .75rem .25rem;
+        border-bottom: .2rem solid $nav-color;
         &:hover,
         &.selected-nav-item {
-          border-bottom: .15rem solid $orange;
+          border-bottom: .2rem solid $orange;
         }
       }
     }
     &.social-btns {
-      margin-right: 0;
-      @media #{$medium} {
-        padding-top: .75rem;
-      }
+      padding-top: 1rem;
       @include font-rem(20);
       a:hover {
         @include scale(1.2);
@@ -171,8 +165,6 @@
       .fa-rss             { color: $rss-color; }
     }
 
-    &.nav-search,
-    &.site-pages,
     &.social-btns {
       float: right;
     }

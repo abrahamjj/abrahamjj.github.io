@@ -19,80 +19,95 @@
       <a href="javascript:"><i class="fa fa-fw fa-chevron-circle-up"></i></a>
     </div>
 
+    {% if page.image.feature %}
+      <div class="image-wrap fade-in-first">
+        <img src=
+        {% if page.image.feature contains 'http' %}
+          "{{ page.image.feature }}"
+        {% else %}
+          "{{ site.url }}/assets/img/{{ page.image.feature }}"
+        {% endif %}
+        alt="{{ page.title }} feature image">
+
+        {% if page.image.credit %}
+          <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+        {% endif %}
+      </div><!-- /.image-wrap -->
+    {% endif %}
+
     <article class="post fade-in-second">
-      {% if page.image.feature %}
-        <div class="image-wrap">
-          <img src=
-          {% if page.image.feature contains 'http' %}
-            "{{ page.image.feature }}"
-          {% else %}
-            "{{ site.url }}/assets/img/{{ page.image.feature }}"
-          {% endif %}
-          alt="{{ page.title }} feature image">
-
-          {% if page.image.credit %}
-            <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
-          {% endif %}
-        </div><!-- /.image-wrap -->
-      {% endif %}
-
-      <div class="post-content">
-        <div class="headline-wrap">
-          {% if page.link %}
-            <h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
-          {% else %}
-            <h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
-          {% endif %}
-          <p class="byline">
-            Published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-          </p>
-        </div><!--/ .headline-wrap -->
-        <div class="article-wrap">
-          {{ content }}
-          <hr>
-
-          <footer role="contentinfo">
-            {% if page.share != false %}
-              {% include _social-share.html %}
+      <div class="post-content-wrap">
+        <p class="byline headline">
+          <i class="fa fa-fw fa-calendar"></i>
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+          by: <a href="/about">{{ site.owner.name }}</a>
+          <a href="" class="comments"><i class="fa fa-fw fa-comments"></i>43 Comments</a>
+        </p>
+  
+        <hr>
+  
+        <div class="post-content">
+          <div class="headline-wrap">
+            {% if page.link %}
+              <h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
+            {% else %}
+              <h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
             {% endif %}
+          </div><!--/ .headline-wrap -->
+          <div class="article-wrap">
+            {{ content }}
 
-            {% if page.tags.size > 0 %}
-              <div class="post-tags article">
-                <h4>Tags</h4>
-                <ul>
-                  {% for tag in page.tags %}
-                    <li>
-                      <a href="/results?tag={{tag}}" title="{{tag}}"><span><i class="fa fa-tag"></i>{{tag}}</span></a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
+            <footer role="contentinfo">
+              <hr>
+
+              {% if page.share != false %}
+                {% include _social-share.html %}
+              {% endif %}
+
+              {% if page.tags.size > 0 %}
+                <div class="post-tags article">
+                  <h4>Post Tags</h4>
+                  <ul>
+                    {% for tag in page.tags %}
+                      <li>
+                        <a href="/results?tag={{tag}}" title="{{tag}}"><span><i class="fa fa-tag"></i>{{tag}}</span></a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+
+              <hr>
+
+              <nav class="pagination" role="navigation">
+                {% if page.previous %}
+                    <div class="article-wrap prev">
+                      <a href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title }}">Previous article</a>
+                      <div class="byline">({{ page.previous.title }})</div>
+                    </div>
+                {% endif %}
+
+                {% if page.next %}
+                    <div class="article-wrap next">
+                      <a href="{{ site.url }}{{ page.next.url }}" title="{{ page.next.title }}">Next article</a>
+                      <div class="byline">({{ page.next.title }})</div>
+                    </div>
+                {% endif %}
+              </nav>
+
+              <hr class="hr-clearfix">
+            </footer>
+
+            {% if page.comments and site.owner.disqus-shortname %}
+              <section id="disqus_thread"></section>
             {% endif %}
+          </div><!-- /.article-wrap -->          
+        </div>
 
-            <hr>
-
-            <nav class="pagination" role="navigation">
-              {% if page.previous %}
-                  <div class="article-wrap prev">
-                    <a href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title }}">Previous article</a>
-                    <div class="byline">({{ page.previous.title }})</div>
-                  </div>
-              {% endif %}
-              {% if page.next %}
-                  <div class="article-wrap next">
-                    <a href="{{ site.url }}{{ page.next.url }}" title="{{ page.next.title }}">Next article</a>
-                    <div class="byline">({{ page.next.title }})</div>
-                  </div>
-              {% endif %}
-            </nav>
-          </footer>
-        </div><!-- /.article-wrap -->
-      </div>
-
-      {% if page.comments and site.owner.disqus-shortname %}
-          <div class="card-separator"></div>
-          <section id="disqus_thread"></section><!-- /#disqus_thread -->
-      {% endif %}
+        <aside class="article-author-side fade-in-third">
+          {% include _author-bio.html %}
+        </aside>
+      </div><!-- /.post-content-wrap -->
 
       {% if site.related_posts.size > 0 %}
         <div class="card-separator"></div>
@@ -100,7 +115,7 @@
           <h4>Latest posts</h4>
           {% for post in site.related_posts limit:5 %}
             <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-            <p class="byline">
+            <p class="byline"> 
               Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
             </p>
           {% endfor %}
@@ -108,6 +123,7 @@
       {% endif %}
 
       <div class="card-separator about-author"></div>
+
       <div class="about-author-card">
         {% if author.avatar contains 'http' %}
           <a href="/about">
@@ -122,10 +138,6 @@
         <p>{{ author.bio }}</p>
       </div>
     </article>
-
-    <aside class="article-author-side fade-in-third">
-      {% include _author-bio.html %}
-    </aside>
   </div><!-- /#main -->
 </div><!-- /.site-content -->
 

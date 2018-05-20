@@ -1,5 +1,5 @@
 # Site wide configuration
-title: John Abraham | Blog
+title: John P. Abraham | Blog
 locale: en_US
 port: 4000
 baseurl: /
@@ -22,7 +22,7 @@ kramdown:
 
 # Site owner
 owner:
-  name: John Abraham
+  name: John P. Abraham
   avatar: bio_photo.jpg
   bio: "full-stack web developer and open-source enthusiast."
   linkedin: john4braham

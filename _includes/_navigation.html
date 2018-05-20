@@ -12,28 +12,12 @@
           {{ site.title }}</a>
         </li>
 
-        <li class="social-btns">
-          {% if author.github %}<a href="http://github.com/{{ author.github }}" class="author-social" target="_blank"><i class="fab fa-fw fa-github"></i></a>{% endif %}
-          {% if author.linkedin %}<a href="http://linkedin.com/in/{{ author.linkedin }}" class="author-social" target="_blank"><i class="fab fa-fw fa-linkedin"></i></a>{% endif %}
-          {% if author.email.name %}
-            <a
-              class="author-social"
-              data-name="{{ author.email.name }}"
-              data-domain="{{ author.email.domain }}"
-              data-tld="{{ author.email.tld }}"
-              href="#" onclick="window.location.href = 'mailto:'+this.dataset.name+'@'+this.dataset.domain+'.'+this.dataset.tld">
-              <i class="fa fa-fw fa-envelope-square"></i>
-            </a>
-          {% endif %}
-          <a href="/feed.xml" target="_blank" class="author-social"><i class="fa fa-fw fa-rss"></i></a>
-        </li>
-
         <li class="nav-search">
           <input type="text" id="search-input" maxlength="20" placeholder="Search posts...">
           <i class="search-input-icon fa fa-search" onclick="javascript:goToResultsPage();"></i>
         </li>
 
-        {% for nav_item in site.data.navigation reversed %}
+        {% for nav_item in site.data.navigation %}
           {% capture nav_item_type %} {{ nav_item.title | downcase }} {% endcapture %}
           <li class="site-pages">
             <a class="{% if nav_item_type contains page.type %}selected-nav-item{% endif %}" href="{{ domain }}{{ nav_item.url }}">
@@ -51,6 +35,22 @@
             </a>
           </li>
         {% endfor %}
+
+        <li class="social-btns">
+          {% if author.github %}<a href="http://github.com/{{ author.github }}" class="author-social" target="_blank"><i class="fab fa-fw fa-github"></i></a>{% endif %}
+          {% if author.linkedin %}<a href="http://linkedin.com/in/{{ author.linkedin }}" class="author-social" target="_blank"><i class="fab fa-fw fa-linkedin"></i></a>{% endif %}
+          {% if author.email.name %}
+            <a
+              class="author-social"
+              data-name="{{ author.email.name }}"
+              data-domain="{{ author.email.domain }}"
+              data-tld="{{ author.email.tld }}"
+              href="#" onclick="window.location.href = 'mailto:'+this.dataset.name+'@'+this.dataset.domain+'.'+this.dataset.tld">
+              <i class="fa fa-fw fa-envelope-square"></i>
+            </a>
+          {% endif %}
+          <a href="/feed.xml" target="_blank" class="author-social"><i class="fa fa-fw fa-rss"></i></a>
+        </li>
       </ul>
     </nav>
 

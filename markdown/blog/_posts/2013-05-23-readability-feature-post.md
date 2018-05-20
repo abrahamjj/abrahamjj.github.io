@@ -7,7 +7,7 @@ permalink: /blog/:year/:month/:day/:title
 type: blog
 comments: true
 image:
-  feature: post_banner.jpg
+  feature: github_photo.jpg
   credit:
   creditlink:
 ---
