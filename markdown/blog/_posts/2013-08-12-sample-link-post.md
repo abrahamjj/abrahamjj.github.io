@@ -4,8 +4,8 @@ title: "Sample Link Post"
 excerpt: "Example and code for using link posts."
 tags: [sample post, link post]
 link: http://mademistakes.com
-permalink: /projects/:year/:month/:day/:title
-type: projects
+permalink: /blog/:year/:month/:day/:title
+type: blog
 comments: true
 image:
   feature: post_banner.jpg
