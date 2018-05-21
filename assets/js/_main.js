@@ -211,3 +211,19 @@ function clearContactForm() {
   $('#contact-input-msg').removeClass('required');
   $('#invalid-msg-text').hide();
 }
+
+/* Trigger form submission success modal on successful redirect */
+$(document).ready(function() {
+  if(window.location.hash === '#success-modal') {
+    setTimeout(function() {
+      document.getElementById('#success-modal').style.visibility = 'visible';
+      document.getElementById('#success-modal').classList.add('fade-in-third');
+    }, 500);
+  }
+
+});
+
+/* Dismiss success modal */
+function dismissModal() {
+  document.getElementById('#success-modal').style.display = 'none';
+}
