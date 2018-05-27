@@ -31,8 +31,21 @@ owner:
     name: john.abraham
     domain: hotmail
     tld: com
-  disqus-shortname: john-abraham-blog
   google-analytics: UA-118820080-1
+
+# Staticman commenting system configs
+staticman:
+  branch: master
+  repository: john4braham/john4braham.github.io
+  unknown_gravatar: ad516503a11cd5ca435acc9bb6523536
+  notifications:
+    enabled: false
+  reCaptcha:
+    siteKey: 6LeCr1sUAAAAAPt3YsuowMk2YjqgMwOFpqoTTR9D
+    secret: CS9dUklUmO1104v4juA0vgYw7HaDlU9CTO5LJdedt
+      bvkodMqG16tarJYYtFw9Bl2c1Cd9RZf19k7FmMUn7+GGf84
+      7kxA/stjiEGWqnMtDAWyiGD8zmtf3p33pM2PrKGFEcj1Fv9
+      03DsGuAo98qsh5tpus/yBnupoKowhxq/GkmU=
 
 #includes/excludes from jekyll conversion
 include: [

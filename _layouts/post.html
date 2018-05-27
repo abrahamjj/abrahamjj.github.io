@@ -41,7 +41,16 @@
           <i class="fa fa-fw fa-calendar"></i>
           <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
           by: <a href="/about">{{ site.owner.name }}</a>
-          <a href="" class="comments"><i class="fa fa-fw fa-comments"></i>43 Comments</a>
+
+          {% if site.data.comments[page.slug].size > 0 %}
+            <a class="comments-preview" href="#comments">
+              <i class="fa fa-fw fa-comments"></i>{{ site.data.comments[page.slug] | size | append: ' ' }}Comment{% if site.data.comments[page.slug].size > 1 %}s{% endif %}
+            </a>
+          {% else %}
+            <a class="comments-preview" href="#entry-comments">
+              <i class="fa fa-fw fa-comments"></i>0 Comments
+            </a>
+          {% endif %}
         </p>
   
         <hr>
@@ -98,8 +107,8 @@
               <hr class="hr-clearfix">
             </footer>
 
-            {% if page.comments and site.owner.disqus-shortname %}
-              <section id="disqus_thread"></section>
+            {% if page.comments %}
+              {% include _comments.html %}
             {% endif %}
           </div><!-- /.article-wrap -->          
         </div>

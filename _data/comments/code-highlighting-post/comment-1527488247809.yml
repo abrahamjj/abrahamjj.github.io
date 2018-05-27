@@ -1,0 +1,12 @@
+_id: cb506c60-623e-11e8-ab67-c350db075896
+_parent: /blog/2013/08/16/code-highlighting-post
+message: 'This theme supports link posts, made famous by John Gruber. To use, just add link: http://url-you-want-linked to the post’s YAML front matter and you’re done.'
+name: John Abraham
+email: 89c163a3372504389328c66919ee8e78
+url: 'http://johnabraham.me'
+replying_to: ''
+date: '2018-05-28T06:17:27.808Z'
+tags:
+  - comment-subscription
+timestamp: 1527488247
+layout: post

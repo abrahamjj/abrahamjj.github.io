@@ -2,6 +2,6 @@
 layout: post-index
 title: Blog
 permalink: /blog
-type: blog
+type: blog-index
 comments: false
 ---
