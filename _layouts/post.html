@@ -91,15 +91,25 @@
               <nav class="pagination" role="navigation">
                 {% if page.previous %}
                     <div class="article-wrap prev">
-                      <a href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title }}">Previous article</a>
-                      <div class="byline">({{ page.previous.title }})</div>
+                      <a href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title }}">
+                        <i class="fa fa-fw fa-chevron-circle-left"></i>
+                          <div class="text-wrap">
+                            <span>Previous article</span>
+                            <div class="byline">({{ page.previous.title }})</div>
+                        </div>
+                      </a>
                     </div>
                 {% endif %}
 
                 {% if page.next %}
                     <div class="article-wrap next">
-                      <a href="{{ site.url }}{{ page.next.url }}" title="{{ page.next.title }}">Next article</a>
-                      <div class="byline">({{ page.next.title }})</div>
+                      <a href="{{ site.url }}{{ page.next.url }}" title="{{ page.next.title }}">
+                        <i class="fa fa-fw fa-chevron-circle-right"></i>
+                        <div class="text-wrap">
+                          <span>Next article</span>
+                          <div class="byline">({{ page.next.title }})</div>
+                        </div>
+                      </a>
                     </div>
                 {% endif %}
               </nav>
