@@ -1,5 +1,9 @@
 <article id="comment{% unless include.r %}{{ index | prepend: '-' }}{% else %}{{ include.index | prepend: '-' }}{% endunless %}" class="js-comment comment {% if include.name == site.owner.name %}admin{% endif %} {% unless include.replying_to == 0 %}child{% endunless %}">
 
+{% capture i %}{{ include.index }}{% endcapture %}
+{% assign replies = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == i' %}
+{% assign replies_size = replies | size %}
+
   <div class="comment-avatar">
     {% unless include.email == '' %}
       {% unless include.url == '' %}
@@ -52,16 +56,16 @@
         </a>
         &nbsp;
         <a rel="nofollow" href="javascript: toggleReplyComments({{ include.index }});">
-          <small id="show-replies-{{ include.index }}"><i class="fa fa-fw fa-eye"></i> Show replies</small>
-          <small id="hide-replies-{{ include.index }}" style="display:none;"><i class="fa fa-fw fa-eye-slash"></i> Hide replies</small>
+          {% if replies_size > 0 %}
+            <small id="show-replies-{{ include.index }}"><i class="fa fa-fw fa-eye"></i> View {%if replies_size > 1 %} {{ replies_size }} replies{% else %}reply{% endif %}</small>
+          {% endif %}
+          <small id="hide-replies-{{ include.index }}" style="display:none;"><i class="fa fa-fw fa-eye-slash"></i> Hide {%if replies_size > 1 %} {{ replies_size }} replies{% else %}reply{% endif %}</small>
         </a>
       </div>
     {% endunless %}
   </div>
 </article>
 
-{% capture i %}{{ include.index }}{% endcapture %}
-{% assign replies = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == i' %}
 {% for reply in replies %}
   {% assign index       = forloop.index | prepend: '-' | prepend: include.index %}
   {% assign replying_to = reply[1].replying_to | to_integer %}

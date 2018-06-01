@@ -2,8 +2,9 @@
   <!-- Start new comment form -->
   <div id="respond">
     <header class="section-title">
-      <h3>Leave a Comment <a rel="nofollow" id="cancel-comment-reply-link" href="{{ page.url | relative_url }}#respond" style="display:none;">(<i class="fa fa-fw fa-times"></i>Cancel Reply )</a></h3>
+      <h1><i class="fa fa-fw fa-comment"></i> Leave a Comment</h1>
     </header>
+    <hr>
     <form id="comment-form" class="page__form js-form form" method="POST" action="https://api.staticman.net/v2/entry/{{ site.staticman.repository }}/{{ site.staticman.branch }}/comments">
       <div class="form-group">
         <label>Comment*</label>
@@ -46,8 +47,8 @@
             Notify me of replies by email.
           </label>
         {% endif %}
-        <button type="submit" id="comment-form-submit" class="btn"><i class="fa fa-fw fa-save"></i> Submit</button>
-        <a href="javascript: clearCommentForm();" class="btn"><i class="fa fa-fw fa-times-circle"></i> Clear</a>
+        <button type="submit" id="comment-form-submit" class="btn submit"><i class="fa fa-fw fa-save"></i> Submit</button>
+        <a href="javascript: clearCommentForm();" class="btn clear"><i class="fa fa-fw fa-broom"></i> Clear</a>
       </div>
     </form>
   </div>

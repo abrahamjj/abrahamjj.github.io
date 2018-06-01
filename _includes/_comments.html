@@ -3,10 +3,10 @@
     {% if site.data.comments[page.slug] %}
       <!-- Start static comments -->
       <div id="comments" class="js-comments">
-        <header class="section-title">
-          <h3>{% if site.data.comments[page.slug].size > 0 %}{{ site.data.comments[page.slug] | size | append: ' ' }}{% endif %}Comment{% if site.data.comments[page.slug].size > 1 %}s{% endif %}</h3>
-        </header>
         {% assign comments = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == ""' %}
+        <header class="section-title">
+          <h3>{% if comments.size > 0 %}{{ comments | size | append: ' ' }}{% endif %}Comment{% if comments.size > 1 %}s{% endif %}</h3>
+        </header>
         {% for comment in comments %}
           {% assign index       = forloop.index %}
           {% assign replying_to = comment[1].replying_to | to_integer %}
@@ -20,7 +20,12 @@
       </div>
       <!-- End static comments -->
     {% endif %}
+  
+    <a href="#leave-comment-modal" class="btn"><i class="fa fa-fw fa-comment"></i> Leave a comment</a>
 
-    {% include _comment-form.html %}
+    <div class="remodal" data-remodal-id="leave-comment-modal">
+      <button data-remodal-action="close" class="remodal-close"></button>
+      {% include _comment-form.html %}
+    </div>
   {% endif %}
 </div>

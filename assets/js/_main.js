@@ -304,12 +304,11 @@ var addComment = {
       t = this,
       comm = t.I(commId),
       respond = t.I(respondId),
-      cancel = t.I("cancel-comment-reply-link"),
       parent = t.I("comment-replying-to"),
       post = t.I("comment-post-slug"),
       commentForm = respond.getElementsByTagName("form")[0];
 
-    if (!comm || !respond || !cancel || !parent || !commentForm) {
+    if (!comm || !respond || !parent || !commentForm) {
       return;
     }
 
@@ -328,24 +327,6 @@ var addComment = {
       post.value = postId;
     }
     parent.value = parentId;
-    cancel.style.display = "";
-
-    cancel.onclick = function() {
-      var t = addComment,
-        temp = t.I("sm-temp-form-div"),
-        respond = t.I(t.respondId);
-
-      if (!temp || !respond) {
-        return;
-      }
-
-      t.I("comment-replying-to").value = null;
-      temp.parentNode.insertBefore(respond, temp);
-      temp.parentNode.removeChild(temp);
-      this.style.display = "none";
-      this.onclick = null;
-      return false;
-    };
 
     /*
      * Set initial focus to the first form focusable element.
