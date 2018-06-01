@@ -7,6 +7,7 @@ permalink: /blog/:year/:month/:day/:title
 modified: 2014-09-14
 type: blog
 comments: true
+comments_locked: false
 image:
   feature: github_photo.jpg
   credit:

@@ -42,21 +42,23 @@
           <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
           by: <a href="/about">{{ site.owner.name }}</a>
 
-          {% if site.data.comments[page.slug] %}
-            {% assign comments_size = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == ""' | size %}
-            {% if comments_size > 0 %}
-              <a class="comments-preview" href="#comments">
-                <i class="fa fa-fw fa-comments"></i>{{ comments_size | append: ' ' }}Comment{% if comments_size > 1 %}s{% endif %}
-              </a>
+          {% if page.comments %}
+            {% if site.data.comments[page.slug] %}
+              {% assign comments_size = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == ""' | size %}
+              {% if comments_size > 0 %}
+                <a class="comments-preview" href="#comments">
+                  <i class="fa fa-fw fa-comments"></i>{{ comments_size | append: ' ' }}Comment{% if comments_size > 1 %}s{% endif %}
+                </a>
+              {% else %}
+                <a class="comments-preview" href="#entry-comments">
+                  <i class="fa fa-fw fa-comments"></i>0 Comments
+                </a>
+              {% endif %}
             {% else %}
               <a class="comments-preview" href="#entry-comments">
                 <i class="fa fa-fw fa-comments"></i>0 Comments
               </a>
             {% endif %}
-          {% else %}
-            <a class="comments-preview" href="#entry-comments">
-              <i class="fa fa-fw fa-comments"></i>0 Comments
-            </a>
           {% endif %}
         </p>
   

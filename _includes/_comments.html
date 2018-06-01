@@ -21,7 +21,11 @@
       <!-- End static comments -->
     {% endif %}
   
-    <a href="#leave-comment-modal" class="btn"><i class="fa fa-fw fa-comment"></i> Leave a comment</a>
+    {% unless page.comments_locked == true %}
+      <a href="#leave-comment-modal" class="btn"><i class="fa fa-fw fa-comment"></i> Leave a comment</a>
+    {% else %}
+      <p><em><i class="fa fa-fw fa-exclamation-triangle"></i> Comments are closed. If you have a question concerning the content of this page, please feel free to <a href="/contact">contact me</a>.</em></p>
+    {% endunless %}
 
     <div class="remodal" data-remodal-id="leave-comment-modal">
       <button data-remodal-action="close" class="remodal-close"></button>
