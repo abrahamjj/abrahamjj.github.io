@@ -233,7 +233,6 @@ body {
 
 .latest-articles.article,
 .about-author-card {
-  border-left: .3rem solid $orange;
   padding: 1rem 1rem 1rem 1rem;
   @media #{$medium} {
     padding: 1rem 3rem 1rem 3rem;
@@ -814,7 +813,10 @@ body {
 }
 .entry-comments {
   .btn {
+    width: 100%;
+    margin-top: 1rem;
     margin-bottom: 0;
+    text-align: center;
   }
 }
 

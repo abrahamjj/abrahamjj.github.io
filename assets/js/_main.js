@@ -296,7 +296,10 @@ function dismissModal() {
 // modified from Wordpress https://core.svn.wordpress.org/trunk/wp-includes/js/comment-reply.js
 // Released under the GNU General Public License - https://wordpress.org/about/gpl/
 var addComment = {
-  moveForm: function(commId, parentId, respondId, postId) {
+  commenyReplyConfig: function(commId, parentId, respondId, postId) {
+    var inst = $('[data-remodal-id=leave-comment-modal]').remodal();
+    inst.open();
+
     var div,
       element,
       style,
@@ -319,10 +322,10 @@ var addComment = {
       div = document.createElement("div");
       div.id = "sm-temp-form-div";
       div.style.display = "none";
-      respond.parentNode.insertBefore(div, respond);
+      // respond.parentNode.insertBefore(div, respond);
     }
 
-    comm.parentNode.insertBefore(respond, comm.nextSibling);
+    // comm.parentNode.insertBefore(respond, comm.nextSibling);
     if (post && postId) {
       post.value = postId;
     }
@@ -378,6 +381,14 @@ var addComment = {
   }
 };
 
+function autofocusCommentTextArea() {
+  setTimeout(function() {
+    $('#comment-form-message').focus();
+  }, 50);
+
+  return false;
+}
+
 /*
  * Clear comment form
  */
@@ -397,5 +408,5 @@ function toggleReplyComments(parentCommentIndex) {
   $( '#show-replies-'+ parentCommentIndex ).toggle();
   $( '#hide-replies-'+ parentCommentIndex ).toggle();
 
-  $( 'article[id^="'+parentCommentId+'-"]' ).slideToggle();
+  $( 'article[id^="'+parentCommentId+'-"]' ).slideToggle('fast');
 }

@@ -52,7 +52,7 @@
     {% unless include.replying_to != 0 %}
       <div class="comment-reply">
         {% unless page.comments_locked == true %}
-          <a rel="nofollow" href="#comment-{{ include.index }}" onclick="return addComment.moveForm('comment-{{ include.index }}', '{{ include.index }}', 'respond', '{{ page.slug }}')">
+          <a rel="nofollow" href="#comment-{{ include.index }}" onclick="return addComment.commenyReplyConfig('comment-{{ include.index }}', '{{ include.index }}', 'respond', '{{ page.slug }}')">
             <small><i class="fa fa-fw fa-reply fa-rotate-180"></i> Reply</small>
           </a>
           &nbsp;
