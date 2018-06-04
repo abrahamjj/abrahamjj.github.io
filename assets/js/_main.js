@@ -143,6 +143,60 @@ function toggleMobileMenu() {
 }
 
 /*
+   Toastem.js JQuery plugin for toast messages
+   ========================================================================== */
+
+var toastem = (function($){
+
+  var normal = function(content) {
+    var item = $('<div class="notification normal"><span>'+content+'</span></div>');
+    $("#toastem").append($(item));
+    $(item).animate({"right":"12px"}, "fast");
+    setInterval(function(){
+      $(item).animate({"right":"-400px"},function() {
+        $(item).remove();
+      });
+    },6000);
+  };
+
+  var success = function(content) {
+    var item = $('<div class="notification success"><span>'+content+'</span></div>');
+    $("#toastem").append($(item));
+    $(item).animate({"right":"12px"}, "fast");
+    setInterval(function(){
+      $(item).animate({"right":"-400px"},function() {
+        $(item).remove();
+      });
+    },6000);
+  };
+
+  var error = function(content) {
+    var item = $('<div class="notification error"><span>'+content+'</span></div>');
+    $("#toastem").append($(item));
+    $(item).animate({"right":"12px"}, "fast");
+    setInterval(function(){
+      $(item).animate({"right":"-400px"},function() {
+        $(item).remove();
+      });
+    },6000);
+  };
+
+  $(document).on('click','.notification', function() {
+    $(this).fadeOut(400,function() {
+      $(this).remove();
+    });
+  });
+
+  return{
+    normal: normal,
+    success: success,
+    error: error
+  };
+
+})(jQuery);
+
+
+/*
    Contact form submission: formulate action here to avoid spambots
    ========================================================================== */
 
@@ -224,12 +278,10 @@ function clearContactForm() {
 /* Trigger form submission success modal on successful redirect */
 $(document).ready(function() {
   if(window.location.hash === '#success-modal') {
-    setTimeout(function() {
-      document.getElementById('#success-modal').style.visibility = 'visible';
-      document.getElementById('#success-modal').classList.add('fade-in-third');
-    }, 500);
+  setTimeout(function() {
+    toastem.success('Your message has been sent!');
+  }, 250);
   }
-
 });
 
 /* Dismiss success modal */
@@ -258,26 +310,15 @@ function dismissModal() {
       data: $(this).serialize(),
       contentType: "application/x-www-form-urlencoded",
       success: function(data) {
-        $("#comment-form-submit")
-          .html("Submitted")
-          .addClass("btn--disabled");
-        $("#comment-form .js-notice")
-          .removeClass("notice--danger")
-          .addClass("notice--success");
-        showAlert(
-          '<strong>Thanks for your comment!</strong>'
-        );
+        $("#comment-form-submit").html("Submitted").addClass("btn--disabled");
+        toastem.success('Thanks for your comment!');
       },
       error: function(err) {
         console.log(err);
         $("#comment-form-submit").html("Submit Comment");
-        $("#comment-form .js-notice")
-          .removeClass("notice--success")
-          .addClass("notice--danger");
-        showAlert(
-          "<strong>Sorry, there was an error with your submission." +
-          "</strong> Please make sure all required fields have been " +
-          "completed and try again."
+        toastem.error(
+          'Sorry, there was an error with your submission. Please ' +
+          'make sure all required fields have been completed and try again.'
         );
         $(form).removeClass("disabled");
       }
@@ -285,11 +326,6 @@ function dismissModal() {
 
     return false;
   });
-
-  function showAlert(message) {
-    $("#comment-form .js-notice").removeClass("hidden");
-    $("#comment-form .js-notice-text").html(message);
-  }
 })(jQuery);
 
 // Staticman comment replies

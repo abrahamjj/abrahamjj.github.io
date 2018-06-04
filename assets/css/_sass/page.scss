@@ -717,39 +717,6 @@ body {
   }
 }
 
-.success-modal-wrapper {
-  visibility: hidden;
-  width: 24rem;
-  height: 15rem;
-  top: 15%;
-  left: 52%;
-  position: fixed;
-  margin-top: -6.5rem;
-  margin-left: -12.5rem;
-  background: white;
-  border: 1px solid green;
-  text-align: center;
-  z-index: 10;
-  .success-modal {
-    padding: 2rem 1rem 1rem 1rem; 
-    i {
-      color: green;
-      @include font-size(70);
-    }
-    a {
-      background: white;
-      border: 1px solid green;
-      &:hover {
-        background: lighten(grey, 30);
-      }
-    }
-    .modal-text-container {
-      border-top: 1px solid green;
-    }
-
-  }
-}
-
 /*
    Comments section
    ========================================================================== */
@@ -813,10 +780,8 @@ body {
 }
 .entry-comments {
   .btn {
-    width: 100%;
     margin-top: 1rem;
     margin-bottom: 0;
-    text-align: center;
   }
 }
 
