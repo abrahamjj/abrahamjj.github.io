@@ -1,17 +1,6 @@
-<div class="success-modal-wrapper" id="#success-modal" >
-  <div class="success-modal">
-    <i class="fa fa-fw fa-check-circle"></i>
-    <div class="modal-text-container">
-      <h2>Success!</h2>
-      <p>Your message has been sent.</p>
-      <a href="javascript: dismissModal()" class="btn">DISMISS</a>
-    </div>
-  </div>
-</div>
-
 <form id="contact-form" method="POST">
   <p>Feel free to drop me a line via this contact form below, or click the
-  mail icon in the navigation bar to send me an email directly.</p>
+  mail icon in the nav bar to send me an email directly.</p>
 
   <div class="contact-input-group">
     <label>Name</label>
@@ -19,7 +8,7 @@
       type="text"
       name="Name"
       id="contact-input-name"
-      placeholder=""
+      placeholder="Your name..."
       maxlength="50">
   </div>
 
@@ -29,7 +18,7 @@
       type="email"
       name="Email"
       id="contact-input-email"
-      placeholder=""
+      placeholder="Your email..."
       maxlength="50">
     <span id="invalid-email-text" class="byline">
       <i class="fa fa-fw fa-exclamation-triangle"></i>
@@ -43,7 +32,7 @@
       type="text"
       name="Subject"
       id="contact-input-subj"
-      placeholder=""
+      placeholder="Subject line"
       maxlength="100"
       required>
     <span id="invalid-subj-text" class="byline">
@@ -57,7 +46,7 @@
     <textarea
       name="Message"
       id="contact-input-msg"
-      placeholder=""
+      placeholder="Message body"
       maxlength="2000"
       required
     ></textarea>
@@ -71,14 +60,14 @@
     </div>
   </div>
 
+  <a href="javascript: clearContactForm();" class="btn"><i class="fa fa-fw fa-broom"></i> Clear</a>
   <a href="javascript: submitContactForm();" class="btn"><i class="fa fa-fw fa-envelope-square"></i> Submit</a>
-  <a href="javascript: clearContactForm();" class="btn"><i class="fa fa-fw fa-times-circle"></i> Clear</a>
 
   <!-- redirect to custom thank you -->
   <input
     type="hidden"
     name="_next"
-    value="/contact#success-modal" />
+    value="/contact#contact-success-msg" />
 
   <!-- tell Formspree to neglect forms submitted by bots -->
   <input type="text" name="_gotcha" style="display:none" />
