@@ -628,16 +628,29 @@ body {
       font-size: 2.5rem;
     }
     &.next {
+      float: left;
       margin-top: 0;
-      float: right;
-      * {
+      * { float: none; }
+      i { margin-left: 0; }
+      .text-wrap {
         float: right;
       }
-      i {
-        margin-left: .25rem;
+      @media #{$medium} {
+        float: right;
+        * { float: right; }
+        i { margin-left: .25rem; }
+        .text-wrap {
+          float: left;
+        }
       }
     }
     &.prev {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      @media #{$medium} {
+        width: auto;
+        margin-bottom: 0;
+      }
       .text-wrap {
         display: inline-block;
       }
@@ -725,10 +738,10 @@ body {
     }
   }
   .comment {
-    background: $body-color;
     padding: 1rem;
-    border-radius: .2rem;
     margin-bottom: 1rem;
+    border-radius: .2rem;
+    background: $body-color;
     p {
       margin-bottom: .25rem;
     }
@@ -763,8 +776,11 @@ body {
       }
     }
     .article-text-wrap {
-      width: 85%;
+      width: 100%;
       display: inline-block;
+      @media #{$medium} {
+        width: 90%;
+      }
     }
   }
 }
