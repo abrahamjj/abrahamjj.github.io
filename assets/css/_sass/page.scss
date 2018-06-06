@@ -766,7 +766,10 @@ body {
       margin-right: 1rem;
       margin-bottom: 1rem;
       vertical-align:top;
-      display: inline-block;
+      display: none;
+      @media #{$medium} {
+        display: inline-block;
+      }
       img {
         @include rounded(50%);
         &:hover {
@@ -779,7 +782,7 @@ body {
       width: 100%;
       display: inline-block;
       @media #{$medium} {
-        width: 90%;
+        width: 89%;
       }
     }
   }
