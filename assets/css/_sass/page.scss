@@ -689,13 +689,6 @@ body {
     float:left;
   }
 
-  #invalid-email-text,
-  #invalid-subj-text,
-  #invalid-msg-text {
-    display: none;
-    color: red;
-  }
-
   .btn {
     color: white !important;
     &:hover {

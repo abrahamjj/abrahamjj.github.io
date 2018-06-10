@@ -214,28 +214,28 @@ function validateContactForm() {
   // email validation styling
   if ( !validateEmail($('#contact-input-email').val()) ) {
     $('#contact-input-email').addClass('required');
-    $('#invalid-email-text').show();
+    $('#email-label').css('color', 'red');
   } else {
     $('#contact-input-email').removeClass('required');
-    $('#invalid-email-text').hide();
+    $('#email-label').css('color', 'black');
   }
 
   // subject validation styling
   if ( !$('#contact-input-subj').val() ) {
     $('#contact-input-subj').addClass('required');
-    $('#invalid-subj-text').show();
+    $('#subj-label').css('color', 'red');
   } else {
     $('#contact-input-subj').removeClass('required');
-    $('#invalid-subj-text').hide();
+    $('#subj-label').css('color', 'black');
   }
 
   // message validation styling
   if ( !$('#contact-input-msg').val() ) {
     $('#contact-input-msg').addClass('required');
-    $('#invalid-msg-text').show();
+    $('#msg-label').css('color', 'red');
   } else {
     $('#contact-input-msg').removeClass('required');
-    $('#invalid-msg-text').hide();
+    $('#msg-label').css('color', 'black');
   }
 
   // validate email, subject, and messages fields 
@@ -262,15 +262,15 @@ function clearContactForm() {
 
   $('#contact-input-email').val('');
   $('#contact-input-email').removeClass('required');
-  $('#invalid-email-text').hide();
+  $('#email-label').css('color', 'black');
  
   $('#contact-input-subj').val('');
   $('#contact-input-subj').removeClass('required');
-  $('#invalid-subj-text').hide();
+  $('#subj-label').css('color', 'black');
 
   $('#contact-input-msg').val('');
   $('#contact-input-msg').removeClass('required');
-  $('#invalid-msg-text').hide();
+  $('#msg-label').css('color', 'black');
 }
 
 /* Trigger form submission success modal on successful redirect */

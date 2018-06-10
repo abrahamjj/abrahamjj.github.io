@@ -1,6 +1,8 @@
 <form id="contact-form" method="POST">
-  <p>Feel free to drop me a line via this contact form below, or click the
-  mail icon in the nav bar to send me an email directly.</p>
+  <p>
+    Feel free to drop me a line via this contact form below.<br>
+    Please allow at least 24 hours for me to get back to you.
+  </p>
 
   <div class="contact-input-group">
     <label>Name</label>
@@ -13,21 +15,17 @@
   </div>
 
   <div class="contact-input-group">
-    <label>Email</label>
+    <label id="email-label">Email</label>
     <input
       type="email"
       name="Email"
       id="contact-input-email"
       placeholder="Your email..."
       maxlength="50">
-    <span id="invalid-email-text" class="byline">
-      <i class="fa fa-fw fa-exclamation-triangle"></i>
-      Please enter a valid email address.
-    </span>
   </div>
 
   <div class="contact-input-group">
-    <label>Subject*</label>
+    <label id="subj-label">Subject*</label>
     <input
       type="text"
       name="Subject"
@@ -35,14 +33,10 @@
       placeholder="Subject line"
       maxlength="100"
       required>
-    <span id="invalid-subj-text" class="byline">
-      <i class="fa fa-fw fa-exclamation-triangle"></i>
-      Please enter a subject line.
-    </span>
   </div>
 
   <div class="contact-input-group">
-    <label>Message*</label>
+    <label id="msg-label">Message*</label>
     <textarea
       name="Message"
       id="contact-input-msg"
@@ -50,14 +44,6 @@
       maxlength="2000"
       required
     ></textarea>
-    <span id="invalid-msg-text" class="byline">
-      <i class="fa fa-fw fa-exclamation-triangle"></i>
-      Please enter a message body.
-    </span>
-    <div class="byline">
-      Please allow at least 24 hours for me
-      to get back to you...
-    </div>
   </div>
 
   <a href="javascript: clearContactForm();" class="btn"><i class="fa fa-fw fa-broom"></i> Clear</a>
