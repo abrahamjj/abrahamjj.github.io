@@ -70,7 +70,7 @@ body {
         }
         @media #{$large} {
           .post-content {
-            width: 78%;
+            width: 82%;
             padding-right: 2rem;
             display: inline-block;
             border-right: 1px solid #cccccc;
@@ -131,7 +131,7 @@ body {
 
 /* Author sidebar & author/article separator*/
 .article-author-side {
-  width: 20%;
+  width: 16%;
   float: right;
   display: none;
   color: $light-black;
@@ -164,7 +164,7 @@ body {
   }
 
   .bio-photo {
-    max-width: 75%;
+    max-width: 90%;
     @include rounded(50%);
     &:hover {
       @include box-shadow(0 0 0 .15em $orange);

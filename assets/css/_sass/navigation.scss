@@ -86,7 +86,7 @@
     }
     &.mobile-menu {
       cursor: pointer;
-      margin-right: 2rem;
+      margin-right: 1rem;
       a {
         @include font-rem(24);
       }
@@ -96,75 +96,96 @@
     }
     &.site-header {
       font-weight: 700;
-      margin-right: 2rem;
+      line-height: 2.5rem;
+      display: inline-block;
       text-transform: uppercase;
       font-family: $heading-font;
-      @include font-rem(25);
+      @media #{$large} {
+        display: block;
+      }
       a {
-        padding-top: .85rem;
-        padding-bottom: .75rem;
+        @include font-rem(26);
+        color: lighten(grey, 40);
         @media #{$large} {
           padding-bottom: 0;
         }
       }
     }
-    &.nav-search {
-      margin: 0 auto;
-      @media #{$medium} {
-        padding-top: .5rem;
-        margin-right: 1.5rem;
-      }
-      input {
-        margin: 0;
-        width: 15rem;
-        height: 2rem;
-        font-weight: 600;
-        color: $light-black;
-        border-radius: .3rem;
-        font-family: $heading-font;
-        &:hover,
-        &:focus {
-          border: .11rem solid $orange;
-          @include box-shadow(0 0 .3em $orange);
-        }
-      }
-      .search-input-icon {
-        top: 1px;
-        width: 0;
-        z-index: 1;
-        left: -25px;
-        cursor: pointer;
-        position: relative;
-        color: $light-black;
-      }
-    }
     &.site-pages {
       display: none;
-      margin-right: .5rem;
+      line-height: 2.5rem;
+      @include font-rem(19);
       @media #{$large} {
         display: inline;
       }
       a {
-        padding: 1rem 1rem .75rem .25rem;
-        border-bottom: .2rem solid $nav-color;
+        margin-right: 1rem;
+        color: lighten(grey, 40);
+        padding: 0 .5rem 0 .5rem;
         &:hover,
         &.selected-nav-item {
           border-bottom: .2rem solid $orange;
         }
       }
     }
+    &.nav-search {
+      line-height: 2.5rem;
+      margin: 0 auto;
+      @media #{$medium} {
+        margin-right: .5rem;
+      }
+      input {
+        margin: 0;
+        width: 10rem;
+        height: 2rem;
+        font-weight: 600;
+        color: lighten(grey, 40);
+        @include font-rem(19);
+        border-radius: .3rem;
+        background: $nav-color;
+        font-family: $heading-font;
+        border: .11rem solid $nav-color;
+        @include box-shadow(0 0 0 .15em $nav-color);
+        &::placeholder {
+          color: lighten(grey, 40);
+          opacity: 1;
+        }
+        &:-ms-input-placeholder {
+          color: lighten(grey, 40);
+        }
+        &::-ms-input-placeholder {
+          color: lighten(grey, 40);
+        }
+      }
+      i {
+        top: 1px;
+        width: 0;
+        z-index: 1;
+        left: -25px;
+        cursor: pointer;
+        position: relative;
+        color: lighten(grey, 40);
+      }
+    }
     &.social-btns {
-      padding-top: 1rem;
-      @include font-rem(20);
-      a:hover {
-        @include scale(1.2);
+      line-height: 2.5rem;
+      a {
+        @include font-rem(19);
+        color: lighten(grey, 40);
+        margin-right: .5rem;
+        &:last-child {
+          margin-right: 0;
+        }
+        &:hover {
+          @include opacity(.75);
+        }
       }
       .fa-github          { color: $github-color; }
       .fa-linkedin        { color: $linkedin-color; }
       .fa-envelope-square { color: $envelope-color; }
       .fa-rss             { color: $rss-color; }
     }
-
+    &.nav-search,
     &.social-btns {
       float: right;
     }
