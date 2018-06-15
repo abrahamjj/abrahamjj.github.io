@@ -73,6 +73,7 @@ svg:not(:root) {
   margin-bottom: 20px;
   padding: 8px 20px;
   @include font-rem(16);
+  text-transform: uppercase;
   font-family: $heading-font;
   font-weight: 700;
   background-color: $primary;
@@ -82,12 +83,15 @@ svg:not(:root) {
   border-color: $primary;
   text-decoration: none !important;
   @include rounded(3px);
-  &:visited {
+  &:visited,
+  &:active,
+  &:focus {
     color: $white;
   }
   &:hover {
-    background-color: $white;
-    color: $primary;
+    color: $white;
+    border: lighten($primary, 20);
+    background-color: lighten($primary, 20);
   }
 }
 
@@ -97,12 +101,15 @@ svg:not(:root) {
   background-color: $success;
   color: $white;
   border-color: $success;
-  &:visited {
+  &:visited,
+  &:active,
+  &:focus {
     color: $white;
   }
   &:hover {
-    background-color: $white;
-    color: $success;
+    color: $white;
+    border: lighten($success, 20);
+    background-color: lighten($success, 20);
   }
 }
 
@@ -112,12 +119,15 @@ svg:not(:root) {
   background-color: $warning;
   color: $white;
   border-color: $warning;
-  &:visited {
+    &:visited,
+    &:active,
+    &:focus {
     color: $white;
   }
   &:hover {
-    background-color: $white;
-    color: $warning;
+    color: $white;
+    border: lighten($warning, 20);
+    background-color: lighten($warning, 20);
   }
 }
 
@@ -127,12 +137,16 @@ svg:not(:root) {
   background-color: $danger;
   color: $white;
   border-color: $danger;
-  &:visited {
+    &:visited,
+    &:active,
+    &:focus {
+
     color: $white;
   }
   &:hover {
-    background-color: $white;
-    color: $danger;
+    color: $white;
+    border: lighten($danger, 20);
+    background-color: lighten($danger, 20);
   }
 }
 
@@ -142,12 +156,16 @@ svg:not(:root) {
   background-color: $info;
   color: $white;
   border-color: $info;
-  &:visited {
+    &:visited,
+    &:active,
+    &:focus {
+
     color: $white;
   }
   &:hover {
-    background-color: $white;
-    color: $info;
+    color: $white;
+    border: lighten($info, 20);
+    background-color: lighten($info, 20);
   }
 }
 

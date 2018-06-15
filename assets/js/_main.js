@@ -333,7 +333,7 @@ function dismissModal() {
 // modified from Wordpress https://core.svn.wordpress.org/trunk/wp-includes/js/comment-reply.js
 // Released under the GNU General Public License - https://wordpress.org/about/gpl/
 var addComment = {
-  commenyReplyConfig: function(commId, parentId, respondId, postId) {
+  commentReplyConfig: function(commId, parentId, respondId, postId) {
     var inst = $('[data-remodal-id=leave-comment-modal]').remodal();
     inst.open();
 

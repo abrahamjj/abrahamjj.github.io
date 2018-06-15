@@ -32,7 +32,10 @@ html.remodal-is-locked {
 .remodal-wrapper {
   position: fixed;
   z-index: 10000;
-  top: -20rem;
+  top: 0;
+  @media #{$large} {
+    top: -20rem;
+  }
   right: 0;
   bottom: 0;
   left: 0;

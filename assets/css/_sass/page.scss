@@ -88,9 +88,6 @@ body {
       @media #{$large} {
         width: 100%;
       }
-      p, li, a {
-        color: $light-black;
-      }
     }
   }
 }
@@ -625,20 +622,29 @@ body {
   .article-wrap {
     display: inline-block;
     i {
-      font-size: 2.5rem;
+      font-size: 2rem;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
     &.next {
       float: left;
-      margin-top: 0;
+      margin-top: 1rem;
       * { float: none; }
-      i { margin-left: 0; }
+      i {
+        margin-left: 0;
+        margin-right: .4rem;
+      }
       .text-wrap {
         float: right;
       }
       @media #{$medium} {
         float: right;
+        margin-top: 0;
         * { float: right; }
-        i { margin-left: .25rem; }
+        i {
+          margin-left: .25rem;
+          margin-right: 0;
+        }
         .text-wrap {
           float: left;
         }
@@ -646,10 +652,8 @@ body {
     }
     &.prev {
       width: 100%;
-      margin-bottom: 1.5rem;
       @media #{$medium} {
         width: auto;
-        margin-bottom: 0;
       }
       .text-wrap {
         display: inline-block;
@@ -689,13 +693,6 @@ body {
     float:left;
   }
 
-  .btn {
-    color: white !important;
-    &:hover {
-      color: $black !important;
-    }
-  }
-
   .contact-input-group {
     margin-bottom: 1rem;
   }
@@ -719,8 +716,8 @@ body {
 
 #comments {
   .section-title {
-    h3 {
-      margin-bottom: 1rem;
+    h1 {
+      margin-bottom: 2rem;
     }
   }
   h3 {
@@ -731,10 +728,7 @@ body {
     }
   }
   .comment {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: .2rem;
-    background: $body-color;
+    margin-bottom: 2rem;
     p {
       margin-bottom: .25rem;
     }
@@ -758,7 +752,7 @@ body {
       height: 3rem;
       margin-right: 1rem;
       margin-bottom: 1rem;
-      vertical-align:top;
+      vertical-align: top;
       display: none;
       @media #{$medium} {
         display: inline-block;
@@ -778,11 +772,38 @@ body {
         width: 89%;
       }
     }
+    .comment-content {
+      padding-bottom: .25rem;
+    }
+    .comment-reply {
+      overflow: hidden;
+      border-radius: 3px;
+      background: darken($body-color, 10);
+      a.btn {
+        margin: 0;
+        float: right;
+        height: 1.25rem;
+        padding: .15rem;
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+          padding: .1rem;
+        }
+        @-moz-document url-prefix() {
+          padding: 0 .25rem 0 0;
+        }
+        &.view-comments-btn {
+          margin-left: .25rem;
+        }
+      }
+    }
+    .comment-author-name {
+      a {
+        color: $orange;
+      }
+    }
   }
 }
 .entry-comments {
-  .btn {
-    margin-top: 1rem;
+  .leave-comment-btn {
     margin-bottom: 0;
   }
 }
@@ -823,12 +844,6 @@ body {
     }
     input#comment-form-reply {
       display: inline;
-    }
-    a {
-      color: white;
-      &:hover {
-        color: black;
-      }
     }
   }
 }

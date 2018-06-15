@@ -1,68 +1,70 @@
 <article id="comment{% unless include.r %}{{ index | prepend: '-' }}{% else %}{{ include.index | prepend: '-' }}{% endunless %}" class="js-comment comment {% if include.name == site.owner.name %}admin{% endif %} {% unless include.replying_to == 0 %}child{% endunless %}">
 
-{% capture i %}{{ include.index }}{% endcapture %}
-{% assign replies = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == i' %}
-{% assign replies_size = replies | size %}
+  {% capture i %}{{ include.index }}{% endcapture %}
+  {% assign replies = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == i' %}
+  {% assign replies_size = replies | size %}
 
-  <div class="comment-avatar">
-    {% unless include.email == '' %}
-      {% unless include.url == '' %}
-        <a rel="external nofollow" href="{{ include.url }}" target="_blank">
-          <img src="http://www.gravatar.com/avatar/{{ include.email }}" alt="">
-        </a>
-      {% else %}
-        <img src="http://www.gravatar.com/avatar/{{ include.email }}" alt="">
-      {% endunless %}
-    {% else %}
-      {% unless include.url == '' %}
-        <a rel="external nofollow" href="{{ include.url }}" target="_blank">
-          <img src="http://www.gravatar.com/avatar/{{ site.staticman.unknown_gravatar }}" alt="">
-        </a>
-      {% else %}
-        <img src="http://www.gravatar.com/avatar/{{ site.staticman.unknown_gravatar }}" alt="">
-      {% endunless %}
-    {% endunless %}
-  </div>
-
-  <div class="article-text-wrap">
-    <h3 class="comment-author-name">
-      {% unless include.url == '' %}
-        <a rel="external nofollow" href="{{ include.url }}" target="_blank">
-          {{ include.name | strip_html }}
-        </a>
-      {% else %}
-        {{ include.name | strip_html }}
-      {% endunless %}
-
-      {% unless include.date == '' %}
-        {% if include.index %}
-         <a href="#comment{% if r %}{{ index | prepend: '-' }}{% else %}{{ include.index | prepend: '-' }}{% endif %}" title="Permalink to this comment">
-        {% endif %}
-          <time class="byline" datetime="{{ include.date | date_to_xmlschema }}">({{ include.date | date: "%B %d, %Y" }})</time>
-        {% if include.index %}
+  <div class="article-wrap">
+    <div class="comment-avatar">
+      {% unless include.email == '' %}
+        {% unless include.url == '' %}
+          <a rel="external nofollow" href="{{ include.url }}" target="_blank">
+            <img src="http://www.gravatar.com/avatar/{{ include.email }}" alt="">
           </a>
-        {% endif %}
+        {% else %}
+          <img src="http://www.gravatar.com/avatar/{{ include.email }}" alt="">
+        {% endunless %}
+      {% else %}
+        {% unless include.url == '' %}
+          <a rel="external nofollow" href="{{ include.url }}" target="_blank">
+            <img src="http://www.gravatar.com/avatar/{{ site.staticman.unknown_gravatar }}" alt="">
+          </a>
+        {% else %}
+          <img src="http://www.gravatar.com/avatar/{{ site.staticman.unknown_gravatar }}" alt="">
+        {% endunless %}
       {% endunless %}
-    </h3>
+    </div>
 
-    <div class="comment-content">
-      {{ include.message | markdownify }}
+    <div class="article-text-wrap">
+      <h3 class="comment-author-name">
+        {% unless include.url == '' %}
+          <a rel="external nofollow" href="{{ include.url }}" target="_blank">
+            {{ include.name | strip_html }}
+          </a>
+        {% else %}
+          {{ include.name | strip_html }}
+        {% endunless %}
+
+        {% unless include.date == '' %}
+          {% if include.index %}
+           <a href="#comment{% if r %}{{ index | prepend: '-' }}{% else %}{{ include.index | prepend: '-' }}{% endif %}" title="Permalink to this comment">
+          {% endif %}
+            <time class="byline" datetime="{{ include.date | date_to_xmlschema }}">({{ include.date | date: "%B %d, %Y" }})</time>
+          {% if include.index %}
+            </a>
+          {% endif %}
+        {% endunless %}
+      </h3>
+
+      <div class="comment-content">
+        {{ include.message | markdownify }}
+      </div>  
     </div>
 
     {% unless include.replying_to != 0 %}
       <div class="comment-reply">
+        {% if replies_size > 0 %}
+          <a rel="nofollow" class="btn btn-danger view-comments-btn" href="javascript: toggleReplyComments({{ include.index }});">
+            <small id="show-replies-{{ include.index }}"><i class="fa fa-fw fa-plus"></i> View {%if replies_size > 1 %} {{ replies_size }} replies{% else %}reply{% endif %}</small>
+            <small id="hide-replies-{{ include.index }}" style="display:none;"><i class="fa fa-fw fa-minus"></i> Hide {%if replies_size > 1 %} {{ replies_size }} replies{% else %}reply{% endif %}</small>
+          </a>
+        {% endif %}
+
         {% unless page.comments_locked == true %}
-          <a rel="nofollow" href="#comment-{{ include.index }}" onclick="return addComment.commenyReplyConfig('comment-{{ include.index }}', '{{ include.index }}', 'respond', '{{ page.slug }}')">
+          <a rel="nofollow" class="btn btn-danger" href="#" onclick="return addComment.commentReplyConfig('comment-{{ include.index }}', '{{ include.index }}', 'respond', '{{ page.slug }}')">
             <small><i class="fa fa-fw fa-reply fa-rotate-180"></i> Reply</small>
           </a>
-          &nbsp;
         {% endunless %}
-        <a rel="nofollow" href="javascript: toggleReplyComments({{ include.index }});">
-          {% if replies_size > 0 %}
-            <small id="show-replies-{{ include.index }}"><i class="fa fa-fw fa-eye"></i> View {%if replies_size > 1 %} {{ replies_size }} replies{% else %}reply{% endif %}</small>
-          {% endif %}
-          <small id="hide-replies-{{ include.index }}" style="display:none;"><i class="fa fa-fw fa-eye-slash"></i> Hide {%if replies_size > 1 %} {{ replies_size }} replies{% else %}reply{% endif %}</small>
-        </a>
       </div>
     {% endunless %}
   </div>

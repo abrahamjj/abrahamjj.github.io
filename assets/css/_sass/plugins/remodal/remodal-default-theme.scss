@@ -65,8 +65,12 @@
 
 .remodal-close {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -10px;
+  left: -10px;
+  @media #{$medium} {
+    top: -15px;
+    left: -15px;
+  }
   display: block;
   overflow: visible;
   width: 35px;
@@ -80,6 +84,7 @@
   border: 0;
   outline: 0;
   background: $orange;
+  @include rounded(50%);
   &:hover, &:focus {
     color: #2b2e38;
   }
@@ -209,5 +214,26 @@
   }
   .remodal {
     width: 700px;
+  }
+}
+
+/* Firefox
+   ========================================================================== */
+
+@-moz-document url-prefix() {
+  .remodal-close {
+    top: -10px;
+    left: -10px;
+    width: 25px;
+    height: 25px;
+    &:before {
+      top: -5px;
+      left: -5px;
+    }
+  }
+  @media only screen and (min-width: 641px) {
+    .remodal {
+      max-width: 500px;
+    }
   }
 }
