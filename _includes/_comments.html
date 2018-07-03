@@ -5,7 +5,7 @@
       <div id="comments" class="js-comments">
         {% assign comments = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == ""' %}
         <header class="section-title">
-          <h1>{% if comments.size > 0 %}{{ comments | size | append: ' ' }}{% endif %}Comment{% if comments.size > 1 %}s{% endif %}</h1>
+          <h1>{{ comments | size | append: ' ' }}Comment{% if comments.size == 0 or comments.size > 1 %}s{% endif %}</h1>
         </header>
         {% for comment in comments %}
           {% assign index       = forloop.index %}
@@ -19,10 +19,17 @@
         {% endfor %}
       </div>
       <!-- End static comments -->
+    {% else %}
+      <header class="section-title">
+        <h1>0 Comments</h1>
+      </header>
     {% endif %}
   
     {% unless page.comments_locked == true %}
-      <a href="#leave-comment-modal" class="leave-comment-btn btn" onclick="autofocusCommentTextArea()"><i class="fa fa-fw fa-comment"></i> Leave a comment</a>
+      <a href="#leave-comment-modal" class="leave-comment-btn btn" onclick="autofocusCommentTextArea()">
+        <i class="fa fa-fw fa-comment"></i>
+        <span>Leave a comment</span>
+      </a>
     {% else %}
       <p><em><i class="fa fa-fw fa-exclamation-triangle"></i> Comments are closed. If you have a question concerning the content of this page, please feel free to <a href="/contact">contact me</a>.</em></p>
     {% endunless %}

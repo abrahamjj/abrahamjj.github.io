@@ -5,18 +5,19 @@
 .navigation-wrapper {
   font-weight: 700;
   position: relative;
+  padding: 0 .5rem 0 .5rem;
   text-transform: uppercase;
   font-family: $heading-font;
   background-color: $nav-color;
   border-top: .15rem solid $orange;
-  padding: 0 .5rem 0 .5rem;
+  @include box-shadow(0 0 .2em .05em $nav-color);
   @media #{$medium} {
-    padding: 0 2rem 0 2rem;
+    padding: 0 1rem;
   }
 
   /* Top navigation links (tablet/desktop only) */
   .top-navigation {
-    @include container(75rem);
+    @include container(68rem);
     @include clearfix;
   }
 }
@@ -43,7 +44,6 @@
   }
 
   &.mobile {
-    //hidden by default. toggled w/ js
     display: none;
     padding: 0 1rem 0 1rem;
     @media #{$large} {
@@ -65,7 +65,6 @@
       }
     }
   }
-
   ul {
     margin: 0;
     padding: 0;
@@ -84,110 +83,114 @@
       display:inline-block;
       text-decoration: none;
     }
-    &.mobile-menu {
-      cursor: pointer;
-      margin-right: 1rem;
-      a {
-        @include font-rem(24);
-      }
-      @media #{$large} {
-        display: none;
-      }
+  }
+
+  li.mobile-menu {
+    cursor: pointer;
+    margin-right: 1rem;
+    a {
+      @include font-rem(24);
     }
-    &.site-header {
-      font-weight: 700;
-      line-height: 2.5rem;
-      display: inline-block;
-      text-transform: uppercase;
-      font-family: $heading-font;
-      @media #{$large} {
-        display: block;
-      }
-      a {
-        @include font-rem(26);
-        color: lighten(grey, 40);
-        @media #{$large} {
-          padding-bottom: 0;
-        }
-      }
-    }
-    &.site-pages {
+    @media #{$large} {
       display: none;
-      line-height: 2.5rem;
-      @include font-rem(19);
-      @media #{$large} {
-        display: inline;
-      }
-      a {
-        margin-right: 1rem;
-        color: lighten(grey, 40);
-        padding: 0 .5rem 0 .5rem;
-        &:hover,
-        &.selected-nav-item {
-          border-bottom: .2rem solid $orange;
-        }
-      }
     }
-    &.nav-search {
-      line-height: 2.5rem;
-      margin: 0 auto;
-      @media #{$medium} {
-        margin-right: .5rem;
-      }
-      input {
-        margin: 0;
-        width: 10rem;
-        height: 2rem;
-        font-weight: 600;
-        color: lighten(grey, 40);
-        @include font-rem(19);
-        border-radius: .3rem;
-        background: $nav-color;
-        font-family: $heading-font;
-        border: .11rem solid $nav-color;
-        @include box-shadow(0 0 0 .15em $nav-color);
-        &::placeholder {
-          color: lighten(grey, 40);
-          opacity: 1;
-        }
-        &:-ms-input-placeholder {
-          color: lighten(grey, 40);
-        }
-        &::-ms-input-placeholder {
-          color: lighten(grey, 40);
-        }
-      }
+  }
+  li.site-home {
+    font-weight: 700;
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: $heading-font;
+    a {
+      color: lighten(grey, 40);
+      @include font-rem(36);
       i {
-        top: 1px;
-        width: 0;
-        z-index: 1;
-        left: -25px;
-        cursor: pointer;
-        position: relative;
-        color: lighten(grey, 40);
+        vertical-align: bottom;
+        &:hover { @include opacity(.6); }
       }
     }
-    &.social-btns {
-      line-height: 2.5rem;
-      a {
-        @include font-rem(19);
-        color: lighten(grey, 40);
-        margin-right: .5rem;
-        &:last-child {
-          margin-right: 0;
-        }
-        &:hover {
-          @include opacity(.75);
-        }
-      }
-      .fa-github          { color: $github-color; }
-      .fa-linkedin        { color: $linkedin-color; }
-      .fa-envelope-square { color: $envelope-color; }
-      .fa-rss             { color: $rss-color; }
+  }
+  li.site-pages {
+    display: none;
+    @include font-rem(20);
+    @media #{$large} {
+      display: inline-block;
     }
-    &.nav-search,
-    &.social-btns {
-      float: right;
+    a {
+      padding: .9rem .25rem;
+      margin-right: 1rem;
+      color: lighten(grey, 40);
+      &:hover { @include opacity(.6); }
+      &:last-child {
+        margin-right: 0;
+      }
+      &.selected-nav-item {
+        border-bottom: .2rem solid $orange;
+      }
+    }
+  }
+  li.nav-search {
+    margin: 0 auto;
+    padding: .6rem 0;
+    @media #{$medium} {
+      margin: 0 .3rem 0 .5rem;
+    }
+    input {
+      margin: 0;
+      width: 16rem;
+      height: 2rem;
+      font-weight: 600;
+      color: white;
+      border-radius: .3rem;
+      background: lighten($nav-color, 30);
+      font-family: $heading-font;
+      border: .11rem solid $nav-color;
+      @include font-rem(19);
+      @include box-shadow(0 0 0 .15em $nav-color);
+      &::placeholder {
+       color: $nav-color;
+        opacity: 1;
+      }
+      &:-ms-input-placeholder {
+       color: $nav-color;
+      }
+      &::-ms-input-placeholder {
+       color: $nav-color;
+      }
+    }
+    i {
+      top: 1px;
+      width: 0;
+      z-index: 1;
+      left: -25px;
+      cursor: pointer;
+      position: relative;
+      color: $nav-color;
+    }
+  }
+  li.social-btns {
+    a {
+      padding: 1rem 0;
+      margin-right: .5rem;
+      color: lighten(grey, 40);
+      @include font-rem(20);
+      &:last-child {
+        padding-right: 0;
+        margin-right: 0;
+      }
+      &:hover { @include opacity(.6); }
+    }
+    .fa-github { color: $github-color; }
+    .fa-linkedin { color: $linkedin-color; }
+    .fa-envelope-square { color: $envelope-color; }
+    .fa-rss { color: $rss-color; }
+  }
+  li.nav-search,
+  li.social-btns {
+    float: right;
+  }
+  li.nav-search {
+    @media #{$medium} {
+      float: none;
     }
   }
 }

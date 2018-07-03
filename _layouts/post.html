@@ -19,28 +19,28 @@
       <a href="javascript:"><i class="fa fa-fw fa-chevron-circle-up"></i></a>
     </div>
 
-    {% if page.image.feature %}
-      <div class="image-wrap fade-in-first">
-        <img src=
-        {% if page.image.feature contains 'http' %}
-          "{{ page.image.feature }}"
+    <div class="post-headline-wrap fade-in-first">
+      <h1>
+        {% if page.link %}
+          <a href="{{ page.link }}">{{ page.title }}</a>
         {% else %}
-          "{{ site.url }}/assets/img/{{ page.image.feature }}"
+          <a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a>
         {% endif %}
-        alt="{{ page.title }} feature image">
+      </h1>
 
-        {% if page.image.credit %}
-          <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
-        {% endif %}
-      </div><!-- /.image-wrap -->
-    {% endif %}
+      <p class="post-headline-excerpt byline">
+        <i>{{ page.excerpt | strip_html | truncate: 160 }}...</i>
+      </p>
+    </div><!--/ .headline-wrap -->
 
     <article class="post fade-in-second">
       <div class="post-content-wrap">
-        <p class="byline headline">
+        <p class="byline post-meta">
           <i class="fa fa-fw fa-calendar"></i>
           <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
           by: <a href="/about">{{ site.owner.name }}</a>
+
+          <span class="separator">|</span>
 
           {% if page.comments %}
             {% if site.data.comments[page.slug] %}
@@ -61,17 +61,8 @@
             {% endif %}
           {% endif %}
         </p>
-  
-        <hr>
-  
+
         <div class="post-content">
-          <div class="headline-wrap">
-            {% if page.link %}
-              <h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
-            {% else %}
-              <h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
-            {% endif %}
-          </div><!--/ .headline-wrap -->
           <div class="article-wrap">
             {{ content }}
 
@@ -150,18 +141,9 @@
         </div>
       {% endif %}
 
-      <div class="card-separator about-author"></div>
+      <div class="card-separator"></div>
 
       <div class="about-author-card">
-        {% if author.avatar contains 'http' %}
-          <a href="/about">
-            <img src="{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo">
-          </a>
-        {% else %}
-          <a href="/about">
-            <img src="{{ site.url }}/assets/img/{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo">
-          </a>
-        {% endif %}
         <h4>About the author</h4>
         <p>{{ author.bio }}</p>
       </div>
