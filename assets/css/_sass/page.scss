@@ -403,6 +403,7 @@ body {
     @include font-rem(18);
   }
   footer {
+    text-align: center;
     .author-social {
       display: inline-block;
     }
@@ -417,19 +418,6 @@ body {
     }
     i:hover {
       color: $orange;
-    }
-    @include grid(12,10);
-    @include prefix(12,1);
-    @include suffix(12,1);
-    @media #{$small} {
-      @include grid(12,6);
-      @include prefix(12,3);
-      @include suffix(12,3);
-    }
-    @media #{$x-large} {
-      @include grid(12,4.5);
-      @include prefix(12,4);
-      @include suffix(12,3.5);
     }
   }
 }
