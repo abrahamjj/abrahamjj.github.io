@@ -28,7 +28,7 @@ $accent-color         : $black;
 /* page colors */
 $nav-color            : $light-black;
 $nav-text-color       : $white;
-$body-color           : #f7f7f7;
+$body-color           : $white;
 $footer-color         : $light-black;
 $text-color           : $black;
 $text-highlight-color : $orange;
@@ -43,6 +43,11 @@ $success              : #5cb85c;
 $warning              : #dd8338;
 $danger               : #c64537;
 $info                 : #308cbc;
+
+/* toast notification */
+$normal-msg           : #3c3b3b;
+$success-msg          : #0e9343;
+$error-msg            : #c33c3c;
 
 /* brands */
 $twitter-color        : #55acee;

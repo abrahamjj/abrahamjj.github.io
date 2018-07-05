@@ -148,33 +148,48 @@ function toggleMobileMenu() {
 
 var toastem = (function($) {
   var normal = function(content) {
-    var item = $('<div class="notification normal"><span>'+content+'</span></div>');
+    var item = $(
+      '<div class="notification normal">'+
+        '<span>'+content+'</span>'+
+        '<i class="fa fa-fw fa-times"></i>'+
+      '</div>'
+    );
     $("#toastem").append($(item));
-    $(item).animate({"right":"12px"}, "fast");
+    $(item).animate({"top":"10px"}, "fast");
     setInterval(function(){
-      $(item).animate({"right":"-400px"},function() {
+      $(item).animate({"top":"-400px"},function() {
         $(item).remove();
       });
     },6000);
   };
 
   var success = function(content) {
-    var item = $('<div class="notification success"><span>'+content+'</span></div>');
+    var item = $(
+      '<div class="notification success">'+
+        '<span>'+content+'</span>'+
+        '<i class="fa fa-fw fa-times"></i>'+
+      '</div>'
+    );
     $("#toastem").append($(item));
-    $(item).animate({"right":"12px"}, "fast");
+    $(item).animate({"top":"10px"}, "fast");
     setInterval(function(){
-      $(item).animate({"right":"-400px"},function() {
+      $(item).animate({"top":"-400px"},function() {
         $(item).remove();
       });
     },6000);
   };
 
   var error = function(content) {
-    var item = $('<div class="notification error"><span>'+content+'</span></div>');
+    var item = $(
+      '<div class="notification error">'+
+        '<span>'+content+'</span>'+
+        '<i class="fa fa-fw fa-times"></i>'+
+      '</div>'
+    );
     $("#toastem").append($(item));
-    $(item).animate({"right":"12px"}, "fast");
+    $(item).animate({"top":"10px"}, "fast");
     setInterval(function(){
-      $(item).animate({"right":"-400px"},function() {
+      $(item).animate({"top":"-400px"},function() {
         $(item).remove();
       });
     },6000);
@@ -276,9 +291,9 @@ function clearContactForm() {
 /* Trigger form submission success modal on successful redirect */
 $(document).ready(function() {
   if(window.location.hash === '#contact-success-msg') {
-  setTimeout(function() {
-    toastem.success('Your message has been sent!');
-  }, 250);
+    setTimeout(function() {
+      toastem.success('Your message has been sent!');
+    }, 250);
   }
 });
 
