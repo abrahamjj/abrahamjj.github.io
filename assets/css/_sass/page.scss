@@ -567,6 +567,9 @@ hr.card-separator {
   overflow: hidden;
   .article-wrap {
     display: inline-block;
+    &:hover i {
+      @include scale(1.2);
+    }
     i {
       font-size: 2rem;
       padding-top: 5px;
