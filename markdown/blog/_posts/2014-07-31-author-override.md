@@ -2,13 +2,13 @@
 layout: post
 title: "Author Override"
 author: billy_rick
-excerpt: "A post to test author overrides using a data file."
+excerpt: "A post to test author overrides using a data file. A post to test author overrides using a data file. A post to test author overrides using a data file."
 tags: []
 permalink: /blog/:year/:month/:day/:title
 type: blog
 comments: true
 image:
-  feature: github_photo.jpg
+  feature: gradle_kotlin.png
   credit:
   creditlink:
 ---

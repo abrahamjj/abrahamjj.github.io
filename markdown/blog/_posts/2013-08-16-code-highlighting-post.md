@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Syntax Highlighting Post
-excerpt: "Demo post displaying the various ways of highlighting code in Markdown."
+excerpt: "Demo post displaying the various ways of highlighting code in Markdown. Demo post displaying the various ways of highlighting code in Markdown. Demo post displaying the various ways of highlighting code in Markdown."
 tags: [sample post, code, highlighting]
 permalink: /blog/:year/:month/:day/:title
 modified: 2014-09-14
@@ -9,7 +9,7 @@ type: blog
 comments: true
 comments_locked: false
 image:
-  feature: github_photo.jpg
+  feature: code_syntax_highlighting.jpg
   credit:
   creditlink:
 ---

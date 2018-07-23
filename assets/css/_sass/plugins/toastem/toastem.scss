@@ -17,18 +17,28 @@
 }
 
 .notification {
+  color: $white;
   display: block;
   position: relative;
   overflow: hidden;
-  color: $white;
-  padding: 20px;
+  padding: 15px 30px;
   border-radius: 3px;
   box-shadow: 0px 1px 5px $light-black;
+  span {
+    display: inline-block;
+  }
   i {
-    float: right;
+    margin-right: 10px;
+    @include font-rem(24);
   }
 }
 
-.normal { background: $normal-msg; }
-.success { background: $success-msg; }
-.error { background: $error-msg; }
+.normal {
+  background: $normal-msg;
+}
+.success {
+  background: $success-msg;
+}
+.error {
+  background: $error-msg;
+}

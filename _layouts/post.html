@@ -22,7 +22,7 @@
     <div class="post-headline-wrap fade-in-first">
       <h1>
         {% if page.link %}
-          <a href="{{ page.link }}">{{ page.title }}</a>
+          <a href="{{ page.link }}" target="_blank">{{ page.title }}</a>
         {% else %}
           <a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a>
         {% endif %}
@@ -88,7 +88,7 @@
 
               <hr>
 
-              <nav class="pagination" role="navigation">
+              <nav class="post-navigation" role="navigation">
                 {% if page.previous %}
                   <div class="article-wrap prev">
                     <a href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title }}">
@@ -128,8 +128,9 @@
         </aside>
       </div><!-- /.post-content-wrap -->
 
+
       {% if site.related_posts.size > 0 %}
-        <div class="card-separator"></div>
+        <hr class="card-separator">
         <div class="latest-articles article">
           <h4>Latest posts</h4>
           {% for post in site.related_posts limit:5 %}
@@ -141,7 +142,7 @@
         </div>
       {% endif %}
 
-      <div class="card-separator"></div>
+      <hr class="card-separator">
 
       <div class="about-author-card">
         <h4>About the author</h4>

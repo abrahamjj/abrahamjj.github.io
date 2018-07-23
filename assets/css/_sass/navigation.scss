@@ -61,7 +61,9 @@
       }
       a {
         border-bottom: none !important;
-        &.selected-nav-item { color: $orange; }
+        &.selected-nav-item {
+          color: $orange;
+        }
       }
     }
   }
@@ -77,11 +79,13 @@
     white-space: nowrap;
     @include font-rem(20);
     a {
-      color: $nav-text-color;
       decoration: none;
       position: relative;
       display:inline-block;
       text-decoration: none;
+    }
+    a, i {
+      color: $nav-text-color;
     }
   }
 
@@ -118,7 +122,6 @@
     a {
       padding: .9rem .25rem;
       margin-right: 1rem;
-      color: lighten(grey, 40);
       &:hover { @include opacity(.6); }
       &:last-child {
         margin-right: 0;
@@ -171,7 +174,6 @@
     a {
       padding: 1rem 0;
       margin-right: .5rem;
-      color: lighten(grey, 40);
       @include font-rem(20);
       &:last-child {
         padding-right: 0;

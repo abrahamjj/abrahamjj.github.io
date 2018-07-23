@@ -21,25 +21,38 @@
 
     <div id="index" class="fade-in-second">
       <h1>{{ page.title }}</h1>
-      <div class="article-wrap">
-        {{ content }}
-      </div><!-- /.article-wrap -->
-
-      {% capture written_year %}'None'{% endcapture %}
+      <hr>
       {% for post in site.posts %}
-        {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-        {% if year != written_year %}
-          <h3>{{ year }}</h3>
-          {% capture written_year %}{{ year }}{% endcapture %}
-        {% endif %}
-
         <article>
-          {% if post.link %}
-            <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a></h2>
-          {% else %}
-            <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }} (<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d" }}</time>)</a></h2>
-            <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
-          {% endif %}
+          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+            <img src="/assets/img/feature_images/{{post.image.feature}}" alt="post_img">
+          </a>
+
+          <div class="index-card-meta">
+            {% if site.data.comments[post.slug] %}
+              {% assign comments_size = site.data.comments[post.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == ""' | size %}
+            {% else %}
+              {% assign comments_size = 0 %}
+            {% endif %}
+
+            <p class="byline">
+              <i class="fa fa-fw fa-calendar"></i>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+              <span>by: <a href="/about">{{ site.owner.name }}</a></span>
+              <span>| </span>
+              <span><i class="fa fa-fw fa-comments"></i> {{ comments_size }}</span>
+            </p>
+          </div>
+
+          <div class="index-card-info-wrap">
+            <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+
+            <p>{{ post.excerpt | strip_html }}</p>
+
+            <p class="read-more-link">
+              <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">Read More <i class="fa fa-fw fa-arrow-right"></i></a>
+            </p>
+          </div>
         </article>
       {% endfor %}
     </div><!-- /#index -->

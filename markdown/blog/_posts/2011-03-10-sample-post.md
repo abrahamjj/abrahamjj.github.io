@@ -8,7 +8,7 @@ permalink: /blog/:year/:month/:day/:title
 type: blog
 comments: true
 image:
-  feature: github_photo.jpg
+  feature: placeholder-image.png
   credit:
   creditlink:
 ---

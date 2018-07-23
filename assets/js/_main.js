@@ -150,8 +150,9 @@ var toastem = (function($) {
   var normal = function(content) {
     var item = $(
       '<div class="notification normal">'+
-        '<span>'+content+'</span>'+
-        '<i class="fa fa-fw fa-times"></i>'+
+        '<span>'+
+          '<i class="fa fa-fw fa-info-circle"></i>'+content+
+        '</span>'+
       '</div>'
     );
     $("#toastem").append($(item));
@@ -166,8 +167,9 @@ var toastem = (function($) {
   var success = function(content) {
     var item = $(
       '<div class="notification success">'+
-        '<span>'+content+'</span>'+
-        '<i class="fa fa-fw fa-times"></i>'+
+        '<span>'+
+          '<i class="fa fa-fw fa-check-circle"></i>'+content+
+        '</span>'+
       '</div>'
     );
     $("#toastem").append($(item));
@@ -182,8 +184,9 @@ var toastem = (function($) {
   var error = function(content) {
     var item = $(
       '<div class="notification error">'+
-        '<span>'+content+'</span>'+
-        '<i class="fa fa-fw fa-times"></i>'+
+        '<span>'+
+          '<i class="fa fa-fw fa-exclamation-circle"></i>'+content+
+        '</span>'+
       '</div>'
     );
     $("#toastem").append($(item));
@@ -292,7 +295,7 @@ function clearContactForm() {
 $(document).ready(function() {
   if(window.location.hash === '#contact-success-msg') {
     setTimeout(function() {
-      toastem.success('Your message has been sent!');
+      toastem.success('Your message was sent successfully!');
     }, 250);
   }
 });
