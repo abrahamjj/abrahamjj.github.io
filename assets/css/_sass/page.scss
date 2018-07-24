@@ -92,7 +92,9 @@ body {
       width: 100%;
       border-radius: 5px;
       vertical-align: top;
-      display: inline-block;
+      &.post-index-article {
+        display: inline-block;
+      }
       margin: 0 0 2rem 0;
       @media #{$large} {
         width: 32%;
@@ -100,6 +102,11 @@ body {
           margin-left: 1rem;
           margin-right: 1rem;
         }
+      }
+      &.search-results-article {
+        width: 100%;
+        padding: .25rem;
+        margin: 0 0 2rem 0;
       }
       @include
         box-shadow(0 0 .2em .05em $light-black);

@@ -44,7 +44,7 @@ $(document).ready(function() {
   }
 
   /* Populate search results */
-  for (i=1; i<=$('.search-results-article').length; i++) {
+  for (i = 1; i <= $('.search-results-article').length; i++) {
     var articleId = '#search-results-article-'+i;
     var articleTitle = $('#search-results-article-'+i).data('title').toLowerCase();
     var articleTags = getArticleTags(i);
