@@ -181,10 +181,6 @@
       }
       &:hover { @include opacity(.6); }
     }
-    .fa-github { color: $github-color; }
-    .fa-linkedin { color: $linkedin-color; }
-    .fa-envelope-square { color: $envelope-color; }
-    .fa-rss { color: $rss-color; }
   }
   li.nav-search,
   li.social-btns {
