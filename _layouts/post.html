@@ -27,6 +27,7 @@
           <a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a>
         {% endif %}
       </h1>
+
     </div><!--/ .headline-wrap -->
 
     <article class="post fade-in-second">
@@ -55,6 +56,17 @@
                 <i class="fa fa-fw fa-comments"></i>0 Comments
               </a>
             {% endif %}
+          {% endif %}
+
+          {% if page.next %}
+            <a href="{{ site.url }}{{ page.next.url }}" title="{{ page.next.title }}" class="post-meta-nav-next">
+              <i class="fa fa-fw fa-arrow-right"></i>
+            </a>
+          {% endif %}
+          {% if page.previous %}
+            <a href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title }}" class="post-meta-nav-prev">
+              <i class="fa fa-fw fa-arrow-left"></i>
+            </a>
           {% endif %}
         </p>
 

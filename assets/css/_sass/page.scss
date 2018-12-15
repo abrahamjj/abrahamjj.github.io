@@ -46,7 +46,7 @@ body {
       width: 100%;
     }
     .post {
-      .byline.post-meta {
+      p.byline.post-meta {
         padding: .5rem 0;
         border-top: 1px solid #cccccc;
         border-bottom: 1px solid #cccccc;
@@ -62,6 +62,11 @@ body {
               margin-right: .25rem;
             }
           }
+        }
+        a.post-meta-nav-next,
+        a.post-meta-nav-prev {
+          text-decoration: none;
+          float: right;
         }
       }
       .post-content-wrap {
