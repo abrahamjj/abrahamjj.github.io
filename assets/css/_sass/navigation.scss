@@ -92,6 +92,7 @@
   li.mobile-menu {
     cursor: pointer;
     margin-right: 1rem;
+    vertical-align: middle;
     a {
       @include font-rem(24);
     }
@@ -100,17 +101,12 @@
     }
   }
   li.site-home {
-    font-weight: 700;
+    margin-right: .5rem;
     display: inline-block;
-    text-transform: uppercase;
-    font-family: $heading-font;
-    a {
-      color: lighten(grey, 40);
-      @include font-rem(36);
-      i {
-        vertical-align: bottom;
-        &:hover { @include opacity(.6); }
-      }
+    &:hover { @include opacity(.6); }
+    img {
+      width: 3.25rem;
+      vertical-align: middle;
     }
   }
   li.site-pages {
