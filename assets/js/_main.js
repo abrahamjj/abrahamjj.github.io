@@ -295,7 +295,7 @@ function clearContactForm() {
 $(document).ready(function() {
   if(window.location.hash === '#contact-success-msg') {
     setTimeout(function() {
-      toastem.success('Your message was sent successfully!');
+      toastem.success('Thank you. Your message was sent successfully!');
     }, 250);
   }
 });
