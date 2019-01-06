@@ -67,6 +67,9 @@ body {
         a.post-meta-nav-prev {
           text-decoration: none;
           float: right;
+          i:hover {
+           @include scale(1.25); 
+          }
         }
       }
       .post-content-wrap {
@@ -116,25 +119,6 @@ body {
     padding-bottom: .5rem;
     @include font-rem(28);
     border-bottom: 1px solid lighten($black,70);
-  }
-  .post-index-left {
-    float: left;
-    padding-right: 2.5rem;
-    h2 { margin-top: .5rem; }
-  }
-  .post-index-right {
-    margin-top: .5rem;
-    display: inline-block;
-    border-left: 2px $orange solid;
-    padding-left: 1.5rem;
-    article {
-      &:first-child {
-        h2 { margin-top: 0; }
-      }
-      &:last-child {
-        p { margin-bottom: 0; }
-      }
-    }
   }
   article {
     h2 {

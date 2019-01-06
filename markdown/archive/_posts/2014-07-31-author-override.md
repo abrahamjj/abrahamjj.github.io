@@ -4,8 +4,8 @@ title: "Author Override"
 author: billy_rick
 excerpt: "A post to test author overrides using a data file. A post to test author overrides using a data file. A post to test author overrides using a data file."
 tags: []
-permalink: /blog/:year/:month/:day/:title
-type: blog
+permalink: /archive/:year/:month/:day/:title
+type: archive
 comments: true
 image:
   feature: gradle_kotlin.png

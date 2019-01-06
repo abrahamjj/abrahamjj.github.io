@@ -23,32 +23,26 @@
       <h1>{{ page.title }}</h1>
       <hr>
 
-      <div class="post-index-left">
-        <h2>Articles <i class="fa fa-fw fa-rss"></i></h2>
-      </div>
-
-      <div class="post-index-right">
-        {% for post in site.posts %}
-          <article>
-            {% if post.link %}
-              <h2>
-                <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
-                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d %Y" }}</time> - {{ post.title }}
-                </a>
-                <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a>
-              </h2>
-              <p>{{ post.excerpt | strip_html | truncate: 125 }}</p>
-            {% else %}
-              <h2>
-                <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
-                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time> - {{ post.title }}
-                </a>
-              </h2>
-              <p>{{ post.excerpt | strip_html | truncate: 125 }}</p>
-            {% endif %}
-          </article>
-        {% endfor %}
-      </div>
+      {% for post in site.posts %}
+        <article>
+          {% if post.link %}
+            <h2>
+              <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d %Y" }}</time> - {{ post.title }}
+              </a>
+              <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a>
+            </h2>
+            <p>{{ post.excerpt | strip_html | truncate: 125 }}</p>
+          {% else %}
+            <h2>
+              <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time> - {{ post.title }}
+              </a>
+            </h2>
+            <p>{{ post.excerpt | strip_html | truncate: 125 }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
     </div><!-- /#index -->
   </div><!-- /#main -->
 </div><!-- /.site-content -->
