@@ -25,22 +25,15 @@
 
       {% for post in site.posts %}
         <article>
-          {% if post.link %}
-            <h2>
-              <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
-                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d %Y" }}</time> - {{ post.title }}
-              </a>
+          <h2>
+            <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time> - {{ post.title }}
+            </a>
+            {% if post.link %}
               <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a>
-            </h2>
-            <p>{{ post.excerpt | strip_html | truncate: 125 }}</p>
-          {% else %}
-            <h2>
-              <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
-                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time> - {{ post.title }}
-              </a>
-            </h2>
-            <p>{{ post.excerpt | strip_html | truncate: 125 }}</p>
-          {% endif %}
+            {% endif %}
+          </h2>
+          <p>{{ post.excerpt | strip_html | truncate: 125 }}</p>
         </article>
       {% endfor %}
     </div><!-- /#index -->
