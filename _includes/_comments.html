@@ -26,7 +26,7 @@
     {% endif %}
   
     {% unless page.comments_locked == true %}
-     {% include _comment-form.html %}
+     {% include _comment-form.html inline=true %}
 <!-- 
       <a href="#leave-comment-modal" class="leave-comment-btn btn" onclick="autofocusCommentTextArea()">
         <i class="fa fa-fw fa-comment"></i>

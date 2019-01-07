@@ -772,6 +772,23 @@ hr.card-separator {
     margin: 0;
   }
   .form-group {
+    &.inline {
+      width: 100%;
+      display: block;
+      @media #{$small} {
+        display: inline-block;
+        @include grid(12,4);
+        &:first-child {
+          padding: 0 10px 0 0;
+        }
+        &:nth-child(2) {
+          padding: 0 10px;
+        }
+        &:nth-child(3) {
+          padding: 0 0 0 10px;
+        }
+      }
+    }
     label {
       text-align: left;
     }
@@ -784,10 +801,11 @@ hr.card-separator {
     button {
       margin: 0;
     }
-    input,
-    textarea,
-    .g-recaptcha {
+    input, textarea, .g-recaptcha {
       margin-bottom: 1rem;
+    }
+    input, textarea {
+      background: darken($body-color, 10);
     }
     input#comment-form-reply {
       display: inline;

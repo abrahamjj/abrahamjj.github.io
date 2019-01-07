@@ -1,29 +1,35 @@
 <!-- Start new comment form -->
 <div id="respond">
   <header class="section-title">
-    <h1><i class="fa fa-fw fa-comment"></i> Leave a Comment</h1>
+    <h1>
+      {% if include.inline %}
+        <i class="fa fa-fw fa-comment"></i> Leave a Comment
+      {% else %}
+        <i class="fa fa-fw fa-reply fa-rotate-180"></i> Reply
+      {% endif %}
+    </h1>
   </header>
   <hr>
   <form id="comment-form" class="page__form js-form form" method="POST" action="https://api.staticman.net/v2/entry/{{ site.staticman.repository }}/{{ site.staticman.branch }}/comments">
-    <div class="form-group">
-      <label>Comment*</label>
-      <label class="sr-only" for="comment-form-message"><strong>Comment</strong> <small>(<a href="https://kramdown.gettalong.org/quickref.html">Markdown</a> is allowed)</small></label>
-      <textarea type="text" rows="6" id="comment-form-message" name="fields[message]" required spellcheck="true" placeholder="Markdown is allowed..."></textarea>
-    </div>
-    <div class="form-group">
+    <div class="form-group {% if include.inline %}inline{% endif %}">
       <label>Name*</label>
       <label class="sr-only" for="comment-form-name"><strong>Name</strong></label>
       <input type="text" id="comment-form-name" name="fields[name]" required spellcheck="false" placeholder="Display name...">
     </div>
-    <div class="form-group">
+    <div class="form-group {% if include.inline %}inline{% endif %}">
       <label>Email</label>
       <label class="sr-only" for="comment-form-email"><strong>Email address</strong> <small>(used for <a href="http://gravatar.com">Gravatar</a> image and reply notifications)</small></label>
       <input type="email" id="comment-form-email" name="fields[email]" spellcheck="false" placeholder="Used for Gravatar image...">
     </div>
-    <div class="form-group">
+    <div class="form-group {% if include.inline %}inline{% endif %}">
       <label>Website</label>
       <label class="sr-only" for="comment-form-url"><strong>Website</strong> <small>(optional)</small></label>
       <input type="url" id="comment-form-url" name="fields[url]" placeholder="Personal website link...">
+    </div>
+    <div class="form-group">
+      <label>Comment*</label>
+      <label class="sr-only" for="comment-form-message"><strong>Comment</strong> <small>(<a href="https://kramdown.gettalong.org/quickref.html">Markdown</a> is allowed)</small></label>
+      <textarea type="text" rows="6" id="comment-form-message" name="fields[message]" required spellcheck="true" placeholder="Markdown is allowed..."></textarea>
     </div>
     <div class="form-group hidden" style="display: none;">
       <input type="hidden" name="options[origin]" value="{{ page.url | relative_url }}">
@@ -43,7 +49,7 @@
       {% endif %}
       <hr>
       <button type="submit" id="comment-form-submit" class="btn submit"><i class="fa fa-fw fa-save"></i> Submit</button>
-      <a href="javascript: clearCommentForm();" class="btn clear"><i class="fa fa-fw fa-broom"></i> Clear</a>
+      <a href="javascript: clearCommentForm();" class="btn clear"><i class="fa fa-fw fa-trash"></i> Clear</a>
     </div>
   </form>
 </div>
