@@ -3,11 +3,7 @@
 {% endif %}
 
 <div itemscope itemtype="http://schema.org/Person">
-  <h4>About the author</h4>
-  <p>{{ author.bio }}</p>
-
   {% if site.related_posts.size > 0 %}
-    <hr>
     <div class="latest-articles side">
       <h4>Latest posts</h4>
       {% for post in site.related_posts limit:5 %}

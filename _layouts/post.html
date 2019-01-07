@@ -75,8 +75,6 @@
             {{ content }}
 
             <footer role="contentinfo">
-              <hr>
-
               {% if page.share != false %}
                 {% include _social-share.html %}
               {% endif %}
@@ -138,7 +136,6 @@
 
 
       {% if site.related_posts.size > 0 %}
-        <hr class="card-separator">
         <div class="latest-articles article">
           <h4>Latest posts</h4>
           {% for post in site.related_posts limit:5 %}
@@ -149,13 +146,6 @@
           {% endfor %}
         </div>
       {% endif %}
-
-      <hr class="card-separator">
-
-      <div class="about-author-card">
-        <h4>About the author</h4>
-        <p>{{ author.bio }}</p>
-      </div>
     </article>
   </div><!-- /#main -->
 </div><!-- /.site-content -->

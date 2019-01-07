@@ -137,14 +137,6 @@ body {
   }
 }
 
-/* Cards under article */
-hr.card-separator {
-  margin: 0 1rem;
-  @media #{$large} {
-    display: none;
-  }
-}
-
 /* Post byline */
 .byline {
   clear: both;
@@ -159,7 +151,6 @@ hr.card-separator {
   display: none;
   padding-left: 1.5rem;
   color: $light-black;
-  border-left: 3px solid $orange;
   @media #{$large} {
     display: inline-block;
   }

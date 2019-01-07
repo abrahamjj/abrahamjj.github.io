@@ -9,7 +9,7 @@
       {% endif %}
     </h1>
   </header>
-  <hr>
+
   <form id="comment-form" class="page__form js-form form" method="POST" action="https://api.staticman.net/v2/entry/{{ site.staticman.repository }}/{{ site.staticman.branch }}/comments">
     <div class="form-group {% if include.inline %}inline{% endif %}">
       <label>Name*</label>
