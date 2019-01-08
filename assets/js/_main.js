@@ -12,13 +12,13 @@ $(document).ready(function() {
    ========================================================================== */
 
 $(document).ready(function() {
-  $(window).scroll(function() {
-      if ($(this).scrollTop() >= 100) {
-          $('.scroll-top').show();
-      } else {
-          $('.scroll-top').hide();
-      }
-  });
+  // $(window).scroll(function() {
+  //     if ($(this).scrollTop() >= 100) {
+  //         $('.scroll-top').show();
+  //     } else {
+  //         $('.scroll-top').hide();
+  //     }
+  // });
   $('.scroll-top').click(function() {
       $('body,html').animate({scrollTop : 0}, 500);
   });

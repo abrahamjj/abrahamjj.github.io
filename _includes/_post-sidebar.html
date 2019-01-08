@@ -6,7 +6,7 @@
   {% if site.related_posts.size > 0 %}
     <div class="latest-articles side">
       <h4>Latest posts</h4>
-      {% for post in site.related_posts limit:5 %}
+      {% for post in site.related_posts limit:3 %}
         <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
         <p class="byline">
           Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
@@ -16,7 +16,6 @@
   {% endif %}
 
   {% if page.tags.size > 0 %}
-    <hr>
     <div class="post-tags side">
       <h4>Post Tags</h4>
       <ul>
@@ -28,4 +27,8 @@
       </ul>
     </div>
   {% endif %}
+
+  <div class="scroll-top">
+    <a href="javascript:"><i class="fa fa-fw fa-arrow-up"></i> back to top</a>
+  </div>
 </div>

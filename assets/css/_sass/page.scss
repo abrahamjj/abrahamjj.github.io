@@ -145,7 +145,10 @@ body {
 }
 
 /* Author sidebar & author/article separator*/
-.article-author-side {
+.post-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2rem;
   width: 19%;
   float: right;
   display: none;
@@ -195,13 +198,6 @@ body {
         margin-bottom: 1rem;
       }
     }
-  }
-
-  hr {
-    border: none;
-    height: .15rem;
-    color: grey;
-    background-color: grey;
   }
 }
 
@@ -369,6 +365,13 @@ body {
       display: none;
     }
   }
+  &.side {
+    margin-top: 1.5rem;
+  }
+}
+
+.scroll-top {
+  margin-top: 1.5rem;
 }
 
 /* Footer wrapper */
@@ -412,18 +415,6 @@ body {
       color: $orange;
     }
   }
-}
-
-.scroll-top {
-  top: 1rem;
-  display: none;
-  position: fixed;
-  margin-left: -2.5rem;
-  @include font-rem(24);
-  @media #{$large-max} {
-    display: none !important;
-  }
-  i { color: $orange; }
 }
 
 /*
