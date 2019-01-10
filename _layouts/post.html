@@ -122,26 +122,17 @@
             {% if page.comments %}
               {% include _comments.html %}
             {% endif %}
-          </div><!-- /.article-wrap -->          
+          </div>
         </div>
 
         <aside class="post-sidebar fade-in-third">
           {% include _post-sidebar.html %}
         </aside>
-      </div><!-- /.post-content-wrap -->
+      </div>
 
-
-      {% if site.related_posts.size > 0 %}
-        <div class="latest-articles article">
-          <h4>Latest posts</h4>
-          {% for post in site.related_posts limit:5 %}
-            <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-            <p class="byline"> 
-              Published on <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-            </p>
-          {% endfor %}
-        </div>
-      {% endif %}
+      <div class="related-posts article">
+        {% include _related-posts.html %}
+      </div>
     </article>
   </div><!-- /#main -->
 </div><!-- /.site-content -->

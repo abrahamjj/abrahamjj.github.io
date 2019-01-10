@@ -184,7 +184,7 @@ body {
   }
 
   /* Latest articles list */
-  .latest-articles {
+  .related-posts {
     &.side {
       a {
         display: contents;
@@ -197,11 +197,14 @@ body {
       p {
         margin-bottom: 1rem;
       }
+      p:last-child {
+        margin-bottom: 1.5rem;
+      }
     }
   }
 }
 
-.latest-articles.article,
+.related-posts.article,
 .about-author-card {
   padding: 1rem 1rem 1rem 1rem;
   @media #{$large} {
@@ -366,12 +369,8 @@ body {
     }
   }
   &.side {
-    margin-top: 1.5rem;
+    margin-bottom: 1.25rem;
   }
-}
-
-.scroll-top {
-  margin-top: 1.5rem;
 }
 
 /* Footer wrapper */
