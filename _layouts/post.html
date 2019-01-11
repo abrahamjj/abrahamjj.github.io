@@ -71,10 +71,6 @@
             {{ content }}
 
             <footer role="contentinfo">
-              {% if page.share != false %}
-                {% include _social-share.html %}
-              {% endif %}
-
               {% if page.tags.size > 0 %}
                 <div class="post-tags article">
                   <h4>Post Tags</h4>
@@ -85,6 +81,12 @@
                       </li>
                     {% endfor %}
                   </ul>
+                </div>
+              {% endif %}
+
+              {% if page.share != false %}
+                <div class="social-share article">
+                  {% include _social-share.html %}
                 </div>
               {% endif %}
 
