@@ -362,35 +362,14 @@ body {
 }
 
 .post-tags {
-  &.side {
-    margin-bottom: 1.25rem;
-  }
   &.article {
     display: block;
     @media #{$large} {
       display: none;
     }
   }
-}
-
-.social-share {
   &.side {
     margin-bottom: 1.25rem;
-    a {
-      padding: 5px 3px;
-      i {
-        padding: 0;
-        @include font-rem(24);
-      }
-      span {
-        display: none;
-      }
-    }
-  }
-  &.article {
-    @media #{$large} {
-      display: none;
-    }
   }
 }
 
