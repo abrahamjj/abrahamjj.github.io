@@ -328,8 +328,7 @@ function dismissModal() {
       success: function(data) {
         $("#comment-form-submit").html("Submitted").addClass("btn--disabled");
         toastem.success(
-          'Thanks for your comment!<br>'+
-          'It is currently pending and will show on the site once approved.'
+          'Thank you for your comment!'
         );
       },
       error: function(err) {
