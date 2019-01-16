@@ -1,0 +1,8 @@
+_id: 96876a60-19db-11e9-a165-97c27510dd3f
+_parent: /archive/2014/07/31/author-override
+name: First Last
+email: ''
+url: ''
+message: "I tried enabling Akismet with the following but it never quite worked:\r\n\r\nakismet:\r\n  enabled: true\r\n  author: \"name\"\r\n  authorEmail: \"email\"\r\n  authorUrl: \"url\"\r\n  content: \"message\"\r\n  type: \"comment\"\r\nWere you able to get it working?\r\n\r\nFrom this line in Staticman’s documenation I got the feeling the public instance of Staticman needed it setup. Wasn’t sure if that was the case or if it was only for those running their own instances of the app.\r\n\r\nakismet.enabled Whether to use Akismet to check entries for spam. This requires an Akismet account to be configured in the Staticman API instance being used."
+replying_to: ''
+date: '2019-01-16T22:10:53.125Z'
