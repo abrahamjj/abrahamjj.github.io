@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: About John Abraham
 permalink: /about
 type: about
 comments: false

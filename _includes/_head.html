@@ -3,7 +3,7 @@
   {% if page.title and page.type == 'blog'  %}
     {{ page.title }}
   {% elsif page.title and page.type != 'blog' %}
-      {{ site.owner.name }} | {{ page.title }}
+    {{ page.title }} | {{ site.title }}
   {% else %}
     {{ site.title }}
   {% endif %}

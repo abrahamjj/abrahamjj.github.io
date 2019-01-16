@@ -1,6 +1,6 @@
 ---
 layout: post-index
-title: Archive
+title: Blog Articles
 permalink: /archive
 type: archive
 comments: false
