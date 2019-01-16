@@ -16,56 +16,66 @@
 <div class="site-content">
   <div id="main" role="main">
     <div class="post-headline-wrap fade-in-first">
-      <h1>
-        {% if page.link %}
-          <a href="{{ page.link }}" target="_blank">{{ page.title }}</a>
-        {% else %}
-          <a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a>
-        {% endif %}
-      </h1>
+      <div class="headline-meta">
+<!-- 
+        <h1 class="site-name">
+          <i class="fa fa-fw fa-bars"></i>
+          <a href="/">{{ site.title }}</a>
+        </h1>
+ -->
+        <h1 class="post-title">
+          {% if page.link %}
+            <a href="{{ page.link }}" target="_blank">{{ page.title }}</a>
+          {% else %}
+            <a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a>
+          {% endif %}
+        </h1>
 
-    </div><!--/ .headline-wrap -->
+        <span class="post-author">__by: <a href="/about">{{ site.owner.name }}</a></span>
 
-    <article class="post fade-in-second">
-      <div class="post-content-wrap">
-        <p class="byline post-meta">
-          <i class="fa fa-fw fa-calendar"></i>
-          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-          by: <a href="/about">{{ site.owner.name }}</a>
+        <div class="byline post-meta">
+          <div class="post-meta-item">
+            <i class="fa fa-fw fa-clock"></i>
+            <span>~{{page.readometer}} Min Read</span>
+          </div>
 
-          <span class="separator">|</span>
+          <div class="post-meta-item">
+            <i class="fa fa-fw fa-calendar"></i>
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+          </div>
 
           {% if page.comments %}
-            {% if site.data.comments[page.slug] %}
-              {% assign comments_size = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == ""' | size %}
-              {% if comments_size > 0 %}
-                <a class="comments-preview" href="#comments">
-                  <i class="fa fa-fw fa-comments"></i>{{ comments_size | append: ' ' }}Comment{% if comments_size > 1 %}s{% endif %}
-                </a>
+            <div class="post-meta-item">
+              {% if site.data.comments[page.slug] %}
+                {% assign comments_size = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].replying_to == ""' | size %}
+                {% if comments_size > 0 %}
+                  <a class="comments-preview" href="#comments">
+                    <i class="fa fa-fw fa-comments"></i>{{ comments_size | append: ' ' }}Comment{% if comments_size > 1 %}s{% endif %}
+                  </a>
+                {% else %}
+                  <a class="comments-preview" href="#entry-comments">
+                    <i class="fa fa-fw fa-comments"></i>0 Comments
+                  </a>
+                {% endif %}
               {% else %}
                 <a class="comments-preview" href="#entry-comments">
                   <i class="fa fa-fw fa-comments"></i>0 Comments
                 </a>
               {% endif %}
-            {% else %}
-              <a class="comments-preview" href="#entry-comments">
-                <i class="fa fa-fw fa-comments"></i>0 Comments
-              </a>
-            {% endif %}
+            </div>
           {% endif %}
+        </div>
+      </div>
 
-          {% if page.next %}
-            <a href="{{ site.url }}{{ page.next.url }}" title="{{ page.next.title }}" class="post-meta-nav-next">
-              <i class="fa fa-fw fa-arrow-right"></i>
-            </a>
-          {% endif %}
-          {% if page.previous %}
-            <a href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title }}" class="post-meta-nav-prev">
-              <i class="fa fa-fw fa-arrow-left"></i>
-            </a>
-          {% endif %}
-        </p>
+      <img src="{{ site.url }}/assets/img/feature_images/{{ page.image.feature }}" alt="feature_image">
 
+      {% if page.image.credit %}
+        <span class="img-credit">{{ page.image.credit }}</span>
+      {% endif %}
+    </div><!--/ .headline-wrap -->
+
+    <article class="post fade-in-second">
+      <div class="post-content-wrap">
         <div class="post-content">
           <div class="article-wrap">
             {{ content }}

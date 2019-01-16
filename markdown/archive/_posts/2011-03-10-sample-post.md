@@ -10,7 +10,6 @@ comments: true
 image:
   feature: placeholder-image.png
   credit:
-  creditlink:
 ---
 
 <section id="table-of-contents" class="toc">

@@ -9,7 +9,6 @@ comments: true
 image:
   feature: stock_photo.jpg
   credit:
-  creditlink:
 ---
 
 <figure>

@@ -17,7 +17,7 @@
 
   /* Top navigation links (tablet/desktop only) */
   .top-navigation {
-    @include container(68rem);
+    @include container(65rem);
     @include clearfix;
   }
 }

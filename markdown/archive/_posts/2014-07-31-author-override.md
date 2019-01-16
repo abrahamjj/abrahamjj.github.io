@@ -10,7 +10,6 @@ comments: true
 image:
   feature: gradle_kotlin.png
   credit:
-  creditlink:
 ---
 
 For those of you who may have content written by multiple authors on your site you can now assign different authors to each post if desired.
