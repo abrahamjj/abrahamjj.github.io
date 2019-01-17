@@ -7,6 +7,7 @@ link: http://mademistakes.com
 permalink: /archive/:year/:month/:day/:title
 type: archive
 comments: true
+comments_locked: false
 image:
   feature: placeholder-image.png
   credit:

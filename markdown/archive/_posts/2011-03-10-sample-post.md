@@ -7,6 +7,7 @@ tags: [intro, beginner, jekyll, tutorial]
 permalink: /archive/:year/:month/:day/:title
 type: archive
 comments: true
+comments_locked: false
 image:
   feature: placeholder-image.png
   credit:

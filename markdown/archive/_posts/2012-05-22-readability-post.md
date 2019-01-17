@@ -6,6 +6,7 @@ permalink: /archive/:year/:month/:day/:title
 tags: [Ruby, test, R, gradle, readability, Java, Program, Maven, Code, Python, Testing, Software, Dev, Web]
 type: archive
 comments: true
+comments_locked: false
 image:
   feature: placeholder-image.png
   credit:

@@ -7,6 +7,7 @@ tags: []
 permalink: /archive/:year/:month/:day/:title
 type: archive
 comments: true
+comments_locked: false
 image:
   feature: gradle_kotlin.png
   credit:

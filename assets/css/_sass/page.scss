@@ -829,9 +829,8 @@ body {
       text-align: left;
     }
     .btn {
-      float: right;
       &.clear {
-        margin: 0 1rem 0 0;
+        margin-right: .25rem;
       }
     }
     button {

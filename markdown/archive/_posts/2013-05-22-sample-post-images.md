@@ -6,6 +6,7 @@ tags: [sample post, images, test]
 permalink: /archive/:year/:month/:day/:title
 type: archive
 comments: true
+comments_locked: false
 image:
   feature: stock_photo.jpg
   credit:

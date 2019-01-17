@@ -6,6 +6,7 @@ tags: [sample post, readability, test]
 permalink: /archive/:year/:month/:day/:title
 type: archive
 comments: true
+comments_locked: false
 readometer: 5
 image:
   feature: binary-search-tree-feature.jpg
