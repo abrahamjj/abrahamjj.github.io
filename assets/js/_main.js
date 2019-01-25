@@ -12,13 +12,6 @@ $(document).ready(function() {
    ========================================================================== */
 
 $(document).ready(function() {
-  // $(window).scroll(function() {
-  //     if ($(this).scrollTop() >= 100) {
-  //         $('#scroll-top').show();
-  //     } else {
-  //         $('#scroll-top').hide();
-  //     }
-  // });
   $('#scroll-top').click(function() {
       $('body,html').animate({scrollTop : 0}, 500);
   });
@@ -228,6 +221,16 @@ function submitContactForm() {
   }
 }
 
+function clearContactForm() {
+  $('#contact-form')[0].reset();
+  $('#contact-input-email').removeClass('required');
+  $('#email-label').css('color', 'black');
+  $('#contact-input-subj').removeClass('required');
+  $('#subj-label').css('color', 'black');
+  $('#contact-input-msg').removeClass('required');
+  $('#msg-label').css('color', 'black');
+}
+
 function validateContactForm() {
   // email validation styling
   if ( !validateEmail($('#contact-input-email').val()) ) {
@@ -275,22 +278,6 @@ function validateEmail(email) {
   return true;
 }
 
-function clearContactForm() {
-  $('#contact-input-name').val('');
-
-  $('#contact-input-email').val('');
-  $('#contact-input-email').removeClass('required');
-  $('#email-label').css('color', 'black');
- 
-  $('#contact-input-subj').val('');
-  $('#contact-input-subj').removeClass('required');
-  $('#subj-label').css('color', 'black');
-
-  $('#contact-input-msg').val('');
-  $('#contact-input-msg').removeClass('required');
-  $('#msg-label').css('color', 'black');
-}
-
 /* Trigger form submission success modal on successful redirect */
 $(document).ready(function() {
   if(window.location.hash === '#contact-success-msg') {
@@ -299,11 +286,6 @@ $(document).ready(function() {
     }, 250);
   }
 });
-
-/* Dismiss success modal */
-function dismissModal() {
-  document.getElementById('#contact-success-msg').style.display = 'none';
-}
 
 /*
    Static comments
@@ -327,8 +309,11 @@ function dismissModal() {
       contentType: "application/x-www-form-urlencoded",
       success: function(data) {
         $("#comment-form-submit").html("Submitted").addClass("btn--disabled");
+        clearCommentForm();
+
         toastem.success(
-          'Thank you for your comment!'
+          'Thank you for your comment! Please allow a few minutes ' +
+          'before your comment appears.'
         );
       },
       error: function(err) {
@@ -344,113 +329,57 @@ function dismissModal() {
 
     return false;
   });
-})(jQuery);
 
-// Staticman comment replies
-// modified from Wordpress https://core.svn.wordpress.org/trunk/wp-includes/js/comment-reply.js
-// Released under the GNU General Public License - https://wordpress.org/about/gpl/
-var addComment = {
-  commentReplyConfig: function(commId, parentId, respondId, postId) {
-    var inst = $('[data-remodal-id=leave-comment-modal]').remodal();
-    inst.open();
+  $("#reply-form").submit(function() {
+    var form = this;
 
-    var div,
-      element,
-      style,
-      cssHidden,
-      t = this,
-      comm = t.I(commId),
-      respond = t.I(respondId),
-      parent = t.I("comment-replying-to"),
-      post = t.I("comment-post-slug"),
-      commentForm = respond.getElementsByTagName("form")[0];
+    $.ajax({
+      type: $(this).attr("method"),
+      url: $(this).attr("action"),
+      data: $(this).serialize(),
+      contentType: "application/x-www-form-urlencoded",
+      success: function(data) {
+        $("#comment-form-submit").html("Submitted").addClass("btn--disabled");
+        $('[data-remodal-id=reply-comment-modal]').remodal().close();
+        clearReplyForm();
 
-    if (!comm || !respond || !parent || !commentForm) {
-      return;
-    }
+        toastem.success(
+          'Thank you for your reply! Please allow a few minutes before your ' +
+          'comment appears.'
+        );
+      },
+      error: function(err) {
+        console.log(err);
+        $("#comment-form-submit").html("Submit Comment");
 
-    t.respondId = respondId;
-    postId = postId || false;
-
-    if (!t.I("sm-temp-form-div")) {
-      div = document.createElement("div");
-      div.id = "sm-temp-form-div";
-      div.style.display = "none";
-      // respond.parentNode.insertBefore(div, respond);
-    }
-
-    // comm.parentNode.insertBefore(respond, comm.nextSibling);
-    if (post && postId) {
-      post.value = postId;
-    }
-    parent.value = parentId;
-
-    /*
-     * Set initial focus to the first form focusable element.
-     * Try/catch used just to avoid errors in IE 7- which return visibility
-     * 'inherit' when the visibility value is inherited from an ancestor.
-     */
-    try {
-      for (var i = 0; i < commentForm.elements.length; i++) {
-        element = commentForm.elements[i];
-        cssHidden = false;
-
-        // Modern browsers.
-        if ("getComputedStyle" in window) {
-          style = window.getComputedStyle(element);
-          // IE 8.
-        } else if (document.documentElement.currentStyle) {
-          style = element.currentStyle;
-        }
-
-        /*
-         * For display none, do the same thing jQuery does. For visibility,
-         * check the element computed style since browsers are already doing
-         * the job for us. In fact, the visibility computed style is the actual
-         * computed value and already takes into account the element ancestors.
-         */
-        if (
-          (element.offsetWidth <= 0 && element.offsetHeight <= 0) ||
-          style.visibility === "hidden"
-        ) {
-          cssHidden = true;
-        }
-
-        // Skip form elements that are hidden or disabled.
-        if ("hidden" === element.type || element.disabled || cssHidden) {
-          continue;
-        }
-
-        element.focus();
-        // Stop after the first focusable element.
-        break;
+        toastem.error(
+          'Sorry, there was an error with your submission. Please ' +
+          'make sure all required fields have been completed and try again.'
+        );
+        $(form).removeClass("disabled");
       }
-    } catch (er) {}
+    });
 
     return false;
-  },
+  });
+})(jQuery);
 
-  I: function(id) {
-    return document.getElementById(id);
-  }
-};
-
-function autofocusCommentTextArea() {
-  setTimeout(function() {
-    $('#comment-form-message').focus();
-  }, 50);
-
-  return false;
+/*
+ * trigger reply modal & form configs
+ */
+function openReplyModal(parentId) {
+  $('[data-remodal-id=reply-comment-modal]').remodal().open();
+  $('input[name="fields[replying_to]"]').val(parentId);
 }
 
 /*
- * Clear comment form
+ * Clear comment/reply forms
  */
 function clearCommentForm() {
-  $('#comment-form-message').val('');
-  $('#comment-form-name').val('');
-  $('#comment-form-email').val('');
-  $('#comment-form-url').val('');
+  $('#comment-form')[0].reset();
+}
+function clearReplyForm() {
+  $('#reply-form')[0].reset();
 }
 
 /*

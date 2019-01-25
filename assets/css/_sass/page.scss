@@ -803,35 +803,39 @@ body {
   }
 }
 
-#comment-form {
+#comment-form,
+#reply-form {
  .hidden {
     margin: 0;
   }
-  .form-group {
-    &.inline {
-      width: 100%;
-      display: block;
-      @media #{$small} {
-        display: inline-block;
-        @include grid(12,4);
-        &:first-child {
-          padding: 0 10px 0 0;
-        }
-        &:nth-child(2) {
-          padding: 0 10px;
-        }
-        &:nth-child(3) {
-          padding: 0 0 0 10px;
-        }
+  &.comment-inline > .form-group {
+    width: 100%;
+    display: block;
+    @media #{$small} {
+      display: inline-block;
+      @include grid(12,4);
+      &:first-child {
+        padding: 0 10px 0 0;
+      }
+      &:nth-child(2) {
+        padding: 0 10px;
+      }
+      &:nth-child(3) {
+        padding: 0 0 0 10px;
       }
     }
-    label {
-      text-align: left;
+  }
+  .form-group {
+    .form-controls.reply {
+      float: right;
     }
     .btn {
       &.clear {
         margin-right: .25rem;
       }
+    }
+    label {
+      text-align: left;
     }
     button {
       margin: 0;
@@ -841,6 +845,9 @@ body {
     }
     input, textarea {
       background: darken($body-color, 10);
+    }
+    &.comment-textarea {
+      width: 100%;
     }
     input#comment-form-reply {
       display: inline;

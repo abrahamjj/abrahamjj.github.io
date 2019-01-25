@@ -2,31 +2,31 @@
 <div id="respond">
   <header class="section-title">
     <h1>
-      {% if include.inline %}
-        <i class="fa fa-fw fa-comment"></i> Leave a Comment
-      {% else %}
+      {% if include.reply %}
         <i class="fa fa-fw fa-reply fa-rotate-180"></i> Reply
+      {% else %}
+        <i class="fa fa-fw fa-comment"></i> Leave a Comment
       {% endif %}
     </h1>
   </header>
 
-  <form id="comment-form" class="page__form js-form form" method="POST" action="https://api.staticman.net/v2/entry/{{ site.staticman.repository }}/{{ site.staticman.branch }}/comments">
-    <div class="form-group {% if include.inline %}inline{% endif %}">
+  <form id="{% if include.reply %}reply-form{% else %}comment-form{% endif %}" class="page__form js-form form {% unless include.reply %}comment-inline{% endunless %}" method="POST" action="https://api.staticman.net/v2/entry/{{ site.staticman.repository }}/{{ site.staticman.branch }}/comments">
+    <div class="form-group">
       <label>Name*</label>
       <label class="sr-only" for="comment-form-name"><strong>Name</strong></label>
       <input type="text" id="comment-form-name" name="fields[name]" required spellcheck="false" placeholder="Display name...">
     </div>
-    <div class="form-group {% if include.inline %}inline{% endif %}">
+    <div class="form-group">
       <label>Email</label>
       <label class="sr-only" for="comment-form-email"><strong>Email address</strong> <small>(used for <a href="http://gravatar.com">Gravatar</a> image and reply notifications)</small></label>
       <input type="email" id="comment-form-email" name="fields[email]" spellcheck="false" placeholder="Used for Gravatar image...">
     </div>
-    <div class="form-group {% if include.inline %}inline{% endif %}">
+    <div class="form-group">
       <label>Website</label>
       <label class="sr-only" for="comment-form-url"><strong>Website</strong> <small>(optional)</small></label>
       <input type="url" id="comment-form-url" name="fields[url]" placeholder="Personal website link...">
     </div>
-    <div class="form-group">
+    <div class="form-group comment-textarea">
       <label>Comment*</label>
       <label class="sr-only" for="comment-form-message"><strong>Comment</strong> <small>(<a href="https://kramdown.gettalong.org/quickref.html">Markdown</a> is allowed)</small></label>
       <textarea type="text" rows="6" id="comment-form-message" name="fields[message]" required spellcheck="true" placeholder="Markdown is allowed..."></textarea>
@@ -47,8 +47,10 @@
           Notify me of replies by email.
         </label>
       {% endif %}
-      <a href="javascript: clearCommentForm();" class="btn clear"><i class="fa fa-fw fa-trash"></i> Clear</a>
-      <button type="submit" id="comment-form-submit" class="btn submit"><i class="fa fa-fw fa-save"></i> Submit</button>
+      <div class="form-controls {% if include.reply %}reply{% endif %}">
+        <a href="javascript: {% if include.reply %}clearReplyForm();{% else %}clearCommentForm();{% endif %}" class="btn clear"><i class="fa fa-fw fa-trash"></i> Clear</a>
+        <button type="submit" id="comment-form-submit" class="btn submit"><i class="fa fa-fw fa-save"></i> Submit</button>
+      </div>
     </div>
   </form>
 </div>

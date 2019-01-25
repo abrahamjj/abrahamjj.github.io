@@ -61,7 +61,7 @@
         {% endif %}
 
         {% unless page.comments_locked == true %}
-          <a rel="nofollow" class="btn btn-danger" href="#" onclick="return addComment.commentReplyConfig('comment-{{ include.index }}', '{{ include.index }}', 'respond', '{{ page.slug }}')">
+          <a rel="nofollow" class="btn btn-danger" href="javascript:void(0)" onclick="return openReplyModal('{{ include.index }}')">
             <small><i class="fa fa-fw fa-reply fa-rotate-180"></i> Reply</small>
           </a>
         {% endunless %}
