@@ -2,9 +2,9 @@
 layout: post
 title: "A Post with Images"
 excerpt: "Examples and code for displaying images in posts."
-tags: [sample post, images, test]
-permalink: /archive/:year/:month/:day/:title
-type: archive
+tags: [sample post, images, readability]
+permalink: /articles/:year/:month/:day/:title
+type: articles
 comments: true
 comments_locked: false
 image:

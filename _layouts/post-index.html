@@ -19,19 +19,56 @@
       <h1 class="page-title">{{ page.title }}</h1>
       <hr>
 
-      {% for post in site.posts %}
-        <article>
-          <h2>
-            <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
-              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time> - {{ post.title }}
-            </a>
-            {% if post.link %}
-              <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a>
+      <div class="articles">
+        {% for post in site.posts %}
+          <article>
+            <div class="post-text">
+              <h2>
+                <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                {% if post.link %}
+                  <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a>
+                {% endif %}
+              </h2>
+              <div class="mobile-meta">
+                <span class="byline"><time datetime="{{ post.date | date_to_xmlschema }}"><i class="fa fa-fw fa-calendar"></i> {{ post.date | date: "%B %d, %Y" }}</time></span>
+                <span> | </span>
+                <span class="byline"><i class="fa fa-fw fa-clock"></i> ~{{post.readometer}} Min Read</span>
+              </div>
+              <p>{{ post.excerpt | strip_html | truncate: 125 }}</p>
+              <a href="{{ site.url }}{{ post.url }}" class="read-more">Read More <i class="fa fa-chevron-right"></i></a>
+            </div>
+            <div class="post-meta">
+              <p><time datetime="{{ post.date | date_to_xmlschema }}"><i class="fa fa-fw fa-calendar"></i> {{ post.date | date: "%B %d, %Y" }}</time></p>
+              <p><i class="fa fa-fw fa-clock"></i> ~{{post.readometer}} Min Read</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="topics">
+        <h2>Browse by topic:</h2>
+        <ol>
+          {% capture tags %}
+            {% for tag in site.tags %}
+              {{ tag[1].size | plus: -10000 }}###{{ tag[0] | replace: ' ', '##' }}###{{ tag[1].size }}
+            {% endfor %}
+          {% endcapture %}
+          {% assign sorted_tags = tags | split: ' ' | sort %}
+          {% for sorted_tag in sorted_tags %}
+            {% assign items = sorted_tag | split: '###' %}
+            {% assign tag = items[1] | replace: '##', ' ' %}
+            {% assign count = items[2] | plus: 0 %}
+            {% if count > 5 %}
+              {% assign size = 5 %}
+            {% else %}
+              {% assign size = count %}
             {% endif %}
-          </h2>
-          <p>{{ post.excerpt | strip_html | truncate: 125 }}</p>
-        </article>
-      {% endfor %}
+            <li class="tag-size-{{ size }}">
+              <a class="tag-link" href="/results?tag={{ tag | slugify }}" rel="tag">{{ tag }}</a><span>{{ count }}</span>
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
     </div><!-- /#index -->
   </div><!-- /#main -->
 </div><!-- /.site-content -->

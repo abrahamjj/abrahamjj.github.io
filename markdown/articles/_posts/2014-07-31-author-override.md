@@ -4,8 +4,8 @@ title: "Author Override"
 author: billy_rick
 excerpt: "A post to test author overrides using a data file. A post to test author overrides using a data file. A post to test author overrides using a data file."
 tags: []
-permalink: /archive/:year/:month/:day/:title
-type: archive
+permalink: /articles/:year/:month/:day/:title
+type: articles
 comments: true
 comments_locked: false
 image:

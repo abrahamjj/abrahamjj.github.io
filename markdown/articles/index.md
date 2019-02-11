@@ -1,7 +1,7 @@
 ---
 layout: post-index
 title: Blog Articles
-permalink: /archive
-type: archive
+permalink: /articles
+type: articles
 comments: false
 ---
