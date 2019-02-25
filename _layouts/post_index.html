@@ -64,7 +64,7 @@
               {% assign size = count %}
             {% endif %}
             <li class="tag-size-{{ size }}">
-              <a class="tag-link" href="/results?tag={{ tag | slugify }}" rel="tag">{{ tag }}</a><span>{{ count }}</span>
+              <a class="tag-link" href="/tag/{{ tag | slugify }}" rel="tag">{{ tag }}</a><span>{{ count }}</span>
             </li>
           {% endfor %}
         </ol>

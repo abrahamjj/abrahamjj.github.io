@@ -1,5 +1,5 @@
 # Site wide configuration
-title: Site Title
+title: My Site Title
 locale: en_US
 port: 4000
 baseurl: /
@@ -13,6 +13,7 @@ sass:
 plugins:
   - jekyll-sitemap
   - jekyll-gist
+  - jekyll-paginate-v2
 
 kramdown:
   auto_ids: true
@@ -32,6 +33,23 @@ owner:
     domain: hotmail
     tld: com
   google-analytics: UA-118820080-1
+
+# Plugin: Auto Pages (jekyll-paginate-v2)
+autopages:
+  enabled: true
+  categories:
+    enabled: false
+  collections:
+    enabled: false
+  tags:
+    enabled: true
+    slugify:
+      mode: raw
+      cased: true
+    layouts:
+      - "autopage_tags.html"
+    title: ":tag"
+    permalink: "/tag/:tag"
 
 # Staticman commenting system configs
 staticman:

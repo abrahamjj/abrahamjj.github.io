@@ -16,18 +16,19 @@
 <div class="site-content">
   <div id="main" role="main">
     <div id="index" class="fade-in-second">
-      <h1 id="search-results-header">Results for: </h1>
-      <h1 class="js-req-header"><i class="fa fa-fw fa-wrench"></i>JavaScript is required to view this content.</h1>
+      <h1 class="page-title">{{ page.autopage.display_name }}</h1>
       <hr>
       {% for post in site.posts %}
-        <article class="search-results-article" id="search-results-article-{{ forloop.index }}" data-tags="{{post.tags | join: ','}}" data-title="{{post.title}}">
-          {% if post.link %}
-            <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
-          {% else %}
-            <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-            <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        {% for tag in post.tags %}
+          {% capture post_tag %} {{ tag | slugify | to_s }} {% endcapture %}
+          {% capture requested_tag %} {{ page.title | to_s }} {% endcapture %}
+          {% if post_tag == requested_tag %}
+            <article>
+              <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+              <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+            </article>
           {% endif %}
-        </article>
+        {% endfor %}
       {% endfor %}
     </div><!-- /#index -->
   </div><!-- /#main -->  

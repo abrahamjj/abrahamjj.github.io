@@ -579,23 +579,6 @@ body {
 }
 
 /*
-   Handle results page when JavaScript is turned off in the browser
-   ========================================================================== */
-
-.results .search-results-article { display: none; }
-.results .js-req-header { display: none; }
-
-.no-js .results {
-  #index #search-results-header {
-    display: none;
-  }
-  .js-req-header {
-    display: block;
-    border-bottom: none !important;
-  }
-}
-
-/*
    Reveal animation of site content
    ========================================================================== */
 
