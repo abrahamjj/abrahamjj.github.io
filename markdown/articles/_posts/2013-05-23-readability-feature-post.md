@@ -2,7 +2,7 @@
 layout: post
 title: "Post with Large Feature Image and Text."
 excerpt: "Custom written post descriptions are the way to go... if you're not lazy."
-tags: [Sample Post, readability]
+tags: [Sample Post, readability, Data Structures]
 permalink: /articles/:year/:month/:day/:title
 type: articles
 comments: true

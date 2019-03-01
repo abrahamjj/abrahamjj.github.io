@@ -35,6 +35,17 @@ owner:
     tld: com
   google-analytics: UA-118820080-1
 
+# Plugin: Pagination (jekyll-paginate-v2)
+pagination:
+  enabled: true
+  debug: false
+  per_page: 6
+  permalink: "/page/:num/"
+  title: ":title"
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
+
 # Plugin: Auto Pages (jekyll-paginate-v2)
 autopages:
   enabled: true

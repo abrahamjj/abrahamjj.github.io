@@ -895,11 +895,44 @@ body {
    Toast alert styles
    ========================================================================== */
 
-  .notification {
-    text-align: center;
-    margin-bottom: 1rem;
-    * {
-      display: table-cell;
-      vertical-align: middle;
-    } 
+.notification {
+  text-align: center;
+  margin-bottom: 1rem;
+  * {
+    display: table-cell;
+    vertical-align: middle;
   }
+}
+
+/*
+   Paginator
+   ========================================================================== */
+
+.pagination-article {
+  box-shadow: none !important;
+}
+
+.pagination {
+  text-align: center;
+}
+
+.pagination a,
+.pagination span {
+  padding: .35rem .75rem;
+  display: inline-block;
+  @include font-rem(18);
+}
+
+a.newer {
+  padding-left: .35rem;
+}
+a.older {
+  padding-right: .4rem;
+}
+
+.current {
+    background:
+      lighten($light-black, 35);
+    border-color:
+      lighten($light-black, 35);
+}

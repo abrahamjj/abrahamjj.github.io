@@ -4,4 +4,6 @@ title: Blog Articles
 permalink: /articles
 type: articles
 comments: false
+pagination:
+  enabled: true
 ---

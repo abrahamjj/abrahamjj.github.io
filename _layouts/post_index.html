@@ -20,7 +20,7 @@
       <hr>
 
       <div class="articles">
-        {% for post in site.posts %}
+        {% for post in paginator.posts %}
           <article>
             <div class="post-text">
               <h2>
@@ -43,6 +43,10 @@
             </div>
           </article>
         {% endfor %}
+
+        <article class="pagination-article">
+          {% include _posts-paginated.html %}
+        </article>
       </div>
 
       <div class="topics">
