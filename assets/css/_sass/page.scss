@@ -839,8 +839,15 @@ body {
   }
 }
 
-#comment-form,
-#reply-form {
+form#comment-form, {
+  padding: 1rem;
+  display: inline-block;
+  background: darken($body-color, 10);
+}
+
+form#comment-form,
+form#reply-form {
+  @include rounded(.4rem);
  .hidden {
     margin: 0;
   }
@@ -878,9 +885,6 @@ body {
     }
     input, textarea, .g-recaptcha {
       margin-bottom: 1rem;
-    }
-    input, textarea {
-      background: darken($body-color, 10);
     }
     &.comment-textarea {
       width: 100%;
