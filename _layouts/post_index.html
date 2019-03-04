@@ -25,9 +25,6 @@
             <div class="post-text">
               <h2>
                 <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                {% if post.link %}
-                  <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a>
-                {% endif %}
               </h2>
               <div class="mobile-meta">
                 <span class="byline"><time datetime="{{ post.date | date_to_xmlschema }}"><i class="fa fa-fw fa-calendar"></i> {{ post.date | date: "%B %d, %Y" }}</time></span>
